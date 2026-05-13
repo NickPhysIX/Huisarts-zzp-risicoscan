@@ -3,7 +3,7 @@
 Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh, recente rechtspraakduiding en HAP-patroonherkenning. Werkt als web-app op iOS en Android.
 
 **Appversie:** v1.3.3  
-**README/documentatie:** v1.3.3 — mobiele rapportopmaak en tekstafbreking  
+**README/documentatie:** v1.3.4 — zorgspecifieke rechtspraak/context uitgebreid  
 **Peildatum bronnen:** 13 mei 2026
 
 ## ⚠ Belangrijk
@@ -19,7 +19,8 @@ De DBA-scan bestaat uit 18-20 vragen (afhankelijk van type opdracht) en is nadru
 - **Wet DBA / arbeidsrelaties** — huidige handhaving en beoordeling op feitelijke uitvoering.
 - **Deliveroo-arrest (Hoge Raad, 2023)** — negen gezichtspunten voor de holistische kwalificatie van de arbeidsrelatie.
 - **Uber-arrest (Hoge Raad, 2025)** — geen vaste rangorde tussen de gezichtspunten; extern ondernemerschap kan zwaar meewegen.
-- **Relevante zorgrechtspraak** — o.a. HAP/waarnemend huisarts 2023, waarnemend intensivist 2024 en logopedist 2026. Deze rechtspraak wordt gebruikt om zorgspecifieke signalen zoals vaste dagdelen, HIS/EPD-gebruik, praktijkmiddelen, professionele autonomie en organisatorische inbedding genuanceerder te wegen.
+- **Zorgspecifieke DBA-/arbeidsrelatierechtspraak** — o.a. HAP/waarnemend huisarts 2023, waarnemend intensivist 2024 en logopedist 2026. Deze rechtspraak wordt gebruikt om zorgspecifieke signalen zoals vaste dagdelen, HIS/EPD-gebruik, praktijkmiddelen, professionele autonomie en organisatorische inbedding genuanceerder te wegen.
+- **Ondersteunende zorgcontext** — o.a. POH-S/btw-vrijstellingsrechtspraak, niet als directe DBA-uitspraak over een individuele zzp’er, maar als context bij het onderscheid tussen gezondheidskundige zorgverlening en louter personeelslevering.
 - **LHV-modelovereenkomsten en LHV-sectorinformatie** — modelovereenkomsten, casusposities, actielijnen, Vergewistool-duiding en actuele lijn rond zelfstandigenbeleid.
 - **Zorgspecifieke compliance buiten de DBA-score** — Wtza/LRZa en Wkkgz-klachten-/geschillenregeling, inclusief SKGE en DOKh als huisarts-relevante voorbeelden.
 
@@ -142,13 +143,30 @@ Deze tool is geen juridische bron en geen vervanging van professioneel advies. O
 - DOKh — Klachten en geschillen voor zorgverleners: https://dokh.nl/klachten-geschillen/
 - DOKh — Uitspraken geschilleninstantie: https://dokh.nl/klachten-geschillen/uitspraken/
 
-### Jurisprudentie die in het interpretatiekader van de tool wordt gebruikt
+### Jurisprudentie en zorgcontext die in het interpretatiekader van de tool wordt gebruikt
+
+Deze uitspraken zijn opgenomen om zichtbaar te maken dat de tool niet alleen op Deliveroo/Uber of algemene LHV-informatie leunt. De rechtspraak wordt niet gebruikt als “vrijbrief”, maar als context voor de holistische weging: vaste dagen, één opdrachtgever, werken met HIS/EPD of werken binnen kwaliteitskaders zijn niet op zichzelf beslissend; de samenloop met gezag, HR-achtige aansturing, structurele inbedding, vervanging en zichtbaar ondernemerschap is bepalend.
+
+#### Algemeen arbeidsrechtelijk kader
 
 - Hoge Raad — Deliveroo, 24 maart 2023, ECLI:NL:HR:2023:443: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2023:443
 - Hoge Raad — Uber, 21 februari 2025, ECLI:NL:HR:2025:319: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2025:319
-- Rechtbank Midden-Nederland — huisartsenpost / waarnemend huisarts, 15 november 2023, ECLI:NL:RBMNE:2023:6072: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBMNE:2023:6072
-- Rechtbank Zeeland-West-Brabant — waarnemend intensivist / medisch specialist, 4 juli 2024, ECLI:NL:RBZWB:2024:4597: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2024:4597
-- Rechtbank Zeeland-West-Brabant — logopedist, 13 februari 2026, gepubliceerd 20 maart 2026, ECLI:NL:RBZWB:2026:1391: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391
+
+#### Zorgspecifieke DBA-/arbeidsrelatierechtspraak
+
+- Rechtbank Midden-Nederland — huisartsenpost / waarnemend huisarts, ECLI:NL:RBMNE:2023:6072: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBMNE:2023:6072  
+  Positieve zorgspecifieke referentie: een waarneemovereenkomst met een huisartsenpost kwalificeerde niet als arbeidsovereenkomst. Relevant voor HAP/ANW-vragen over vrije dienstkeuze, ontbreken van centrale roosterdwang en professionele zelfstandigheid.
+
+- Rechtbank Zeeland-West-Brabant — waarnemend intensivist / medisch specialist, ECLI:NL:RBZWB:2024:4597: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2024:4597  
+  Negatieve spiegelcasus: structurele waarneming, inbedding in rooster/vakgroep/protocollen en werken als vaste formatie kunnen ondanks professionele autonomie richting arbeidsovereenkomst wijzen.
+
+- Rechtbank Zeeland-West-Brabant — logopedist, ECLI:NL:RBZWB:2026:1391: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391  
+  Positieve zorgspecifieke referentie: één opdrachtgever, werken op locatie en gebruik van praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. Relevant voor de nuance dat HIS/EPD-gebruik, vaste dagdelen of zorgkaders niet automatisch rood zijn.
+
+#### Ondersteunende zorgcontext — geen directe DBA-uitspraak over individuele zzp’er
+
+- Gerechtshof ’s-Hertogenbosch — POH-S / medische btw-vrijstelling, ECLI:NL:GHSHE:2025:3536: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536  
+  Ondersteunende context, geen directe DBA-/schijnzelfstandigheidsuitspraak over een individuele POH-zzp’er. Relevant voor het onderscheid tussen gezondheidskundige zorgverlening en louter terbeschikkingstelling van personeel. Niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert.
 
 ### Secundaire duiding en achtergrond
 
@@ -159,6 +177,9 @@ Secundaire bronnen zijn bruikbaar voor interpretatie en onderhoud, maar zijn gee
 - KVDL — Rechtbank: waarnemend medisch specialist is schijnzelfstandige: https://kvdl.com/artikelen/rechtbank-waarnemend-medisch-specialist-is-schijnzelfstandige
 - KBS Advocaten — Overeenkomst van opdracht met waarnemend intensivist kwalificeert als arbeidsovereenkomst: https://www.kbsadvocaten.nl/overeenkomst-van-opdracht-met-waarnemend-intensivist-kwalificeert-als-arbeidsovereenkomst-deliveroo-gezichtspunten/
 - Salaris Vanmorgen — Overeenkomst van opdracht voor logopedist, geen gezagsverhouding: https://www.salarisvanmorgen.nl/2026/03/20/overeenkomst-van-opdracht-voor-logopedist-geen-gezagsverhouding/
+- TaxLive — Medische vrijstelling toepasbaar bij overeenkomst voor inzet praktijkondersteuners somatiek: https://www.taxlive.nl/nl/documenten/vn-vandaag/medische-vrijstelling-toepasbaar-bij-overeenkomst-voor-inzet-praktijkondersteuners-somatiek/
+- Taxence — Medische vrijstelling geldt voor inzet praktijkondersteuners: https://www.taxence.nl/omzetbelasting-btw/medische-vrijstelling-geldt-voor-inzet-praktijkondersteuners/
+- NVvPO — Wanneer ben je echt zelfstandig?: https://nvvpo.nl/nieuws/wanneer-ben-je-echt-zelfstandig/
 
 ### Onderhoudsnotitie bij bronnen
 
@@ -173,6 +194,7 @@ Bij updates eerst controleren:
 
 | Versie | Datum | Peildatum jurisprudentie | Wijzigingen |
 |--------|-------|--------------------------|-------------|
+| v1.3.4 | 13 mei 2026 | 13 mei 2026 | README-documentatie uitgebreid met zorgspecifieke rechtspraak/context: HAP-waarnemend huisarts 2023, intensivist 2024, logopedist 2026 en POH-S/btw-vrijstelling als ondersteunende context. Duidelijker onderscheid gemaakt tussen directe DBA-/arbeidsrelatierechtspraak en niet-DBA zorgcontext. Appcode ongewijzigd t.o.v. v1.3.3. |
 | v1.3.3 | 13 mei 2026 | 13 mei 2026 | Mobiele rapportopmaak verbeterd: lange labels zoals LRZa / Zorgaanbiedersportaal en geschilleninstantie / klachtenregeling breken netter af binnen rapportkaders; slash-termen verduidelijkt naar spaties of “klachten- en geschillenroute”; service-worker cacheversie bijgewerkt. |
 | v1.3.2 | 13 mei 2026 | 13 mei 2026 | README-scope aangescherpt: openingssamenvatting maakt expliciet dat de tool naast Uber/Deliveroo/LHV ook relevante zorgrechtspraak, LHV-sectorinformatie en zorgspecifieke compliancebronnen gebruikt. Appcode ongewijzigd t.o.v. v1.3. |
 | v1.3.1 | 13 mei 2026 | 13 mei 2026 | README/documentatie bijgewerkt naar v1.3-status; uitgebreid referentieblok toegevoegd met primaire bronnen, LHV-sectorinformatie, Wkkgz/SKGE/DOKh en relevante jurisprudentie. Appcode ongewijzigd t.o.v. v1.3. |
@@ -208,6 +230,14 @@ Tool herpositioneren of intrekken, afhankelijk van overlap. Bij behoud:
 Niels Braakman — eigen werkversie, geen Anthropic/Claude-product, geen LHV-product.
 
 ## Changelog
+
+### v1.3.4 — README: zorgspecifieke rechtspraak/context
+
+- README-referenties uitgebreid met een apart blok voor zorgspecifieke DBA-/arbeidsrelatierechtspraak.
+- HAP-waarnemend huisarts 2023, waarnemend intensivist 2024 en logopedist 2026 explicieter gepositioneerd als directe zorgspecifieke rechtspraak voor de interpretatielaag.
+- POH-S / medische btw-vrijstelling toegevoegd als ondersteunende zorgcontext, met expliciete waarschuwing dat dit geen directe DBA-uitspraak over een individuele zzp’er is.
+- Secundaire duiding aangevuld met TaxLive, Taxence en NVvPO rond de POH-S-uitspraak.
+- Geen wijziging in appcode of service-worker-cache; deze documentatie-update verandert de PWA-functionaliteit niet.
 
 ### v1.3.3 — mobiele rapportopmaak
 
