@@ -1,13 +1,13 @@
 /* ============================================================
    Waarneem-Risicoscan — Service Worker
-   v1.3.3 — mobiele rapportopmaak en tekstafbreking
+   v1.4 — About en referenties-modal
    ============================================================
    Cache-first strategy: na eerste laad werkt de tool offline.
    Bij update van een bestand: bump CACHE_VERSION zodat de SW
    de oude cache verwijdert en nieuwe bestanden ophaalt.
    ============================================================ */
 
-const CACHE_VERSION = 'wrs-v1.3.3';
+const CACHE_VERSION = 'wrs-v1.4';
 const CACHE_NAME = `waarneem-risicoscan-${CACHE_VERSION}`;
 
 // Resources to pre-cache on install

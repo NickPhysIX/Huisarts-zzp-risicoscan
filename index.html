@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <style>
 /* ============================================================
-   WAARNEEM-RISICOSCAN v1.3.3
+   WAARNEEM-RISICOSCAN v1.4
    Eigen werkversie — geen juridische vrijwaring
    ============================================================ */
 
@@ -991,6 +991,170 @@ section li {
   margin-bottom: 12px;
 }
 
+
+/* About / references modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10, 20, 35, 0.62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.hidden {
+  display: none !important;
+}
+
+.modal-panel {
+  width: min(920px, 100%);
+  max-height: min(86vh, 980px);
+  background: var(--paper);
+  color: var(--text);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.modal-header {
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dk) 100%);
+  color: white;
+  padding: 22px 26px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modal-header h2 {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 0 4px;
+  color: white;
+}
+
+.modal-header p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.86;
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background: rgba(255,255,255,0.24);
+  outline: none;
+}
+
+.modal-body {
+  padding: 26px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-body h3 {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--primary);
+  margin: 24px 0 10px;
+}
+
+.modal-body h3:first-child {
+  margin-top: 0;
+}
+
+.modal-body p,
+.modal-body li {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.modal-body ul {
+  margin: 10px 0 16px 6px;
+  padding-left: 22px;
+}
+
+.modal-body a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+.modal-callout {
+  background: var(--warn-bg);
+  border-left: 4px solid #C99B3C;
+  padding: 16px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0 20px;
+}
+
+.modal-callout p:last-child { margin-bottom: 0; }
+
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 12px 0 18px;
+}
+
+.reference-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.reference-card h4 {
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: var(--primary);
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.reference-card p {
+  font-size: 14px;
+  color: var(--text-mute);
+  margin-bottom: 8px;
+}
+
+.footer-link-button {
+  background: none;
+  border: none;
+  color: var(--accent-lt);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footer-link-button:hover,
+.footer-link-button:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
 /* Footer */
 .site-footer {
   background: var(--primary-dk);
@@ -1018,7 +1182,14 @@ section li {
   .profile-name { font-size: 30px; }
   .qblok summary { padding: 14px 16px; font-size: 17px; }
   .qblok-content { padding: 8px 16px 16px; }
+  .modal-backdrop { padding: 10px; align-items: stretch; }
+  .modal-panel { max-height: calc(100vh - 20px); border-radius: 12px; }
+  .modal-header { padding: 18px 18px; }
+  .modal-header h2 { font-size: 22px; }
+  .modal-body { padding: 20px 18px; }
+  .reference-grid { grid-template-columns: 1fr; }
 }
+
 
 /* Print styles */
 @media print {
@@ -1029,7 +1200,7 @@ section li {
   .site-subtitle { color: var(--text-mute); font-size: 11pt; }
   .brand, .version-tag { color: var(--text-mute); }
   .concept-banner { background: white; border: 2px solid var(--amber); padding: 8px; margin-bottom: 12px; }
-  .scorebar, .btn, .btn-row, #intake-section, #scan-section, .site-footer { display: none !important; }
+  .scorebar, .btn, .btn-row, #intake-section, #scan-section, .site-footer, .modal-backdrop { display: none !important; }
   section { box-shadow: none; border: 1px solid var(--border); page-break-inside: avoid; padding: 16px 18px; margin-bottom: 16px; }
   section h2 { font-size: 16pt; page-break-after: avoid; }
   section h3 { font-size: 13pt; page-break-after: avoid; }
@@ -1092,7 +1263,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="brand">Pre-opdrachtcheck zzp-waarneming</div>
     <h1 class="site-title">Waarneem-Risicoscan</h1>
     <p class="site-subtitle">Eigen werkversie voor zzp-huisartsen</p>
-    <span class="version-tag" id="version-display">v1.3.3 · peildatum 13 mei 2026</span>
+    <span class="version-tag" id="version-display">v1.4 · peildatum 13 mei 2026</span>
   </div>
 </header>
 
@@ -1109,6 +1280,11 @@ section { animation: fadeIn 0.4s ease-out; }
     <p>De uitkomst is een risico-indicatie op basis van de op dat moment geldende wetgeving en jurisprudentie. De tool geeft <strong>géén juridisch advies, géén fiscaal advies, géén vrijwaring en géén garantie</strong>. De Belastingdienst toetst altijd op feitelijke uitvoering en kan tot een ander oordeel komen. Een 'lager risicoprofiel' biedt geen bescherming tegen naheffingen, boetes of herkwalificatie van de arbeidsrelatie.</p>
     <p>Bij twijfel: raadpleeg een fiscalist, een jurist gespecialiseerd in arbeidsrecht/zorg, of de juridische helpdesk van de LHV (lhv@lhv.nl, 085 - 04 80 000).</p>
   </div>
+
+  <div class="btn-row no-print">
+    <button type="button" class="btn btn-secondary" id="about-open-intake-btn">ℹ️ Over deze tool &amp; referenties</button>
+  </div>
+
 
   <h3>Intake</h3>
   <p>Een paar vragen voordat de scan start. Geen van deze gegevens wordt naar een server verstuurd — alles blijft in je browser.</p>
@@ -1260,10 +1436,72 @@ section { animation: fadeIn 0.4s ease-out; }
 </div>
 </main>
 
+<!-- About / references modal -->
+<div class="modal-backdrop hidden no-print" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" aria-hidden="true">
+  <div class="modal-panel" id="about-modal-panel" tabindex="-1">
+    <div class="modal-header">
+      <div>
+        <h2 id="about-modal-title">Over deze tool &amp; referenties</h2>
+        <p>Waarneem-Risicoscan v1.4 · eigen werkversie · peildatum bronnen 13 mei 2026</p>
+      </div>
+      <button type="button" class="modal-close" id="about-close-btn" aria-label="Sluit venster">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-callout">
+        <p><strong>Belangrijk:</strong> deze tool is een niet-officiële, educatieve pre-opdrachtcheck. De tool is niet verbonden aan de officiële LHV-Vergewistool en geeft geen juridisch advies, geen fiscaal advies, geen vrijwaring en geen garantie. De Belastingdienst en rechter toetsen altijd op de feitelijke uitvoering.</p>
+        <p>Alle ingevoerde gegevens blijven lokaal in je browser. Er wordt niets naar een server verstuurd.</p>
+      </div>
+
+      <h3>Wat de scan weegt</h3>
+      <p>De DBA-score gebruikt een holistisch interpretatiekader. Losse signalen zoals één opdrachtgever, vaste dagdelen of gebruik van HIS/EPD zijn niet automatisch beslissend. Ze worden zwaarder wanneer ze samengaan met gezag, HR-achtige aansturing, structurele inbedding, ontbrekend ondernemersrisico of geen reële vervangingsroute.</p>
+
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Arbeidsrelatie / DBA</h4>
+          <p>Wet DBA, actuele handhaving, feitelijke uitvoering, Deliveroo-gezichtspunten en Uber-nuancering over extern ondernemerschap.</p>
+          <p><a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/arbeidsrelaties/content/handhaving" target="_blank" rel="noopener">Belastingdienst handhaving</a></p>
+        </div>
+        <div class="reference-card">
+          <h4>Huisartsensector</h4>
+          <p>LHV-modelovereenkomsten, LHV-casusposities, actielijnen, Vergewistool-duiding en discussie over ziek, piek, uniek en ANW.</p>
+          <p><a href="https://www.lhv.nl/thema/praktijkzaken/zzp-wetgeving-huisartsenzorg/" target="_blank" rel="noopener">LHV zzp-wetgeving huisartsenzorg</a></p>
+        </div>
+      </div>
+
+      <h3>Relevante rechtspraak en zorgcontext</h3>
+      <ul>
+        <li><strong>Deliveroo — Hoge Raad 2023:</strong> algemeen holistisch kader met gezichtspunten voor kwalificatie van de arbeidsrelatie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2023:443" target="_blank" rel="noopener">ECLI:NL:HR:2023:443</a></li>
+        <li><strong>Uber — Hoge Raad 2025:</strong> geen vaste rangorde tussen gezichtspunten; extern ondernemerschap kan zwaar meewegen. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2025:319" target="_blank" rel="noopener">ECLI:NL:HR:2025:319</a></li>
+        <li><strong>Waarnemend huisarts / HAP — Rechtbank Midden-Nederland 2023:</strong> positieve zorgspecifieke referentie voor waarneemovereenkomst met huisartsenpost. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBMNE:2023:6072" target="_blank" rel="noopener">ECLI:NL:RBMNE:2023:6072</a></li>
+        <li><strong>Waarnemend intensivist / medisch specialist — Rechtbank Zeeland-West-Brabant 2024:</strong> negatieve spiegelcasus bij structurele inbedding, rooster/vakgroep/protocollen en werken als vaste formatie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2024:4597" target="_blank" rel="noopener">ECLI:NL:RBZWB:2024:4597</a></li>
+        <li><strong>Zzp-logopedist — Rechtbank Zeeland-West-Brabant 2026:</strong> positieve zorgspecifieke referentie; één opdrachtgever, locatie en praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391" target="_blank" rel="noopener">ECLI:NL:RBZWB:2026:1391</a></li>
+        <li><strong>POH-S / btw-vrijstelling — Hof ’s-Hertogenbosch 2025:</strong> ondersteunende zorgcontext, geen directe DBA-uitspraak over een individuele zzp’er. Niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536" target="_blank" rel="noopener">ECLI:NL:GHSHE:2025:3536</a></li>
+      </ul>
+
+      <h3>Compliance buiten de DBA-score</h3>
+      <p>De intake bevat aparte vragen over LRZa, Wtza en klachten-/geschillenregeling. Deze tellen niet mee voor de DBA-score, maar leveren wel een eigen actieblok in het rapport op.</p>
+      <ul>
+        <li><a href="https://zoeken.zorgaanbiedersportaal.nl/" target="_blank" rel="noopener">LRZa / Zorgaanbiedersportaal</a></li>
+        <li><a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a></li>
+        <li><a href="https://www.rijksoverheid.nl/onderwerpen/kwaliteit-van-de-zorg/wet-kwaliteit-klachten-en-geschillen-zorg" target="_blank" rel="noopener">Wkkgz</a></li>
+        <li><a href="https://www.skge.nl/zorgverleners/" target="_blank" rel="noopener">SKGE</a> en <a href="https://dokh.nl/klachten-geschillen/" target="_blank" rel="noopener">DOKh</a> als huisarts-relevante voorbeelden voor klachten- en geschillenregeling.</li>
+      </ul>
+
+      <h3>Onderhoudsnotitie</h3>
+      <p>Bij nieuwe rechtspraak, LHV-duiding of beleidswijziging moeten vraagteksten, scoreweging, knock-outlogica, rapporttaal en deze referentielijst opnieuw worden gecontroleerd. Secundaire duidingen zijn nuttig voor interpretatie, maar de primaire uitspraak of officiële bron blijft leidend.</p>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-primary" id="about-close-bottom-btn">Sluiten</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <footer class="site-footer no-print">
   <div class="container">
-    <p>Waarneem-Risicoscan v1.3.3 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
-    <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser</p>
+    <p>Waarneem-Risicoscan v1.4 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
+    <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser · <button type="button" class="footer-link-button" id="about-open-footer-btn">About &amp; referenties</button></p>
   </div>
 </footer>
 
@@ -1275,7 +1513,7 @@ const STATE = {
   intake: { opdrachtgever: '', periode: '', type: '', fase: '' },
   wtza: { lrzaStatus: '', wtzaMelding: '', geschillenStatus: '' },
   answers: {}, // { questionId: 'green' | 'amber' | 'red' }
-  version: 'v1.3.3',
+  version: 'v1.4',
   peildatum: '13 mei 2026',
 };
 
@@ -1991,11 +2229,66 @@ function showSection(name) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+
+/* ============================================================
+   ABOUT / REFERENCES MODAL
+   ============================================================ */
+let aboutLastFocus = null;
+
+function openAboutModal() {
+  const modal = document.getElementById('about-modal');
+  const panel = document.getElementById('about-modal-panel');
+  const closeBtn = document.getElementById('about-close-btn');
+  if (!modal || !panel) return;
+  aboutLastFocus = document.activeElement;
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => (closeBtn || panel).focus(), 0);
+}
+
+function closeAboutModal() {
+  const modal = document.getElementById('about-modal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (aboutLastFocus && typeof aboutLastFocus.focus === 'function') {
+    aboutLastFocus.focus();
+  }
+}
+
+function wireAboutModal() {
+  const openers = [document.getElementById('about-open-intake-btn'), document.getElementById('about-open-footer-btn')];
+  openers.forEach(btn => {
+    if (btn) btn.addEventListener('click', openAboutModal);
+  });
+
+  const closers = [document.getElementById('about-close-btn'), document.getElementById('about-close-bottom-btn')];
+  closers.forEach(btn => {
+    if (btn) btn.addEventListener('click', closeAboutModal);
+  });
+
+  const modal = document.getElementById('about-modal');
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeAboutModal();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    const modalVisible = modal && !modal.classList.contains('hidden');
+    if (modalVisible && event.key === 'Escape') closeAboutModal();
+  });
+}
+
 /* ============================================================
    WIRING
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  wireAboutModal();
+
   // Intake fields
   document.getElementById('opdrachtgever').addEventListener('input', e => STATE.intake.opdrachtgever = e.target.value);
   document.getElementById('periode').addEventListener('input', e => STATE.intake.periode = e.target.value);

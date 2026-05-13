@@ -1,9 +1,9 @@
 # Waarneem-Risicoscan
 
-Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh, recente rechtspraakduiding en HAP-patroonherkenning. Werkt als web-app op iOS en Android.
+Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh, recente rechtspraakduiding, HAP-patroonherkenning en ingebouwde About/referenties-modal. Werkt als web-app op iOS en Android.
 
-**Appversie:** v1.3.3  
-**README/documentatie:** v1.3.4 — zorgspecifieke rechtspraak/context uitgebreid  
+**Appversie:** v1.4  
+**README/documentatie:** v1.4 — About/referenties-modal toegevoegd  
 **Peildatum bronnen:** 13 mei 2026
 
 ## ⚠ Belangrijk
@@ -38,6 +38,7 @@ De tool genereert een rapport met:
 - **Aparte Wtza/LRZa-/geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh** — geen invloed op DBA-score, wel apart actieadvies
 - **Jurisprudentie-duiding in het rapport** — samenloop van signalen i.p.v. losse rode-vlagmechaniek
 - **HAP/ANW-patroonherkenning** — losse dienst, VIP-achtig patroon of structureel roosterblok
+- **About/referenties-modal in de app** — compacte uitleg, disclaimers, bronbasis, jurisprudentie en compliancebronnen zonder de hoofdflow te belasten
 - **Gepersonaliseerde bewijsmappen-checklist** — categorieën *archiveren / versterken / kritiek*
 - Suggesties voor alternatieve werkvormen bij verhoogd/hoog risico
 - Alle antwoorden per vraag, exporteerbaar als PDF via browser-print
@@ -92,6 +93,7 @@ Geen ingevulde scan- of opdrachtgegevens worden ooit naar een server verstuurd. 
 - Service worker met cache-first strategy
 - Werkt in elke moderne browser (Safari, Chrome, Edge, Firefox)
 - PDF-export via browser-printdialoog (Cmd/Ctrl+P → "Bewaar als PDF")
+- About/referenties-modal met relevante README-elementen in de app zelf
 
 ## Deployment op GitHub Pages
 
@@ -194,6 +196,7 @@ Bij updates eerst controleren:
 
 | Versie | Datum | Peildatum jurisprudentie | Wijzigingen |
 |--------|-------|--------------------------|-------------|
+| v1.4   | 13 mei 2026 | 13 mei 2026 | About/referenties-modal toegevoegd in de app zelf, met compacte disclaimer, bronbasis, zorgspecifieke jurisprudentie, POH-S-nuance en compliancebronnen. Service-worker cacheversie bijgewerkt. |
 | v1.3.4 | 13 mei 2026 | 13 mei 2026 | README-documentatie uitgebreid met zorgspecifieke rechtspraak/context: HAP-waarnemend huisarts 2023, intensivist 2024, logopedist 2026 en POH-S/btw-vrijstelling als ondersteunende context. Duidelijker onderscheid gemaakt tussen directe DBA-/arbeidsrelatierechtspraak en niet-DBA zorgcontext. Appcode ongewijzigd t.o.v. v1.3.3. |
 | v1.3.3 | 13 mei 2026 | 13 mei 2026 | Mobiele rapportopmaak verbeterd: lange labels zoals LRZa / Zorgaanbiedersportaal en geschilleninstantie / klachtenregeling breken netter af binnen rapportkaders; slash-termen verduidelijkt naar spaties of “klachten- en geschillenroute”; service-worker cacheversie bijgewerkt. |
 | v1.3.2 | 13 mei 2026 | 13 mei 2026 | README-scope aangescherpt: openingssamenvatting maakt expliciet dat de tool naast Uber/Deliveroo/LHV ook relevante zorgrechtspraak, LHV-sectorinformatie en zorgspecifieke compliancebronnen gebruikt. Appcode ongewijzigd t.o.v. v1.3. |
@@ -230,6 +233,15 @@ Tool herpositioneren of intrekken, afhankelijk van overlap. Bij behoud:
 Niels Braakman — eigen werkversie, geen Anthropic/Claude-product, geen LHV-product.
 
 ## Changelog
+
+### v1.4 — About/referenties-modal
+
+- About/referenties-modal toegevoegd aan de app, bereikbaar vanaf de intake en footer.
+- Compacte app-uitleg toegevoegd met disclaimer, privacytekst en bronbasis.
+- Jurisprudentieblok in de modal toegevoegd: Deliveroo, Uber, HAP-waarnemend huisarts 2023, waarnemend intensivist 2024, logopedist 2026 en POH-S/btw-vrijstelling als ondersteunende context.
+- Compliancebronnen in de modal toegevoegd: LRZa, Wtza, Wkkgz, SKGE en DOKh.
+- Modal mobielvriendelijk gemaakt met scrollbare inhoud en sluitknoppen.
+- Service-worker cache gebumpt naar `wrs-v1.4`.
 
 ### v1.3.4 — README: zorgspecifieke rechtspraak/context
 
