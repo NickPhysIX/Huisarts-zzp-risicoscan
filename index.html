@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <style>
 /* ============================================================
-   WAARNEEM-RISICOSCAN v1.2.1
+   WAARNEEM-RISICOSCAN v1.3.3
    Eigen werkversie — geen juridische vrijwaring
    ============================================================ */
 
@@ -812,6 +812,21 @@ section li {
   padding: 24px 28px;
   border-radius: 12px;
   margin: 0 0 28px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+}
+
+.wtza-report-card li,
+.wtza-report-card p,
+.wtza-report-card strong,
+.checklist-item,
+.checklist-item strong {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .wtza-report-card.green {
@@ -915,6 +930,52 @@ section li {
   margin-bottom: 4px;
 }
 
+/* Jurisprudentie / context notes */
+.context-note-card {
+  background: #F4F8FB;
+  border: 1px solid var(--light);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 22px 0 28px;
+}
+
+.context-note-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.context-note-card p,
+.context-note-card li {
+  font-size: 15px;
+}
+
+.context-note-card ul {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.context-note-card a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hap-pattern-card {
+  padding: 22px 26px;
+  border-radius: 12px;
+  margin: 0 0 28px;
+}
+
+.hap-pattern-card.green { background: var(--green-bg); border: 2px solid var(--green); }
+.hap-pattern-card.amber { background: var(--amber-bg); border: 2px solid var(--amber); }
+.hap-pattern-card.red   { background: var(--red-bg); border: 2px solid var(--red); }
+
+.hap-pattern-card.green h3 { color: var(--green); }
+.hap-pattern-card.amber h3 { color: var(--amber); }
+.hap-pattern-card.red h3   { color: var(--red); }
+
 /* Alternative work-forms */
 .alt-section {
   background: var(--bg);
@@ -952,6 +1013,7 @@ section li {
   .site-header { padding: 36px 0 44px; }
   .site-title { font-size: 32px; }
   section { padding: 24px 22px; }
+  .wtza-report-card { padding: 18px 16px; }
   .scorebar { margin: 0 -22px 24px; padding-left: 22px; padding-right: 22px; }
   .profile-name { font-size: 30px; }
   .qblok summary { padding: 14px 16px; font-size: 17px; }
@@ -1030,7 +1092,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="brand">Pre-opdrachtcheck zzp-waarneming</div>
     <h1 class="site-title">Waarneem-Risicoscan</h1>
     <p class="site-subtitle">Eigen werkversie voor zzp-huisartsen</p>
-    <span class="version-tag" id="version-display">v1.2.1 · peildatum 13 mei 2026</span>
+    <span class="version-tag" id="version-display">v1.3.3 · peildatum 13 mei 2026</span>
   </div>
 </header>
 
@@ -1085,10 +1147,10 @@ section { animation: fadeIn 0.4s ease-out; }
   <div class="wtza-block">
     <h3>Compliancecheck buiten DBA-score</h3>
     <p>Deze check staat los van de DBA-risicoscore, maar hoort wel bij de pre-opdrachtcontrole. Een opdracht kan DBA-technisch lager risico zijn terwijl Wtza, LRZa of Wkkgz/geschillenregeling nog actie vraagt.</p>
-    <p class="wtza-note">Let op: vindbaar zijn in het LRZa is niet hetzelfde als de Wtza-melding gedaan hebben. Daarnaast moet je als zorgaanbieder/waarnemer je klachten- en geschillenroute aantoonbaar geregeld hebben. Controleer daarom: het <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a>, de <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a> en je aansluiting bij een erkende geschilleninstantie/klachtenregeling. Gebruikelijke instanties voor huisartsen zijn bijvoorbeeld <a href="https://www.skge.nl/zorgverleners/" target="_blank" rel="noopener">SKGE</a> en <a href="https://dokh.nl/klachten-geschillen/" target="_blank" rel="noopener">DOKh</a>.</p>
+    <p class="wtza-note">Let op: vindbaar zijn in het LRZa is niet hetzelfde als de Wtza-melding gedaan hebben. Daarnaast moet je als zorgaanbieder/waarnemer je klachten- en geschillenroute aantoonbaar geregeld hebben. Controleer daarom: het <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa / Zorgaanbiedersportaal</a>, de <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a> en je aansluiting bij een erkende geschilleninstantie / klachtenregeling. Gebruikelijke instanties voor huisartsen zijn bijvoorbeeld <a href="https://www.skge.nl/zorgverleners/" target="_blank" rel="noopener">SKGE</a> en <a href="https://dokh.nl/klachten-geschillen/" target="_blank" rel="noopener">DOKh</a>.</p>
 
     <div class="form-row">
-      <label for="lrza-status">Ben je als zorgaanbieder vindbaar in het LRZa/Zorgaanbiedersportaal en kloppen je gegevens?</label>
+      <label for="lrza-status">Ben je als zorgaanbieder vindbaar in het LRZa / Zorgaanbiedersportaal en kloppen je gegevens?</label>
       <select id="lrza-status">
         <option value="">— kies een antwoord —</option>
         <option value="ja">Ja, gecontroleerd en gegevens kloppen</option>
@@ -1180,7 +1242,9 @@ section { animation: fadeIn 0.4s ease-out; }
   </div>
 
   <div id="report-profile"></div>
+  <div id="report-jurisprudence"></div>
   <div id="report-wtza"></div>
+  <div id="report-hap-pattern"></div>
   <div id="report-knockouts"></div>
   <div id="report-checklist"></div>
   <div id="report-alternatives"></div>
@@ -1198,7 +1262,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
 <footer class="site-footer no-print">
   <div class="container">
-    <p>Waarneem-Risicoscan v1.2.1 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
+    <p>Waarneem-Risicoscan v1.3.3 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
     <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser</p>
   </div>
 </footer>
@@ -1211,7 +1275,7 @@ const STATE = {
   intake: { opdrachtgever: '', periode: '', type: '', fase: '' },
   wtza: { lrzaStatus: '', wtzaMelding: '', geschillenStatus: '' },
   answers: {}, // { questionId: 'green' | 'amber' | 'red' }
-  version: 'v1.2.1',
+  version: 'v1.3.3',
   peildatum: '13 mei 2026',
 };
 
@@ -1238,28 +1302,28 @@ const QUESTIONS = [
 
   { id:"A3", blok:"A", weight:2, weightStarter:1, knockout:false,
     vraag:"Werk je voor deze opdrachtgever minder dan 70% van je totale werktijd over de laatste 12 maanden?",
-    why:"Eén dominante opdrachtgever wijst op afhankelijkheid en lijkt op werknemerschap. Spreiding over meerdere opdrachtgevers is een klassiek ondernemerschapsindicator. Voor starters wordt deze vraag minder zwaar gewogen.",
-    groen:"Ja, gespreide opdrachtgevers",
-    oranje:"Tussen 70-85% bij deze opdrachtgever",
-    rood:"Eén dominante opdrachtgever (>85%) zonder verklaring",
-    bewijs:"Facturatie-overzicht / urenregistratie over rollende 12 maanden waaruit spreiding blijkt." },
+    why:"Eén dominante opdrachtgever is een afhankelijkheidssignaal, maar na Uber en recente zorgrechtspraak niet automatisch fataal. Het wordt vooral zwaar wanneer het samengaat met roosterdwang, werknemerachtige aansturing, structurele inbedding of gebrek aan zichtbaar ondernemerschap. Voor starters wordt deze vraag minder zwaar gewogen.",
+    groen:"Ja, gespreide opdrachtgevers of aantoonbare spreiding",
+    oranje:"Tussen 70-85% bij deze opdrachtgever, met verklaring of overgangsfase",
+    rood:"Eén dominante opdrachtgever (>85%) zonder tijdelijk kader, spreidingsplan of ondernemerschapsbewijs",
+    bewijs:"Facturatie-overzicht / urenregistratie over rollende 12 maanden; acquisitie- of spreidingsbewijs; toelichting waarom concentratie tijdelijk is." },
 
   // BLOK B
   { id:"B1", blok:"B", weight:3, weightStarter:3, knockout:true,
     vraag:"Bestaat er een reële vervangingsmogelijkheid door een gelijkwaardig gekwalificeerde huisarts, met redelijke kwaliteitstoets door opdrachtgever?",
-    why:"Persoonlijke arbeidsplicht is een kernkenmerk van een arbeidsovereenkomst. Reële vervangingsmogelijkheid is in Deliveroo expliciet als zelfstandigheidsindicator benoemd. In huisartsenzorg is een kwaliteitstoets door opdrachtgever logisch en niet automatisch problematisch.",
-    groen:"Ja, vervangingsclausule + reële vervangingspraktijk",
-    oranje:"Vervanging mogelijk maar feitelijk nooit toegepast / sterk beperkt",
-    rood:"Nee, persoonlijke arbeidsplicht zonder vervangingsmogelijkheid",
-    bewijs:"Vervangingsclausule in de overeenkomst; in de praktijk: voorbeelden van geslaagde vervanging gedocumenteerd." },
+    why:"Persoonlijke arbeidsplicht is een kernkenmerk van een arbeidsovereenkomst. Een vervangingsclausule is sterker als er ook een praktische route bestaat: collega-pool, waarneemnetwerk, ruilroute of concrete afspraak. In huisartsenzorg is een kwaliteitstoets door opdrachtgever logisch en niet automatisch problematisch.",
+    groen:"Ja, contractueel mogelijk én praktisch uitvoerbaar, met redelijke kwaliteitstoets",
+    oranje:"Wel een clausule, maar praktische route/pool/netwerk is nog beperkt uitgewerkt",
+    rood:"Nee, feitelijke persoonlijke arbeidsplicht of opdrachtgever accepteert in praktijk geen vervanging",
+    bewijs:"Vervangingsclausule in de overeenkomst; namen/pool/netwerk of procedure voor ruil/vervanging; voorbeelden van vervanging of aantoonbare vervangingspogingen." },
 
   { id:"B2", blok:"B", weight:2, weightStarter:2, knockout:false,
-    vraag:"Zijn werktijden/dagdelen vooraf overeengekomen als onderdeel van de opdracht, zonder eenzijdige roosterdwang of beschikbaarheidsverplichting?",
-    why:"In huisartsenzorg zijn spreekuurblokken praktisch nodig. Het gaat niet om absolute vrijheid, maar om het ontbreken van werknemerachtige roosterdwang. Vooraf overeenkomen ≠ eenzijdig opleggen.",
-    groen:"Ja, vooraf afgesproken kaders, geen eenzijdige aanpassing",
-    oranje:"Deels eenzijdig aanpasbaar door opdrachtgever",
-    rood:"Werknemerachtige roosterdwang of beschikbaarheidsverplichting",
-    bewijs:"Eigen agenda-systeem of -account; e-mails waarin werktijden in onderling overleg worden vastgesteld." },
+    vraag:"Zijn werktijden/dagdelen vooraf overeengekomen zonder eenzijdige roosterdwang, basisrooster of beschikbaarheidsverplichting?",
+    why:"Vooraf afgesproken dagdelen of spreekuurblokken zijn in huisartsenzorg niet automatisch problematisch. Het risico zit vooral in eenzijdige roosterdwang, een structureel basisrooster, beschikbaarheidsplicht of het feitelijk om de waarnemer heen plannen alsof die formatie is.",
+    groen:"Ja, dagdelen zijn vooraf overeengekomen; geen eenzijdige wijziging of beschikbaarheidsplicht",
+    oranje:"Vaste of herhaalde dagdelen, maar nog met overleg en zonder sanctie bij weigeren",
+    rood:"Eenzijdige roosterdwang, basisrooster of beschikbaarheidsplicht zoals bij personeel",
+    bewijs:"E-mails/berichten waarin dagdelen in overleg zijn vastgesteld; voorbeelden dat je kon weigeren; contractuele afbakening van periode en inzet." },
 
   { id:"B3", blok:"B", weight:1, weightStarter:1, knockout:false,
     vraag:"Mag je opdrachten weigeren zonder consequenties (no work, no pay)?",
@@ -1297,11 +1361,11 @@ const QUESTIONS = [
   // BLOK D
   { id:"D1", blok:"D", weight:3, weightStarter:2, knockout:false,
     vraag:"Is er zichtbaar ondernemerschap buiten deze opdracht, zoals meerdere opdrachtgevers, acquisitie, eigen presentatie of aantoonbare spreiding op korte termijn?",
-    why:"Zichtbaar ondernemerschap is in Deliveroo en Uber een belangrijke indicator. Voor starters is dit minder hard te onderbouwen — daarom lager gewicht in starterfase.",
-    groen:"Meerdere opdrachtgevers (≥3) of duidelijk acquisitiepatroon",
-    oranje:"1-2 opdrachtgevers, maar actief op zoek of in overgangsfase",
-    rood:"Geen zichtbaar ondernemerschap buiten deze opdracht",
-    bewijs:"Facturatie-overzicht; KvK-uittreksel; LinkedIn/website; documentatie van acquisitie." },
+    why:"Uber verduidelijkte dat extern ondernemerschap volwaardig meeweegt en per persoon kan verschillen, zelfs bij vergelijkbaar werk. Voor starters is dit minder hard te onderbouwen — daarom lager gewicht in starterfase.",
+    groen:"Meerdere opdrachtgevers (≥3) of duidelijk acquisitie-/spreidingspatroon",
+    oranje:"1-2 opdrachtgevers, maar actief op zoek of aantoonbaar in overgangsfase",
+    rood:"Geen zichtbaar ondernemerschap buiten deze opdracht en geen concreet spreidingsplan",
+    bewijs:"Facturatie-overzicht; KvK-uittreksel; LinkedIn/website; documentatie van acquisitie; opdrachtplanning of spreidingslog." },
 
   { id:"D2", blok:"D", weight:2, weightStarter:2, knockout:false,
     vraag:"Investeer je in eigen bedrijfsmiddelen (verzekeringen, scholing, AOV, pensioen, administratie)?",
@@ -1329,28 +1393,28 @@ const QUESTIONS = [
 
   // BLOK E
   { id:"E1", blok:"E", weight:3, weightStarter:3, knockout:true,
-    vraag:"Word je organisatorisch behandeld als externe opdrachtnemer en niet als structurele formatieplek?",
-    why:"Inbedding in de organisatie als formatieplek is een sterke werknemerschapsindicator. Functionele systeemtoegang (HIS, mailadres) voor uitvoering van de opdracht is iets anders dan organisatorische inbedding.",
-    groen:"Ja, duidelijk extern; tijdelijke systeemtoegang alleen voor uitvoering",
-    oranje:"Deels ingebed, maar geen formele formatieplek",
-    rood:"Functioneert als formatieplek (functietitel, vaste rol in organogram, structurele HR-cyclus)",
-    bewijs:"Opdrachtbevestiging; geen HR-cyclus; geen structurele teamrol; tijdelijke toegang tot HIS/systemen alleen voor uitvoering opdracht." },
+    vraag:"Word je organisatorisch behandeld als externe opdrachtnemer en niet als structurele formatieplek of teamlid?",
+    why:"Inbedding wordt vooral risicovol wanneer de waarnemer zelf in de organisatie wordt opgenomen: vaste rol in rooster/organogram/vakgroep/team, interne functie-identiteit, structurele neventaken of HR-cyclus. Functionele systeemtoegang voor uitvoering van zorg is iets anders dan organisatorische inbedding.",
+    groen:"Ja, duidelijk extern; tijdelijke toegang en rol alleen voor uitvoering van de opdracht",
+    oranje:"Deels herkenbaar als vaste schakel, maar zonder formele formatieplek of HR-inbedding",
+    rood:"Functioneert als formatieplek/teamlid (functietitel, organogram/vakgroep/teamrol, structurele HR-cyclus of neventaken)",
+    bewijs:"Opdrachtbevestiging; geen HR-cyclus; geen structurele teamrol; geen vaste interne functietitel; tijdelijke toegang tot HIS/systemen alleen voor uitvoering opdracht." },
 
   { id:"E2", blok:"E", weight:2, weightStarter:2, knockout:false,
-    vraag:"Werk je zonder werkgeversaansturing (geen functioneringsgesprekken, geen verlofaanvragen, geen verplichte deelname aan teamoverleg)?",
-    why:"HR-aansturing (functioneringscycli, verlofaanvragen, verplicht overleg) wijst op gezagsverhouding. Beperkte deelname aan inhoudelijk overleg om kwaliteitsredenen is iets anders.",
-    groen:"Ja, geen HR-aansturing",
-    oranje:"Beperkte deelname aan overleg om kwaliteitsredenen",
-    rood:"HR-achtige inbedding (functioneringsgesprekken, verlofaanvragen, verplicht overleg)",
-    bewijs:"Geen functioneringsgesprek-verslagen; geen verlofaanvraag-systeem; deelname overleg facultatief." },
+    vraag:"Werk je zonder werkgeversaansturing of personeelsachtige behandeling?",
+    why:"HR-aansturing wijst op gezagsverhouding: functionerings- of beoordelingsgesprekken, verlofaanvragen, verplichte teammeetings, vaste neventaken, interne targets of sancties. Beperkte deelname aan overdracht of inhoudelijk overleg voor patiëntveiligheid is iets anders.",
+    groen:"Ja, geen HR-aansturing; alleen noodzakelijke overdracht/kwaliteitsoverleg",
+    oranje:"Enige deelname aan overleg of afstemming, maar zonder beoordeling, verlofregime of sancties",
+    rood:"HR-achtige behandeling: functioneringsgesprekken, verlofaanvragen, verplichte teamoverleggen, targets/sancties of structurele neventaken",
+    bewijs:"Geen functionerings- of beoordelingsverslagen; geen verlofaanvraag-systeem; overleg beperkt tot patiëntveiligheid; afspraken dat neventaken buiten scope vallen." },
 
   { id:"E3", blok:"E", weight:1, weightStarter:1, knockout:false,
-    vraag:"Wordt gebruik van praktijkmiddelen beperkt tot wat functioneel nodig is voor veilige zorg en dossiervoering?",
-    why:"In zorgomgeving is gebruik van praktijksystemen (HIS, beveiligde apparatuur) functioneel noodzakelijk voor patiëntveiligheid en informatiebeveiliging. Dit is iets anders dan volledige afhankelijkheid van middelen zonder functionele rechtvaardiging.",
-    groen:"Ja, gebruik praktijkmiddelen functioneel beperkt; eigen kerngereedschap (stethoscoop e.d.)",
-    oranje:"Gebruik praktijkmiddelen breder dan strikt nodig",
-    rood:"Volledig afhankelijk van praktijkmiddelen zonder functionele rechtvaardiging",
-    bewijs:"Aankoopbonnen eigen kerngereedschap; in overeenkomst beschreven dat HIS/systeemtoegang functioneel is." },
+    vraag:"Is gebruik van HIS/EPD, werkplek en praktijkmiddelen functioneel te verklaren vanuit veilige zorg, dossiervoering en AVG/Wkkgz?",
+    why:"In zorgomgevingen kan gebruik van HIS/EPD, beveiligde apparatuur, werkplek en procedures volgen uit patiëntveiligheid, dossiervoering, AVG en Wkkgz. Dat is niet automatisch werkgeversgezag. Het wordt risicovoller als het gebruik samengaat met volledige organisatorische afhankelijkheid zonder functionele zorgreden.",
+    groen:"Ja, systeem- en middelengebruik is functioneel beperkt en expliciet gekoppeld aan veilige zorg/dossiervoering",
+    oranje:"Gebruik is breder dan strikt nodig, maar nog functioneel uitlegbaar",
+    rood:"Volledige afhankelijkheid van praktijkmiddelen zonder functionele zorgreden of eigen ondernemersmiddelen",
+    bewijs:"Contractpassage dat HIS/EPD/systeemtoegang functioneel is voor zorg en dossiervoering; eigen kerngereedschap; privacy-/veiligheidsinstructies zonder HR-sturing." },
 
   // BLOK F (HAP only)
   { id:"F1", blok:"F", weight:3, weightStarter:3, knockout:true, hapOnly:true,
@@ -1617,13 +1681,13 @@ function getWtzaAssessment() {
 
   const actions = [];
   if (needsLrza) {
-    actions.push('Controleer je vermelding in het LRZa/Zorgaanbiedersportaal en corrigeer zo nodig de onderliggende brongegevens, zoals KvK/Handelsregister of AGB/Vektis.');
+    actions.push('Controleer je vermelding in het LRZa / Zorgaanbiedersportaal en corrigeer zo nodig de onderliggende brongegevens, zoals KvK/Handelsregister of AGB/Vektis.');
   }
   if (needsWtza) {
     actions.push('Controleer via het Wtza-meldportaal of je meldplichtig bent en regel de melding zo snel mogelijk als die nog ontbreekt.');
   }
   if (needsGeschillen) {
-    actions.push('Controleer of je als waarnemer zelfstandig bent aangesloten bij een erkende geschilleninstantie/klachtenregeling, bijvoorbeeld SKGE of DOKh, en leg daarnaast expliciet vast hoe de klachten-/geschillenroute voor deze opdracht loopt.');
+    actions.push('Controleer of je als waarnemer zelfstandig bent aangesloten bij een erkende geschilleninstantie / klachtenregeling, bijvoorbeeld SKGE of DOKh, en leg daarnaast expliciet vast hoe de klachten- en geschillenroute voor deze opdracht loopt.');
   }
 
   return { lrza, wtza, geschillen, geschillenOk, ok, needsLrza, needsWtza, needsGeschillen, actions };
@@ -1635,7 +1699,7 @@ function renderWtzaBlock() {
   const status = a.ok ? 'In orde volgens ingevulde antwoorden' : 'Actiepunt buiten DBA-score';
   const title = a.ok ? 'Compliancecheck buiten DBA-score' : 'Compliancecheck buiten DBA-score — actie nodig';
   const intro = a.ok
-    ? 'Je hebt aangegeven dat je LRZa-vermelding is gecontroleerd, dat je Wtza-melding is gedaan of controleerbaar geregeld is, en dat je klachten-/geschillenroute aantoonbaar is geregeld. Bewaar hiervan bewijs bij je opdrachtmap.'
+    ? 'Je hebt aangegeven dat je LRZa-vermelding is gecontroleerd, dat je Wtza-melding is gedaan of controleerbaar geregeld is, en dat je klachten- en geschillenroute aantoonbaar is geregeld. Bewaar hiervan bewijs bij je opdrachtmap.'
     : 'Deze check staat los van het DBA-risicoprofiel. Ook bij een groen DBA-profiel is het verstandig deze punten eerst te controleren en zo nodig alsnog te regelen.';
   const actionHtml = a.actions.length > 0
     ? `<ul>${a.actions.map(action => `<li>${action}</li>`).join('')}</ul>`
@@ -1647,12 +1711,87 @@ function renderWtzaBlock() {
       <h3>${title}</h3>
       <p>${intro}</p>
       <ul>
-        <li><strong>LRZa/Zorgaanbiedersportaal:</strong> ${labelForWtzaValue(a.lrza)}</li>
+        <li><strong>LRZa / Zorgaanbiedersportaal:</strong> ${labelForWtzaValue(a.lrza)}</li>
         <li><strong>Wtza-melding:</strong> ${labelForWtzaValue(a.wtza)}</li>
-        <li><strong>Geschilleninstantie/klachtenregeling:</strong> ${labelForWtzaValue(a.geschillen)}</li>
+        <li><strong>Geschilleninstantie / klachtenregeling:</strong> ${labelForWtzaValue(a.geschillen)}</li>
       </ul>
       ${actionHtml}
-      <p class="note-italic">Controlelinks: <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a> · <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a> · <a href="https://www.skge.nl/zorgverleners/" target="_blank" rel="noopener">SKGE</a> · <a href="https://dokh.nl/klachten-geschillen/" target="_blank" rel="noopener">DOKh</a>.</p>
+      <p class="note-italic">Controlelinks: <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa / Zorgaanbiedersportaal</a> · <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a> · <a href="https://www.skge.nl/zorgverleners/" target="_blank" rel="noopener">SKGE</a> · <a href="https://dokh.nl/klachten-geschillen/" target="_blank" rel="noopener">DOKh</a>.</p>
+    </div>
+  `;
+}
+
+/* ============================================================
+   REPORT CONTEXT: JURISPRUDENTIE + HAP-PATROON
+   ============================================================ */
+
+function renderJurisprudenceBlock(s) {
+  const criticalText = s.profile === 'green'
+    ? 'De uitkomst is groen, maar blijft een risico-indicatie per opdracht. Contract en feitelijke uitvoering moeten blijven kloppen.'
+    : 'De uitkomst is oranje/rood door samenloop van signalen. Eén opdrachtgever, vaste dagdelen of gebruik van praktijkmiddelen zijn niet automatisch beslissend; de combinatie met gezag, structurele inbedding, ontbrekende vervangingsroute en onvoldoende ondernemerschap bepaalt het risico.';
+
+  document.getElementById('report-jurisprudence').innerHTML = `
+    <div class="context-note-card">
+      <h3>Interpretatiekader recente rechtspraak</h3>
+      <p>${criticalText}</p>
+      <p>Deze scan gebruikt daarom geen simpele rode-vlaglijst, maar een samenhangende weging van tijdelijkheid, gezag, inbedding, ondernemerschap, vervanging en feitelijke uitvoering.</p>
+      <ul>
+        <li><strong>Uber / Deliveroo:</strong> geen vaste rangorde; extern ondernemerschap kan volwaardig meewegen.</li>
+        <li><strong>Huisartsenpost 2023:</strong> waarneming kan buiten arbeidsovereenkomst blijven wanneer vrijheid, tarief en ontbreken van HR-aansturing goed zijn ingericht.</li>
+        <li><strong>Intensivist 2024:</strong> het rode tegenbeeld is structurele inbedding in ziekenhuisrooster/vakgroep/organisatie met vergelijkbare positie als werknemers.</li>
+        <li><strong>Logopedist 2026:</strong> één opdrachtgever, werken op locatie en gebruik van EPD/materialen zijn niet automatisch fataal als gezag ontbreekt en zorgwetgeving de werkwijze verklaart.</li>
+      </ul>
+      <p class="note-italic" style="margin-top:12px;">Bronnen: <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2023%3A443" target="_blank" rel="noopener">HR Deliveroo 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2025%3A319" target="_blank" rel="noopener">HR Uber 2025</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBMNE%3A2023%3A6072" target="_blank" rel="noopener">RBMNE HAP 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2024%3A4597" target="_blank" rel="noopener">RBZWB intensivist 2024</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2026%3A1391" target="_blank" rel="noopener">RBZWB logopedist 2026</a>.</p>
+    </div>
+  `;
+}
+
+function getHapPatternAssessment() {
+  const isHap = STATE.intake.type === 'hap' || STATE.intake.type === 'beide';
+  if (!isHap) return null;
+
+  const f1 = STATE.answers.F1;
+  const f2 = STATE.answers.F2;
+  const g1 = STATE.answers.G1;
+
+  if (f1 === 'red' || f2 === 'red' || g1 === 'red') {
+    return {
+      cls: 'red',
+      title: 'HAP/ANW-patroon: structureel roosterblok',
+      meaning: 'De antwoorden lijken op een structurele HAP-inzet: vast rooster, beschikbaarheidsplicht of rol buiten losse diensten. Dit is het meest kwetsbare patroon.',
+      advice: 'Stuur bij naar losse diensten met vrije acceptatie/weigering, documenteer ruil/vervanging, verwijder structurele randtaken of overweeg een andere werkvorm zoals flexdienstverband/pool.'
+    };
+  }
+
+  if (f1 === 'amber' || f2 === 'amber' || g1 === 'amber') {
+    return {
+      cls: 'amber',
+      title: 'HAP/ANW-patroon: VIP-achtig / herkenbare vaste schakel',
+      meaning: 'De inzet is niet duidelijk rood, maar lijkt mogelijk op een terugkerend patroon waarin de HAP op jou rekent.',
+      advice: 'Beperk vaste patronen, spreek plafonds of pauzes af, spreid opdrachtgevers/werkvormen en bewaar bewijs dat je diensten vrij kiest of weigert.'
+    };
+  }
+
+  return {
+    cls: 'green',
+    title: 'HAP/ANW-patroon: losse dienst',
+    meaning: 'De antwoorden passen bij losse diensten: zelf intekenen, vrij accepteren/weigeren en geen taken buiten de dienst.',
+    advice: 'Houd dit patroon vast: geen vaste weekdiensten, actief ruil/vervang organiseren en bewijs bewaren van keuzevrijheid.'
+  };
+}
+
+function renderHapPatternBlock() {
+  const a = getHapPatternAssessment();
+  if (!a) {
+    document.getElementById('report-hap-pattern').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('report-hap-pattern').innerHTML = `
+    <div class="hap-pattern-card ${a.cls}">
+      <h3>${a.title}</h3>
+      <p>${a.meaning}</p>
+      <p><strong>Bijsturen:</strong> ${a.advice}</p>
     </div>
   `;
 }
@@ -1702,13 +1841,15 @@ function renderReport() {
     </div>
   `;
 
+  renderJurisprudenceBlock(s);
   renderWtzaBlock();
+  renderHapPatternBlock();
 
   // Knock-out warning
   if (s.koReds >= 1) {
     const koWarning = s.koReds >= 2
-      ? `Twee of meer kritieke punten (knock-out vragen) scoorden rood. Dit zijn elementen die in jurisprudentie zwaarwegend zijn (Deliveroo, Uber). Eindprofiel automatisch op 'hoog risico'.`
-      : `Eén kritiek punt (knock-out vraag) scoorde rood. Dit is een element dat in jurisprudentie zwaarwegend is. Eindprofiel kan daardoor niet 'lager risico' zijn.`;
+      ? `Twee of meer kritieke punten (knock-out vragen) scoorden rood. Dit zijn elementen die in recente rechtspraak zwaar wegen in samenhang met gezag, inbedding en ondernemerschap. Eindprofiel automatisch op 'hoog risico'.`
+      : `Eén kritiek punt (knock-out vraag) scoorde rood. Dit is een zwaarwegend signaal, vooral in combinatie met andere tekenen van gezag of structurele inbedding. Eindprofiel kan daardoor niet 'lager risico' zijn.`;
     document.getElementById('report-knockouts').innerHTML = `
       <div class="ko-warning">
         <strong>⚠ Knock-out signalering</strong>
@@ -1774,8 +1915,8 @@ function renderReport() {
     ? '📁 Compliance buiten DBA-score — bewijsstukken aanwezig houden'
     : '⚙ Compliance buiten DBA-score — eerst controleren of regelen';
   const wtzaChecklistText = wtzaAssessment.ok
-    ? 'Bewaar bewijs van de Wtza-melding of portaaldownload, een screenshot/link van je LRZa-vermelding met kloppende gegevens, en bewijs van je zelfstandige aansluiting bij een erkende geschilleninstantie/klachtenregeling, bijvoorbeeld SKGE of DOKh, én de expliciete opdrachtgerichte klachten-/geschillenroute.'
-    : 'Controleer de LRZa-vermelding, Wtza-meldstatus en zelfstandige aansluiting bij een erkende geschilleninstantie/klachtenregeling, bijvoorbeeld SKGE of DOKh, en de opdrachtgerichte klachten-/geschillenroute. Regel ontbrekende of onduidelijke onderdelen zo snel mogelijk en bewaar daarna het bewijs.';
+    ? 'Bewaar bewijs van de Wtza-melding of portaaldownload, een screenshot/link van je LRZa-vermelding met kloppende gegevens, en bewijs van je zelfstandige aansluiting bij een erkende geschilleninstantie / klachtenregeling, bijvoorbeeld SKGE of DOKh, én de expliciete opdrachtgerichte klachten- en geschillenroute.'
+    : 'Controleer de LRZa-vermelding, Wtza-meldstatus en zelfstandige aansluiting bij een erkende geschilleninstantie / klachtenregeling, bijvoorbeeld SKGE of DOKh, en de opdrachtgerichte klachten- en geschillenroute. Regel ontbrekende of onduidelijke onderdelen zo snel mogelijk en bewaar daarna het bewijs.';
 
   checklistHtml += `
       <div class="checklist-category ${wtzaChecklistClass}">
@@ -1796,7 +1937,7 @@ function renderReport() {
       <div class="alt-section">
         <h4>Suggesties voor alternatieve werkvormen</h4>
         <ul>
-          <li><strong>Aanpassen opdracht:</strong> herontwerp de opdracht zo dat de kritieke knock-out-punten worden geadresseerd (bv. concrete einddatum toevoegen, vervangingsclausule formaliseren).</li>
+          <li><strong>Aanpassen opdracht:</strong> herontwerp de opdracht zo dat de kritieke knock-out-punten én de samenloop van signalen worden geadresseerd (bv. concrete einddatum toevoegen, vervangingsroute praktisch maken, HR-/team-inbedding schrappen).</li>
           <li><strong>Maatschap of associatie:</strong> als de relatie structureel is, overweeg deelname als maat in een huisartsenpraktijk.</li>
           <li><strong>Loondienst (HIDHA / vaste waarnemer):</strong> bij langdurige inzet zonder zelfstandigheidskenmerken is loondienst de juridisch helderste route. De LHV signaleert in 2026 een toename van deze keuze.</li>
           <li><strong>Andere opdracht zoeken:</strong> als deze opdracht niet binnen zelfstandigheidskaders past, overweeg een andere opdracht die wel past.</li>
