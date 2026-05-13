@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <style>
 /* ============================================================
-   WAARNEEM-RISICOSCAN v1.0
+   WAARNEEM-RISICOSCAN v1.1
    Eigen werkversie — geen juridische vrijwaring
    ============================================================ */
 
@@ -312,6 +312,40 @@ section li {
   color: var(--text-mute);
   margin-top: 6px;
   font-style: italic;
+}
+
+/* Wtza / LRZa preflight block */
+.wtza-block {
+  background: #F4F8FB;
+  border: 1px solid var(--light);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 22px 24px;
+  margin: 28px 0 24px;
+}
+
+.wtza-block h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.wtza-block .form-row:last-child {
+  margin-bottom: 0;
+}
+
+.wtza-note {
+  font-size: 14px;
+  color: var(--text-mute);
+  margin: 10px 0 16px;
+  line-height: 1.5;
+}
+
+.wtza-note a,
+.wtza-report-card a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .checkbox-row {
@@ -774,6 +808,47 @@ section li {
   line-height: 1.5;
 }
 
+.wtza-report-card {
+  padding: 24px 28px;
+  border-radius: 12px;
+  margin: 0 0 28px;
+}
+
+.wtza-report-card.green {
+  background: var(--green-bg);
+  border: 2px solid var(--green);
+}
+
+.wtza-report-card.amber {
+  background: var(--amber-bg);
+  border: 2px solid var(--amber);
+}
+
+.wtza-report-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.wtza-report-card.green h3 { color: var(--green); }
+.wtza-report-card.amber h3 { color: var(--amber); }
+
+.wtza-report-card ul {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.wtza-status-line {
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.wtza-report-card.green .wtza-status-line { color: var(--green); }
+.wtza-report-card.amber .wtza-status-line { color: var(--amber); }
+
 .checklist-section {
   margin: 24px 0;
 }
@@ -955,7 +1030,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="brand">Pre-opdrachtcheck zzp-waarneming</div>
     <h1 class="site-title">Waarneem-Risicoscan</h1>
     <p class="site-subtitle">Eigen werkversie voor zzp-huisartsen</p>
-    <span class="version-tag" id="version-display">v1.0.1 · peildatum 5 mei 2026</span>
+    <span class="version-tag" id="version-display">v1.1 · peildatum 13 mei 2026</span>
   </div>
 </header>
 
@@ -1005,6 +1080,34 @@ section { animation: fadeIn 0.4s ease-out; }
       <option value="starter">Starter (&lt; 2 jaar als zzp-huisarts)</option>
     </select>
     <p class="form-help">Starters worden coulanter beoordeeld op aantal opdrachtgevers (lagere weging A3 en D1).</p>
+  </div>
+
+  <div class="wtza-block">
+    <h3>Wtza &amp; LRZa-check</h3>
+    <p>Deze check staat los van de DBA-risicoscore, maar hoort wel bij de pre-opdrachtcontrole. Een opdracht kan DBA-technisch lager risico zijn terwijl Wtza/LRZa nog actie vraagt.</p>
+    <p class="wtza-note">Let op: vindbaar zijn in het LRZa is niet hetzelfde als de Wtza-melding gedaan hebben. Controleer daarom beide: het <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a> en de <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a>.</p>
+
+    <div class="form-row">
+      <label for="lrza-status">Ben je als zorgaanbieder vindbaar in het LRZa/Zorgaanbiedersportaal en kloppen je gegevens?</label>
+      <select id="lrza-status">
+        <option value="">— kies een antwoord —</option>
+        <option value="ja">Ja, gecontroleerd en gegevens kloppen</option>
+        <option value="nee">Nee, niet vindbaar of gegevens kloppen niet</option>
+        <option value="onbekend">Weet ik niet / nog controleren</option>
+      </select>
+      <p class="form-help">Bij afwijkingen moet de onderliggende bron meestal worden aangepast, zoals KvK/Handelsregister of AGB/Vektis.</p>
+    </div>
+
+    <div class="form-row">
+      <label for="wtza-melding">Heb je de Wtza-melding gedaan of gecontroleerd dat deze voor jou geregeld is?</label>
+      <select id="wtza-melding">
+        <option value="">— kies een antwoord —</option>
+        <option value="ja">Ja, gedaan / controleerbaar geregeld</option>
+        <option value="nee">Nee, nog niet geregeld</option>
+        <option value="onbekend">Weet ik niet / nog controleren</option>
+      </select>
+      <p class="form-help">Deze vraag telt niet mee voor de DBA-score; bij “nee” of “weet ik niet” volgt een apart actieadvies.</p>
+    </div>
   </div>
 
   <div class="checkbox-row">
@@ -1065,6 +1168,7 @@ section { animation: fadeIn 0.4s ease-out; }
   </div>
 
   <div id="report-profile"></div>
+  <div id="report-wtza"></div>
   <div id="report-knockouts"></div>
   <div id="report-checklist"></div>
   <div id="report-alternatives"></div>
@@ -1082,7 +1186,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
 <footer class="site-footer no-print">
   <div class="container">
-    <p>Waarneem-Risicoscan v1.0 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
+    <p>Waarneem-Risicoscan v1.1 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
     <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser</p>
   </div>
 </footer>
@@ -1093,9 +1197,10 @@ section { animation: fadeIn 0.4s ease-out; }
    ============================================================ */
 const STATE = {
   intake: { opdrachtgever: '', periode: '', type: '', fase: '' },
+  wtza: { lrzaStatus: '', wtzaMelding: '' },
   answers: {}, // { questionId: 'green' | 'amber' | 'red' }
-  version: 'v1.0.1',
-  peildatum: '5 mei 2026',
+  version: 'v1.1',
+  peildatum: '13 mei 2026',
 };
 
 /* ============================================================
@@ -1478,6 +1583,60 @@ function updateLiveScore() {
   document.getElementById('show-report-btn').disabled = !s.allAnswered;
 }
 
+function labelForWtzaValue(value) {
+  return {
+    ja: 'Ja',
+    nee: 'Nee',
+    onbekend: 'Weet ik niet / nog controleren',
+    '': 'Niet ingevuld'
+  }[value] ?? 'Niet ingevuld';
+}
+
+function getWtzaAssessment() {
+  const lrza = STATE.wtza.lrzaStatus || '';
+  const wtza = STATE.wtza.wtzaMelding || '';
+  const ok = lrza === 'ja' && wtza === 'ja';
+  const needsLrza = lrza !== 'ja';
+  const needsWtza = wtza !== 'ja';
+
+  const actions = [];
+  if (needsLrza) {
+    actions.push('Controleer je vermelding in het LRZa/Zorgaanbiedersportaal en corrigeer zo nodig de onderliggende brongegevens, zoals KvK/Handelsregister of AGB/Vektis.');
+  }
+  if (needsWtza) {
+    actions.push('Controleer via het Wtza-meldportaal of je meldplichtig bent en regel de melding zo snel mogelijk als die nog ontbreekt.');
+  }
+
+  return { lrza, wtza, ok, needsLrza, needsWtza, actions };
+}
+
+function renderWtzaBlock() {
+  const a = getWtzaAssessment();
+  const cls = a.ok ? 'green' : 'amber';
+  const status = a.ok ? 'In orde volgens ingevulde antwoorden' : 'Actiepunt buiten DBA-score';
+  const title = a.ok ? 'Wtza & LRZa-check' : 'Wtza & LRZa-check — actie nodig';
+  const intro = a.ok
+    ? 'Je hebt aangegeven dat je LRZa-vermelding is gecontroleerd en dat je Wtza-melding is gedaan of controleerbaar geregeld is. Bewaar hiervan bewijs bij je opdrachtmap.'
+    : 'Deze check staat los van het DBA-risicoprofiel. Ook bij een groen DBA-profiel is het verstandig dit eerst te controleren en zo nodig alsnog te regelen.';
+  const actionHtml = a.actions.length > 0
+    ? `<ul>${a.actions.map(action => `<li>${action}</li>`).join('')}</ul>`
+    : '<p class="note-italic">Geen aanvullend actiepunt op basis van deze antwoorden.</p>';
+
+  document.getElementById('report-wtza').innerHTML = `
+    <div class="wtza-report-card ${cls}">
+      <div class="wtza-status-line sans">${status}</div>
+      <h3>${title}</h3>
+      <p>${intro}</p>
+      <ul>
+        <li><strong>LRZa/Zorgaanbiedersportaal:</strong> ${labelForWtzaValue(a.lrza)}</li>
+        <li><strong>Wtza-melding:</strong> ${labelForWtzaValue(a.wtza)}</li>
+      </ul>
+      ${actionHtml}
+      <p class="note-italic">Controlelinks: <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a> · <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a>.</p>
+    </div>
+  `;
+}
+
 /* ============================================================
    RENDER: REPORT
    ============================================================ */
@@ -1522,6 +1681,8 @@ function renderReport() {
       <div class="profile-meaning">${p.meaning}</div>
     </div>
   `;
+
+  renderWtzaBlock();
 
   // Knock-out warning
   if (s.koReds >= 1) {
@@ -1586,6 +1747,25 @@ function renderReport() {
       </div>
     `;
   }
+
+  const wtzaAssessment = getWtzaAssessment();
+  const wtzaChecklistClass = wtzaAssessment.ok ? 'archive' : 'strengthen';
+  const wtzaChecklistTitle = wtzaAssessment.ok
+    ? '📁 Wtza/LRZa — bewijsstukken aanwezig houden'
+    : '⚙ Wtza/LRZa — eerst controleren of regelen';
+  const wtzaChecklistText = wtzaAssessment.ok
+    ? 'Bewaar bewijs van de Wtza-melding of portaaldownload, plus een screenshot/link van je LRZa-vermelding met kloppende gegevens.'
+    : 'Controleer de LRZa-vermelding en Wtza-meldstatus. Regel ontbrekende of onduidelijke onderdelen zo snel mogelijk en bewaar daarna het bewijs.';
+
+  checklistHtml += `
+      <div class="checklist-category ${wtzaChecklistClass}">
+        <h4>${wtzaChecklistTitle}</h4>
+        <div class="checklist-item ${wtzaChecklistClass}">
+          <span class="checklist-id sans">WTZA</span>
+          <div><strong>Wtza-melding en LRZa-vermelding</strong><br><span class="note-italic">${wtzaChecklistText}</span></div>
+        </div>
+      </div>
+  `;
 
   checklistHtml += '</div>';
   document.getElementById('report-checklist').innerHTML = checklistHtml;
@@ -1660,6 +1840,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('periode').addEventListener('input', e => STATE.intake.periode = e.target.value);
   document.getElementById('type-opdracht').addEventListener('change', e => { STATE.intake.type = e.target.value; checkIntakeReady(); });
   document.getElementById('fase').addEventListener('change', e => { STATE.intake.fase = e.target.value; checkIntakeReady(); });
+  document.getElementById('lrza-status').addEventListener('change', e => { STATE.wtza.lrzaStatus = e.target.value; checkIntakeReady(); });
+  document.getElementById('wtza-melding').addEventListener('change', e => { STATE.wtza.wtzaMelding = e.target.value; checkIntakeReady(); });
   document.getElementById('agree-disclaimer').addEventListener('change', checkIntakeReady);
 
   // Start scan
@@ -1678,11 +1860,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('restart-btn').addEventListener('click', () => {
     if (confirm('Nieuwe scan starten? De huidige antwoorden gaan verloren.')) {
       STATE.intake = { opdrachtgever:'', periode:'', type:'', fase:'' };
+      STATE.wtza = { lrzaStatus:'', wtzaMelding:'' };
       STATE.answers = {};
       document.getElementById('opdrachtgever').value = '';
       document.getElementById('periode').value = '';
       document.getElementById('type-opdracht').value = '';
       document.getElementById('fase').value = '';
+      document.getElementById('lrza-status').value = '';
+      document.getElementById('wtza-melding').value = '';
       document.getElementById('agree-disclaimer').checked = false;
       checkIntakeReady();
       showSection('intake');
@@ -1691,7 +1876,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function checkIntakeReady() {
-  const ok = STATE.intake.type && STATE.intake.fase && document.getElementById('agree-disclaimer').checked;
+  const ok = STATE.intake.type && STATE.intake.fase && STATE.wtza.lrzaStatus && STATE.wtza.wtzaMelding && document.getElementById('agree-disclaimer').checked;
   document.getElementById('start-scan-btn').disabled = !ok;
 }
 
