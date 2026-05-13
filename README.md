@@ -1,14 +1,14 @@
 # Waarneem-Risicoscan
 
-Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa-compliancecheck. Werkt als web-app op iOS en Android.
+Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh. Werkt als web-app op iOS en Android.
 
 ## ⚠ Belangrijk
 
-Deze tool is **niet verbonden aan de officiële LHV-Vergewistool** die door de LHV samen met WaarneemApp wordt ontwikkeld (verwacht Q3 2026). Deze tool is een eigen werkversie en biedt **geen juridisch advies, geen fiscaal advies, geen vrijwaring en geen garantie**. De Belastingdienst toetst altijd op feitelijke uitvoering. De Wtza/LRZa-check is een aparte compliancecheck naast de DBA-risicoscore.
+Deze tool is **niet verbonden aan de officiële LHV-Vergewistool** die door de LHV samen met WaarneemApp wordt ontwikkeld (verwacht Q3 2026). Deze tool is een eigen werkversie en biedt **geen juridisch advies, geen fiscaal advies, geen vrijwaring en geen garantie**. De Belastingdienst toetst altijd op feitelijke uitvoering. De Wtza/LRZa-/geschillencheck is een aparte compliancecheck naast de DBA-risicoscore.
 
 ## Wat het is
 
-Een Progressive Web App (PWA) waarmee een zzp-waarnemend huisarts vooraf een opdracht kan toetsen op risico's rond schijnzelfstandigheid. Daarnaast bevat de intake twee aparte Wtza/LRZa-vragen die niet meetellen voor de DBA-score, maar wel een eigen adviesblok in het rapport opleveren. De DBA-scan bestaat uit 18-20 vragen (afhankelijk van type opdracht) op basis van:
+Een Progressive Web App (PWA) waarmee een zzp-waarnemend huisarts vooraf een opdracht kan toetsen op risico's rond schijnzelfstandigheid. Daarnaast bevat de intake drie aparte compliancevragen — LRZa, Wtza en geschilleninstantie/klachtenregeling — die niet meetellen voor de DBA-score, maar wel een eigen adviesblok in het rapport opleveren. De DBA-scan bestaat uit 18-20 vragen (afhankelijk van type opdracht) op basis van:
 
 - Wet DBA (huidige wetgeving)
 - Deliveroo-arrest (Hoge Raad, 2023)
@@ -19,13 +19,14 @@ De aparte compliancecheck verwijst naar:
 
 - Wtza-meldplicht
 - LRZa / Zorgaanbiedersportaal
+- Wkkgz-klachtenroute en zelfstandige aansluiting bij een erkende geschilleninstantie/klachtenregeling, met SKGE en DOKh als huisarts-relevante voorbeelden
 
 De tool genereert een rapport met:
 
 - DBA-risicoprofiel (lager / verhoogd / hoog)
 - Score op dynamische maxscore (afhankelijk van type opdracht en fase)
 - Knock-out signalering bij rode antwoorden op kernvragen
-- **Aparte Wtza/LRZa-compliancecheck** — geen invloed op DBA-score, wel apart actieadvies
+- **Aparte Wtza/LRZa-/geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh** — geen invloed op DBA-score, wel apart actieadvies
 - **Gepersonaliseerde bewijsmappen-checklist** — categorieën *archiveren / versterken / kritiek*
 - Suggesties voor alternatieve werkvormen bij verhoogd/hoog risico
 - Alle antwoorden per vraag, exporteerbaar als PDF via browser-print
@@ -95,6 +96,8 @@ Geen ingevulde scan- of opdrachtgegevens worden ooit naar een server verstuurd. 
 
 | Versie | Datum | Peildatum jurisprudentie | Wijzigingen |
 |--------|-------|--------------------------|-------------|
+| v1.2.1 | 13 mei 2026 | 13 mei 2026 | SKGE en DOKh als huisarts-relevante voorbeelden toegevoegd bij de geschillen-/klachtenregeling, inclusief links in intake en rapport. Service-worker cacheversie bijgewerkt. |
+| v1.2   | 13 mei 2026 | 13 mei 2026 | Aparte vraag over zelfstandige aansluiting bij een erkende geschilleninstantie/klachtenregeling toegevoegd naast LRZa en Wtza. Complianceblok, rapportkaart, bewijsmapregel, manifest en service-worker cacheversie bijgewerkt. C3 aangescherpt zodat de DBA-vraag vooral gaat over de opdrachtgerichte klachten-/geschillenroute. |
 | v1.1   | 13 mei 2026 | 13 mei 2026 | Wtza/LRZa-check toegevoegd aan de intake als aparte compliance-as zonder invloed op de DBA-score. Rapport uitgebreid met apart Wtza/LRZa-adviesblok en bewijsmapregel. README, manifest en service-worker cacheversie bijgewerkt. |
 | v1.0.1 | 5 mei 2026 | 5 mei 2026 | Volledige disclaimer in het rapport zelf (zichtbaar én printbaar). Concept-statusbanner ook printbaar bovenaan rapport. F1-toelichting neutraler geformuleerd. |
 | v1.0   | 5 mei 2026 | 5 mei 2026 | Eerste release. 20 vragen, 7 blokken, dynamische score op type-opdracht en fase. Bewijsmappen-checklist als rapportonderdeel. PWA met offline-support en iOS-installatie. Concept-watermerk in beta-fase. |

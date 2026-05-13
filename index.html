@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <style>
 /* ============================================================
-   WAARNEEM-RISICOSCAN v1.1
+   WAARNEEM-RISICOSCAN v1.2.1
    Eigen werkversie — geen juridische vrijwaring
    ============================================================ */
 
@@ -314,7 +314,7 @@ section li {
   font-style: italic;
 }
 
-/* Wtza / LRZa preflight block */
+/* Compliance preflight block: Wtza / LRZa / geschillen */
 .wtza-block {
   background: #F4F8FB;
   border: 1px solid var(--light);
@@ -1030,7 +1030,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="brand">Pre-opdrachtcheck zzp-waarneming</div>
     <h1 class="site-title">Waarneem-Risicoscan</h1>
     <p class="site-subtitle">Eigen werkversie voor zzp-huisartsen</p>
-    <span class="version-tag" id="version-display">v1.1 · peildatum 13 mei 2026</span>
+    <span class="version-tag" id="version-display">v1.2.1 · peildatum 13 mei 2026</span>
   </div>
 </header>
 
@@ -1083,9 +1083,9 @@ section { animation: fadeIn 0.4s ease-out; }
   </div>
 
   <div class="wtza-block">
-    <h3>Wtza &amp; LRZa-check</h3>
-    <p>Deze check staat los van de DBA-risicoscore, maar hoort wel bij de pre-opdrachtcontrole. Een opdracht kan DBA-technisch lager risico zijn terwijl Wtza/LRZa nog actie vraagt.</p>
-    <p class="wtza-note">Let op: vindbaar zijn in het LRZa is niet hetzelfde als de Wtza-melding gedaan hebben. Controleer daarom beide: het <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a> en de <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a>.</p>
+    <h3>Compliancecheck buiten DBA-score</h3>
+    <p>Deze check staat los van de DBA-risicoscore, maar hoort wel bij de pre-opdrachtcontrole. Een opdracht kan DBA-technisch lager risico zijn terwijl Wtza, LRZa of Wkkgz/geschillenregeling nog actie vraagt.</p>
+    <p class="wtza-note">Let op: vindbaar zijn in het LRZa is niet hetzelfde als de Wtza-melding gedaan hebben. Daarnaast moet je als zorgaanbieder/waarnemer je klachten- en geschillenroute aantoonbaar geregeld hebben. Controleer daarom: het <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a>, de <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a> en je aansluiting bij een erkende geschilleninstantie/klachtenregeling. Gebruikelijke instanties voor huisartsen zijn bijvoorbeeld <a href="https://www.skge.nl/zorgverleners/" target="_blank" rel="noopener">SKGE</a> en <a href="https://dokh.nl/klachten-geschillen/" target="_blank" rel="noopener">DOKh</a>.</p>
 
     <div class="form-row">
       <label for="lrza-status">Ben je als zorgaanbieder vindbaar in het LRZa/Zorgaanbiedersportaal en kloppen je gegevens?</label>
@@ -1107,6 +1107,18 @@ section { animation: fadeIn 0.4s ease-out; }
         <option value="onbekend">Weet ik niet / nog controleren</option>
       </select>
       <p class="form-help">Deze vraag telt niet mee voor de DBA-score; bij “nee” of “weet ik niet” volgt een apart actieadvies.</p>
+    </div>
+
+    <div class="form-row">
+      <label for="geschillen-status">Ben je aangesloten bij een erkende geschilleninstantie / klachtenregeling voor jouw werk als waarnemer?</label>
+      <select id="geschillen-status">
+        <option value="">— kies een antwoord —</option>
+        <option value="ja">Ja, zelfstandig aangesloten en bewijs beschikbaar (bijv. SKGE of DOKh)</option>
+        <option value="praktijk">Via praktijk/organisatie geregeld, maar niet zelfstandig aangesloten</option>
+        <option value="nee">Nee, nog niet geregeld</option>
+        <option value="onbekend">Weet ik niet / nog controleren</option>
+      </select>
+      <p class="form-help">Deze vraag telt niet mee voor de DBA-score; bij “nee”, “weet ik niet” of alleen via de praktijk volgt een apart Wkkgz-/geschillenactiepunt. Voor huisartsen zijn SKGE en DOKh praktische controlepunten.</p>
     </div>
   </div>
 
@@ -1186,7 +1198,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
 <footer class="site-footer no-print">
   <div class="container">
-    <p>Waarneem-Risicoscan v1.1 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
+    <p>Waarneem-Risicoscan v1.2.1 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
     <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser</p>
   </div>
 </footer>
@@ -1197,9 +1209,9 @@ section { animation: fadeIn 0.4s ease-out; }
    ============================================================ */
 const STATE = {
   intake: { opdrachtgever: '', periode: '', type: '', fase: '' },
-  wtza: { lrzaStatus: '', wtzaMelding: '' },
+  wtza: { lrzaStatus: '', wtzaMelding: '', geschillenStatus: '' },
   answers: {}, // { questionId: 'green' | 'amber' | 'red' }
-  version: 'v1.1',
+  version: 'v1.2.1',
   peildatum: '13 mei 2026',
 };
 
@@ -1275,12 +1287,12 @@ const QUESTIONS = [
     bewijs:"Geen functioneringsgesprek-verslagen op medische inhoud; geen beoordelingscyclus door niet-medici." },
 
   { id:"C3", blok:"C", weight:2, weightStarter:2, knockout:false,
-    vraag:"Is aantoonbaar geregeld hoe je voldoet aan Wkkgz-, klachten- en geschillenverplichtingen?",
-    why:"Wkkgz vereist dat klachten en geschillen geregeld zijn. Een waarnemer kan een eigen aansluiting hebben (bv. SKGE) of via de praktijk werken — beide kan, mits de afspraken expliciet en aantoonbaar zijn. Onduidelijkheid is wat het risico vormt.",
-    groen:"Eigen aansluiting (bv. SKGE) of helder afgesproken hoe Wkkgz-route werkt",
-    oranje:"Aansluiting via praktijk zonder expliciete afspraak over verdeling",
-    rood:"Niet geregeld of onduidelijk hoe klachten/geschillen lopen",
-    bewijs:"Aansluiting bij erkende geschilleninstantie; clausule in overeenkomst over Wkkgz-verantwoordelijkheid." },
+    vraag:"Is in de opdracht aantoonbaar geregeld hoe klachten en geschillen over jouw waarneming worden afgehandeld?",
+    why:"De eigen Wkkgz-/geschillenstatus wordt al apart in de intake gecontroleerd. Deze DBA-vraag gaat daarom vooral over de feitelijke en contractuele route binnen deze opdracht: weten patiënt, praktijk en waarnemer waar een klacht of geschil terechtkomt, zonder dat dit verborgen werknemerachtige inbedding wordt?",
+    groen:"Ja, eigen route of expliciete afspraak met praktijk/organisatie is vastgelegd",
+    oranje:"Route bestaat, maar verdeling tussen praktijk en waarnemer is beperkt uitgewerkt",
+    rood:"Niet geregeld of onduidelijk hoe klachten/geschillen over jouw waarneming lopen",
+    bewijs:"Aansluitbewijs of klachtenregeling; clausule in overeenkomst over Wkkgz-/klachtenroute en verantwoordelijkheidsverdeling." },
 
   // BLOK D
   { id:"D1", blok:"D", weight:3, weightStarter:2, knockout:false,
@@ -1588,6 +1600,7 @@ function labelForWtzaValue(value) {
     ja: 'Ja',
     nee: 'Nee',
     onbekend: 'Weet ik niet / nog controleren',
+    praktijk: 'Via praktijk/organisatie geregeld, maar niet zelfstandig aangesloten',
     '': 'Niet ingevuld'
   }[value] ?? 'Niet ingevuld';
 }
@@ -1595,9 +1608,12 @@ function labelForWtzaValue(value) {
 function getWtzaAssessment() {
   const lrza = STATE.wtza.lrzaStatus || '';
   const wtza = STATE.wtza.wtzaMelding || '';
-  const ok = lrza === 'ja' && wtza === 'ja';
+  const geschillen = STATE.wtza.geschillenStatus || '';
+  const geschillenOk = geschillen === 'ja';
+  const ok = lrza === 'ja' && wtza === 'ja' && geschillenOk;
   const needsLrza = lrza !== 'ja';
   const needsWtza = wtza !== 'ja';
+  const needsGeschillen = !geschillenOk;
 
   const actions = [];
   if (needsLrza) {
@@ -1606,18 +1622,21 @@ function getWtzaAssessment() {
   if (needsWtza) {
     actions.push('Controleer via het Wtza-meldportaal of je meldplichtig bent en regel de melding zo snel mogelijk als die nog ontbreekt.');
   }
+  if (needsGeschillen) {
+    actions.push('Controleer of je als waarnemer zelfstandig bent aangesloten bij een erkende geschilleninstantie/klachtenregeling, bijvoorbeeld SKGE of DOKh, en leg daarnaast expliciet vast hoe de klachten-/geschillenroute voor deze opdracht loopt.');
+  }
 
-  return { lrza, wtza, ok, needsLrza, needsWtza, actions };
+  return { lrza, wtza, geschillen, geschillenOk, ok, needsLrza, needsWtza, needsGeschillen, actions };
 }
 
 function renderWtzaBlock() {
   const a = getWtzaAssessment();
   const cls = a.ok ? 'green' : 'amber';
   const status = a.ok ? 'In orde volgens ingevulde antwoorden' : 'Actiepunt buiten DBA-score';
-  const title = a.ok ? 'Wtza & LRZa-check' : 'Wtza & LRZa-check — actie nodig';
+  const title = a.ok ? 'Compliancecheck buiten DBA-score' : 'Compliancecheck buiten DBA-score — actie nodig';
   const intro = a.ok
-    ? 'Je hebt aangegeven dat je LRZa-vermelding is gecontroleerd en dat je Wtza-melding is gedaan of controleerbaar geregeld is. Bewaar hiervan bewijs bij je opdrachtmap.'
-    : 'Deze check staat los van het DBA-risicoprofiel. Ook bij een groen DBA-profiel is het verstandig dit eerst te controleren en zo nodig alsnog te regelen.';
+    ? 'Je hebt aangegeven dat je LRZa-vermelding is gecontroleerd, dat je Wtza-melding is gedaan of controleerbaar geregeld is, en dat je klachten-/geschillenroute aantoonbaar is geregeld. Bewaar hiervan bewijs bij je opdrachtmap.'
+    : 'Deze check staat los van het DBA-risicoprofiel. Ook bij een groen DBA-profiel is het verstandig deze punten eerst te controleren en zo nodig alsnog te regelen.';
   const actionHtml = a.actions.length > 0
     ? `<ul>${a.actions.map(action => `<li>${action}</li>`).join('')}</ul>`
     : '<p class="note-italic">Geen aanvullend actiepunt op basis van deze antwoorden.</p>';
@@ -1630,9 +1649,10 @@ function renderWtzaBlock() {
       <ul>
         <li><strong>LRZa/Zorgaanbiedersportaal:</strong> ${labelForWtzaValue(a.lrza)}</li>
         <li><strong>Wtza-melding:</strong> ${labelForWtzaValue(a.wtza)}</li>
+        <li><strong>Geschilleninstantie/klachtenregeling:</strong> ${labelForWtzaValue(a.geschillen)}</li>
       </ul>
       ${actionHtml}
-      <p class="note-italic">Controlelinks: <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a> · <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a>.</p>
+      <p class="note-italic">Controlelinks: <a href="https://zoeken.zorgaanbiedersportaal.nl" target="_blank" rel="noopener">LRZa/Zorgaanbiedersportaal</a> · <a href="https://www.toetredingzorgaanbieders.nl/melden" target="_blank" rel="noopener">Wtza-meldplicht</a> · <a href="https://www.skge.nl/zorgverleners/" target="_blank" rel="noopener">SKGE</a> · <a href="https://dokh.nl/klachten-geschillen/" target="_blank" rel="noopener">DOKh</a>.</p>
     </div>
   `;
 }
@@ -1751,18 +1771,18 @@ function renderReport() {
   const wtzaAssessment = getWtzaAssessment();
   const wtzaChecklistClass = wtzaAssessment.ok ? 'archive' : 'strengthen';
   const wtzaChecklistTitle = wtzaAssessment.ok
-    ? '📁 Wtza/LRZa — bewijsstukken aanwezig houden'
-    : '⚙ Wtza/LRZa — eerst controleren of regelen';
+    ? '📁 Compliance buiten DBA-score — bewijsstukken aanwezig houden'
+    : '⚙ Compliance buiten DBA-score — eerst controleren of regelen';
   const wtzaChecklistText = wtzaAssessment.ok
-    ? 'Bewaar bewijs van de Wtza-melding of portaaldownload, plus een screenshot/link van je LRZa-vermelding met kloppende gegevens.'
-    : 'Controleer de LRZa-vermelding en Wtza-meldstatus. Regel ontbrekende of onduidelijke onderdelen zo snel mogelijk en bewaar daarna het bewijs.';
+    ? 'Bewaar bewijs van de Wtza-melding of portaaldownload, een screenshot/link van je LRZa-vermelding met kloppende gegevens, en bewijs van je zelfstandige aansluiting bij een erkende geschilleninstantie/klachtenregeling, bijvoorbeeld SKGE of DOKh, én de expliciete opdrachtgerichte klachten-/geschillenroute.'
+    : 'Controleer de LRZa-vermelding, Wtza-meldstatus en zelfstandige aansluiting bij een erkende geschilleninstantie/klachtenregeling, bijvoorbeeld SKGE of DOKh, en de opdrachtgerichte klachten-/geschillenroute. Regel ontbrekende of onduidelijke onderdelen zo snel mogelijk en bewaar daarna het bewijs.';
 
   checklistHtml += `
       <div class="checklist-category ${wtzaChecklistClass}">
         <h4>${wtzaChecklistTitle}</h4>
         <div class="checklist-item ${wtzaChecklistClass}">
-          <span class="checklist-id sans">WTZA</span>
-          <div><strong>Wtza-melding en LRZa-vermelding</strong><br><span class="note-italic">${wtzaChecklistText}</span></div>
+          <span class="checklist-id sans">COMP</span>
+          <div><strong>Wtza-melding, LRZa-vermelding en geschillenregeling</strong><br><span class="note-italic">${wtzaChecklistText}</span></div>
         </div>
       </div>
   `;
@@ -1842,6 +1862,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('fase').addEventListener('change', e => { STATE.intake.fase = e.target.value; checkIntakeReady(); });
   document.getElementById('lrza-status').addEventListener('change', e => { STATE.wtza.lrzaStatus = e.target.value; checkIntakeReady(); });
   document.getElementById('wtza-melding').addEventListener('change', e => { STATE.wtza.wtzaMelding = e.target.value; checkIntakeReady(); });
+  document.getElementById('geschillen-status').addEventListener('change', e => { STATE.wtza.geschillenStatus = e.target.value; checkIntakeReady(); });
   document.getElementById('agree-disclaimer').addEventListener('change', checkIntakeReady);
 
   // Start scan
@@ -1860,7 +1881,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('restart-btn').addEventListener('click', () => {
     if (confirm('Nieuwe scan starten? De huidige antwoorden gaan verloren.')) {
       STATE.intake = { opdrachtgever:'', periode:'', type:'', fase:'' };
-      STATE.wtza = { lrzaStatus:'', wtzaMelding:'' };
+      STATE.wtza = { lrzaStatus:'', wtzaMelding:'', geschillenStatus:'' };
       STATE.answers = {};
       document.getElementById('opdrachtgever').value = '';
       document.getElementById('periode').value = '';
@@ -1868,6 +1889,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('fase').value = '';
       document.getElementById('lrza-status').value = '';
       document.getElementById('wtza-melding').value = '';
+      document.getElementById('geschillen-status').value = '';
       document.getElementById('agree-disclaimer').checked = false;
       checkIntakeReady();
       showSection('intake');
@@ -1876,7 +1898,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function checkIntakeReady() {
-  const ok = STATE.intake.type && STATE.intake.fase && STATE.wtza.lrzaStatus && STATE.wtza.wtzaMelding && document.getElementById('agree-disclaimer').checked;
+  const ok = STATE.intake.type && STATE.intake.fase && STATE.wtza.lrzaStatus && STATE.wtza.wtzaMelding && STATE.wtza.geschillenStatus && document.getElementById('agree-disclaimer').checked;
   document.getElementById('start-scan-btn').disabled = !ok;
 }
 
