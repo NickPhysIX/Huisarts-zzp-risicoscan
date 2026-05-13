@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background gradient (deep blue) -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2E75B6"/>
+      <stop offset="100%" stop-color="#1F4E79"/>
+    </linearGradient>
+    <linearGradient id="tube" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#D5E8F0"/>
+    </linearGradient>
+    <radialGradient id="bell" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#E8F0F6"/>
+      <stop offset="100%" stop-color="#A8C4D8"/>
+    </radialGradient>
+    <radialGradient id="diaphragm" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#5B9BD5" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1F4E79" stop-opacity="0.85"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Rounded square background (iOS will mask) -->
+  <rect width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
+
+  <!-- Subtle inner glow -->
+  <rect x="8" y="8" width="496" height="496" rx="108" ry="108" fill="none"
+        stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+
+  <!-- Stethoscope ear-tubes (Y-shape at top) -->
+  <!-- Left ear-tube top -->
+  <circle cx="170" cy="100" r="14" fill="url(#tube)"/>
+  <!-- Right ear-tube top -->
+  <circle cx="342" cy="100" r="14" fill="url(#tube)"/>
+
+  <!-- Y-shape tubing curving down to junction -->
+  <!-- Left tube -->
+  <path d="M 170 110
+           C 170 160, 200 200, 256 240"
+        fill="none"
+        stroke="url(#tube)"
+        stroke-width="22"
+        stroke-linecap="round"/>
+  <!-- Right tube -->
+  <path d="M 342 110
+           C 342 160, 312 200, 256 240"
+        fill="none"
+        stroke="url(#tube)"
+        stroke-width="22"
+        stroke-linecap="round"/>
+
+  <!-- Junction connector -->
+  <circle cx="256" cy="240" r="14" fill="#D5E8F0"/>
+
+  <!-- Main tube descending and curving to bell on the right -->
+  <path d="M 256 240
+           C 256 320, 310 360, 360 360
+           C 400 360, 380 410, 380 410"
+        fill="none"
+        stroke="url(#tube)"
+        stroke-width="22"
+        stroke-linecap="round"/>
+
+  <!-- Chest piece (bell + diaphragm) -->
+  <!-- Outer ring -->
+  <circle cx="380" cy="420" r="58" fill="url(#bell)"/>
+  <!-- Inner diaphragm -->
+  <circle cx="380" cy="420" r="42" fill="url(#diaphragm)"/>
+  <!-- Tiny center highlight -->
+  <ellipse cx="370" cy="408" rx="8" ry="5" fill="#FFFFFF" fill-opacity="0.5"/>
+
+  <!-- Subtle "heartbeat" line near the bottom-left for character -->
+  <path d="M 90 410
+           L 130 410
+           L 145 380
+           L 165 440
+           L 180 400
+           L 195 420
+           L 240 420"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-opacity="0.35"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
