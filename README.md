@@ -2,8 +2,8 @@
 
 Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh, recente rechtspraakduiding, HAP-patroonherkenning en ingebouwde About/referenties-modal. Werkt als web-app op iOS en Android.
 
-**Appversie:** v1.4  
-**README/documentatie:** v1.4 — About/referenties-modal toegevoegd  
+**Appversie:** v1.5  
+**README/documentatie:** v1.5 — A1 niet langer knock-out, POH-S herframed, C3 helptekst, VBAR-monitorpunt  
 **Peildatum bronnen:** 13 mei 2026
 
 ## ⚠ Belangrijk
@@ -20,7 +20,7 @@ De DBA-scan bestaat uit 18-20 vragen (afhankelijk van type opdracht) en is nadru
 - **Deliveroo-arrest (Hoge Raad, 2023)** — negen gezichtspunten voor de holistische kwalificatie van de arbeidsrelatie.
 - **Uber-arrest (Hoge Raad, 2025)** — geen vaste rangorde tussen de gezichtspunten; extern ondernemerschap kan zwaar meewegen.
 - **Zorgspecifieke DBA-/arbeidsrelatierechtspraak** — o.a. HAP/waarnemend huisarts 2023, waarnemend intensivist 2024 en logopedist 2026. Deze rechtspraak wordt gebruikt om zorgspecifieke signalen zoals vaste dagdelen, HIS/EPD-gebruik, praktijkmiddelen, professionele autonomie en organisatorische inbedding genuanceerder te wegen.
-- **Ondersteunende zorgcontext** — o.a. POH-S/btw-vrijstellingsrechtspraak, niet als directe DBA-uitspraak over een individuele zzp’er, maar als context bij het onderscheid tussen gezondheidskundige zorgverlening en louter personeelslevering.
+- **Ondersteunende zorgcontext (btw, géén DBA)** — POH-S/btw-vrijstellingsrechtspraak, expliciet opgenomen als btw-zaak en niet als DBA-uitspraak. Dient om het onderscheid zichtbaar te maken tussen gezondheidskundige zorgverlening en louter personeelslevering; niet bruikbaar als bewijs voor de DBA-kwalificatie van een individuele zzp’er.
 - **LHV-modelovereenkomsten en LHV-sectorinformatie** — modelovereenkomsten, casusposities, actielijnen, Vergewistool-duiding en actuele lijn rond zelfstandigenbeleid.
 - **Zorgspecifieke compliance buiten de DBA-score** — Wtza/LRZa en Wkkgz-klachten-/geschillenregeling, inclusief SKGE en DOKh als huisarts-relevante voorbeelden.
 
@@ -165,10 +165,10 @@ Deze uitspraken zijn opgenomen om zichtbaar te maken dat de tool niet alleen op 
 - Rechtbank Zeeland-West-Brabant — logopedist, ECLI:NL:RBZWB:2026:1391: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391  
   Positieve zorgspecifieke referentie: één opdrachtgever, werken op locatie en gebruik van praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. Relevant voor de nuance dat HIS/EPD-gebruik, vaste dagdelen of zorgkaders niet automatisch rood zijn.
 
-#### Ondersteunende zorgcontext — geen directe DBA-uitspraak over individuele zzp’er
+#### Ondersteunende zorgcontext — btw-context, géén DBA-uitspraak
 
 - Gerechtshof ’s-Hertogenbosch — POH-S / medische btw-vrijstelling, ECLI:NL:GHSHE:2025:3536: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536  
-  Ondersteunende context, geen directe DBA-/schijnzelfstandigheidsuitspraak over een individuele POH-zzp’er. Relevant voor het onderscheid tussen gezondheidskundige zorgverlening en louter terbeschikkingstelling van personeel. Niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert.
+  **Btw-zaak, geen DBA-uitspraak.** Opgenomen om het onderscheid expliciet te maken: btw-vrijstelling voor ondersteunende zorg zegt niets over de DBA-kwalificatie van een individuele zzp’er. Relevant voor het onderscheid tussen gezondheidskundige zorgverlening en louter terbeschikkingstelling van personeel. **Niet gebruiken** als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert.
 
 ### Secundaire duiding en achtergrond
 
@@ -191,11 +191,13 @@ Bij updates eerst controleren:
 2. Volledige tekst van relevante uitspraken op Rechtspraak.nl.
 3. Of secundaire duidingen nog overeenkomen met de actuele primaire bronnen.
 4. Of nieuwe rechtspraak aanleiding geeft om scoreweging, knock-outvragen of rapporttaal aan te passen.
+5. **Apart monitoren:** de VBAR (Wet verduidelijking beoordeling arbeidsrelaties) en de Nota van Wijziging van maart 2026. Als de VBAR (of opvolger zoals de Zelfstandigenwet) in werking treedt, schuiven de toetsingscriteria mogelijk significant — vraagteksten, weging en knock-outlogica moeten dan opnieuw tegen het licht.
 
 ## Versiebeheer
 
 | Versie | Datum | Peildatum jurisprudentie | Wijzigingen |
 |--------|-------|--------------------------|-------------|
+| v1.5   | 13 mei 2026 | 13 mei 2026 | A1 (vooraf afgesproken einddatum) niet langer als knock-out gemarkeerd; gewicht 3 blijft, maar geen automatische profiel-trigger meer — onderbouwd door Uber-nuance en logopedist 2026. POH-S referentie strenger gelabeld als btw-zaak/géén DBA-uitspraak, zowel in de app-modal als in de README. C3-helptekst expliciet gekoppeld aan de intake-vraag over eigen geschillenaansluiting, om dubbel lezen te voorkomen. VBAR (Wet verduidelijking beoordeling arbeidsrelaties) + Nota van Wijziging maart 2026 toegevoegd als apart monitorpunt in onderhoudsnotitie. Service-worker cache gebumpt naar `wrs-v1.5`. |
 | v1.4   | 13 mei 2026 | 13 mei 2026 | About/referenties-modal toegevoegd in de app zelf, met compacte disclaimer, bronbasis, zorgspecifieke jurisprudentie, POH-S-nuance en compliancebronnen. Service-worker cacheversie bijgewerkt. |
 | v1.3.4 | 13 mei 2026 | 13 mei 2026 | README-documentatie uitgebreid met zorgspecifieke rechtspraak/context: HAP-waarnemend huisarts 2023, intensivist 2024, logopedist 2026 en POH-S/btw-vrijstelling als ondersteunende context. Duidelijker onderscheid gemaakt tussen directe DBA-/arbeidsrelatierechtspraak en niet-DBA zorgcontext. Appcode ongewijzigd t.o.v. v1.3.3. |
 | v1.3.3 | 13 mei 2026 | 13 mei 2026 | Mobiele rapportopmaak verbeterd: lange labels zoals LRZa / Zorgaanbiedersportaal en geschilleninstantie / klachtenregeling breken netter af binnen rapportkaders; slash-termen verduidelijkt naar spaties of “klachten- en geschillenroute”; service-worker cacheversie bijgewerkt. |
@@ -233,6 +235,15 @@ Tool herpositioneren of intrekken, afhankelijk van overlap. Bij behoud:
 Niels Braakman — eigen werkversie, geen Anthropic/Claude-product, geen LHV-product.
 
 ## Changelog
+
+### v1.5 — A1 herwogen, POH-S strenger gelabeld, C3 verduidelijkt, VBAR-monitorpunt
+
+- **A1 (vooraf afgesproken einddatum/einde-bij-event)** niet langer als knock-out gemarkeerd. Gewicht 3 blijft behouden, maar A1-rood triggert niet meer automatisch een verhoogd of hoog profiel. Onderbouwing: na Uber 2025 en de logopedist-uitspraak van 2026 kan duurwaarneming met realistische horizon zelfstandig blijven, mits de overige indicatoren (vervanging, autonomie, geen formatie-inbedding, ondernemerschap) goed staan. De `why`-tekst bij A1 is aangepast om deze nuance expliciet te maken.
+- **POH-S / btw-vrijstelling (ECLI:NL:GHSHE:2025:3536)** strenger gelabeld als btw-zaak en géén DBA-uitspraak — zowel in de About/referenties-modal als in de README. Het onderscheid btw-vrijstelling vs. DBA-kwalificatie is nu expliciet, om te voorkomen dat de uitspraak als zelfstandigheids-vrijbrief wordt gelezen.
+- **C3-helptekst (klachten- en geschillenroute binnen de opdracht)** opent nu met een verwijzing naar de intake-vraag over de eigen zelfstandige aansluiting. Dat maakt direct duidelijk dat C3 specifiek gaat over de feitelijke en contractuele route binnen déze opdracht, niet over je eigen Wkkgz-status.
+- **VBAR (Wet verduidelijking beoordeling arbeidsrelaties) + Nota van Wijziging maart 2026** toegevoegd als apart monitorpunt in de onderhoudsnotitie (zowel in de README als in de About-modal van de app). Bij inwerkingtreding moeten vraagteksten, weging en knock-outlogica opnieuw tegen het licht.
+- Versie-strings op alle vijf plekken in `index.html` bijgewerkt naar v1.5 (CSS-header, header-badge, About-modal, footer, `STATE.version`).
+- Service-worker cache gebumpt naar `wrs-v1.5`.
 
 ### v1.4 — About/referenties-modal
 

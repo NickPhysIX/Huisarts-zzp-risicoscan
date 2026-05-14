@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <style>
 /* ============================================================
-   WAARNEEM-RISICOSCAN v1.4
+   WAARNEEM-RISICOSCAN v1.5
    Eigen werkversie — geen juridische vrijwaring
    ============================================================ */
 
@@ -1263,7 +1263,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="brand">Pre-opdrachtcheck zzp-waarneming</div>
     <h1 class="site-title">Waarneem-Risicoscan</h1>
     <p class="site-subtitle">Eigen werkversie voor zzp-huisartsen</p>
-    <span class="version-tag" id="version-display">v1.4 · peildatum 13 mei 2026</span>
+    <span class="version-tag" id="version-display">v1.5 · peildatum 13 mei 2026</span>
   </div>
 </header>
 
@@ -1442,7 +1442,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="modal-header">
       <div>
         <h2 id="about-modal-title">Over deze tool &amp; referenties</h2>
-        <p>Waarneem-Risicoscan v1.4 · eigen werkversie · peildatum bronnen 13 mei 2026</p>
+        <p>Waarneem-Risicoscan v1.5 · eigen werkversie · peildatum bronnen 13 mei 2026</p>
       </div>
       <button type="button" class="modal-close" id="about-close-btn" aria-label="Sluit venster">×</button>
     </div>
@@ -1475,7 +1475,7 @@ section { animation: fadeIn 0.4s ease-out; }
         <li><strong>Waarnemend huisarts / HAP — Rechtbank Midden-Nederland 2023:</strong> positieve zorgspecifieke referentie voor waarneemovereenkomst met huisartsenpost. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBMNE:2023:6072" target="_blank" rel="noopener">ECLI:NL:RBMNE:2023:6072</a></li>
         <li><strong>Waarnemend intensivist / medisch specialist — Rechtbank Zeeland-West-Brabant 2024:</strong> negatieve spiegelcasus bij structurele inbedding, rooster/vakgroep/protocollen en werken als vaste formatie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2024:4597" target="_blank" rel="noopener">ECLI:NL:RBZWB:2024:4597</a></li>
         <li><strong>Zzp-logopedist — Rechtbank Zeeland-West-Brabant 2026:</strong> positieve zorgspecifieke referentie; één opdrachtgever, locatie en praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391" target="_blank" rel="noopener">ECLI:NL:RBZWB:2026:1391</a></li>
-        <li><strong>POH-S / btw-vrijstelling — Hof ’s-Hertogenbosch 2025:</strong> ondersteunende zorgcontext, geen directe DBA-uitspraak over een individuele zzp’er. Niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536" target="_blank" rel="noopener">ECLI:NL:GHSHE:2025:3536</a></li>
+        <li><strong>POH-S / btw-vrijstelling — Hof ’s-Hertogenbosch 2025:</strong> <em>btw-zaak, géén DBA-uitspraak.</em> Opgenomen om het onderscheid expliciet te maken: btw-vrijstelling voor ondersteunende zorg zegt niets over de DBA-kwalificatie van de individuele zzp’er. Niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536" target="_blank" rel="noopener">ECLI:NL:GHSHE:2025:3536</a></li>
       </ul>
 
       <h3>Compliance buiten de DBA-score</h3>
@@ -1489,6 +1489,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
       <h3>Onderhoudsnotitie</h3>
       <p>Bij nieuwe rechtspraak, LHV-duiding of beleidswijziging moeten vraagteksten, scoreweging, knock-outlogica, rapporttaal en deze referentielijst opnieuw worden gecontroleerd. Secundaire duidingen zijn nuttig voor interpretatie, maar de primaire uitspraak of officiële bron blijft leidend.</p>
+      <p><strong>Apart monitoren:</strong> de VBAR (Wet verduidelijking beoordeling arbeidsrelaties), inclusief de Nota van Wijziging van maart 2026. Als de VBAR (of opvolger) in werking treedt, schuiven de toetsingscriteria mogelijk significant — vraagteksten en weging moeten dan opnieuw tegen het licht.</p>
 
       <div class="btn-row">
         <button type="button" class="btn btn-primary" id="about-close-bottom-btn">Sluiten</button>
@@ -1500,7 +1501,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
 <footer class="site-footer no-print">
   <div class="container">
-    <p>Waarneem-Risicoscan v1.4 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
+    <p>Waarneem-Risicoscan v1.5 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
     <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser · <button type="button" class="footer-link-button" id="about-open-footer-btn">About &amp; referenties</button></p>
   </div>
 </footer>
@@ -1513,7 +1514,7 @@ const STATE = {
   intake: { opdrachtgever: '', periode: '', type: '', fase: '' },
   wtza: { lrzaStatus: '', wtzaMelding: '', geschillenStatus: '' },
   answers: {}, // { questionId: 'green' | 'amber' | 'red' }
-  version: 'v1.4',
+  version: 'v1.5',
   peildatum: '13 mei 2026',
 };
 
@@ -1522,9 +1523,9 @@ const STATE = {
    ============================================================ */
 const QUESTIONS = [
   // BLOK A — Tijd & afbakening
-  { id:"A1", blok:"A", weight:3, weightStarter:3, knockout:true,
+  { id:"A1", blok:"A", weight:3, weightStarter:3, knockout:false,
     vraag:"Heeft de opdracht een vooraf afgesproken einddatum of einde-bij-event (bv. terugkeer praktijkhouder)?",
-    why:"Onbepaalde duur is in jurisprudentie (Deliveroo, Uber) een sterke indicator van werknemerachtige relatie. Een concrete einddatum of einde-trigger maakt de tijdelijke aard van de opdracht zichtbaar.",
+    why:"Onbepaalde duur is in jurisprudentie (Deliveroo, Uber) een indicator van werknemerachtige relatie, maar niet automatisch fataal. Recente zorgrechtspraak (waarnemend huisarts 2023, logopedist 2026) laat zien dat duurwaarneming met realistische horizon zelfstandig kan blijven mits de rest klopt. Een concrete einddatum of einde-trigger maakt de tijdelijke aard zichtbaar en versterkt het profiel; ontbreken ervan weegt zwaar bij samenloop met gezag, inbedding en ontbrekend ondernemerschap.",
     groen:"Ja, expliciet einde of concrete einde-trigger in contract",
     oranje:"Einde-trigger genoemd, maar realistische horizon onduidelijk",
     rood:"Nee, doorlopend / open einde",
@@ -1590,7 +1591,7 @@ const QUESTIONS = [
 
   { id:"C3", blok:"C", weight:2, weightStarter:2, knockout:false,
     vraag:"Is in de opdracht aantoonbaar geregeld hoe klachten en geschillen over jouw waarneming worden afgehandeld?",
-    why:"De eigen Wkkgz-/geschillenstatus wordt al apart in de intake gecontroleerd. Deze DBA-vraag gaat daarom vooral over de feitelijke en contractuele route binnen deze opdracht: weten patiënt, praktijk en waarnemer waar een klacht of geschil terechtkomt, zonder dat dit verborgen werknemerachtige inbedding wordt?",
+    why:"Jouw eigen aansluiting bij een geschilleninstantie is al in de intake gevraagd en valt buiten de DBA-score. Deze DBA-vraag gaat daarom specifiek over de feitelijke en contractuele route binnen déze opdracht: weten patiënt, praktijk en waarnemer waar een klacht of geschil terechtkomt, zonder dat dit verborgen werknemerachtige inbedding wordt?",
     groen:"Ja, eigen route of expliciete afspraak met praktijk/organisatie is vastgelegd",
     oranje:"Route bestaat, maar verdeling tussen praktijk en waarnemer is beperkt uitgewerkt",
     rood:"Niet geregeld of onduidelijk hoe klachten/geschillen over jouw waarneming lopen",
