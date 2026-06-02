@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Waarneem-Risicoscan — eigen werkversie</title>
-<meta name="description" content="Pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen. Eigen werkversie, geen juridische vrijwaring.">
+<meta name="description" content="Pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen. Eigen werkversie met zorgspecifieke rechtspraakduiding, geen juridische vrijwaring.">
 
 <!-- PWA: Web App Manifest -->
 <link rel="manifest" href="./manifest.webmanifest">
@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <style>
 /* ============================================================
-   WAARNEEM-RISICOSCAN v1.5
+   WAARNEEM-RISICOSCAN v1.6.1
    Eigen werkversie — geen juridische vrijwaring
    ============================================================ */
 
@@ -1263,7 +1263,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="brand">Pre-opdrachtcheck zzp-waarneming</div>
     <h1 class="site-title">Waarneem-Risicoscan</h1>
     <p class="site-subtitle">Eigen werkversie voor zzp-huisartsen</p>
-    <span class="version-tag" id="version-display">v1.5 · peildatum 13 mei 2026</span>
+    <span class="version-tag" id="version-display">v1.6.1 · peildatum 2 juni 2026</span>
   </div>
 </header>
 
@@ -1442,7 +1442,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="modal-header">
       <div>
         <h2 id="about-modal-title">Over deze tool &amp; referenties</h2>
-        <p>Waarneem-Risicoscan v1.5 · eigen werkversie · peildatum bronnen 13 mei 2026</p>
+        <p>Waarneem-Risicoscan v1.6.1 · eigen werkversie · peildatum bronnen 2 juni 2026</p>
       </div>
       <button type="button" class="modal-close" id="about-close-btn" aria-label="Sluit venster">×</button>
     </div>
@@ -1454,6 +1454,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
       <h3>Wat de scan weegt</h3>
       <p>De DBA-score gebruikt een holistisch interpretatiekader. Losse signalen zoals één opdrachtgever, vaste dagdelen of gebruik van HIS/EPD zijn niet automatisch beslissend. Ze worden zwaarder wanneer ze samengaan met gezag, HR-achtige aansturing, structurele inbedding, ontbrekend ondernemersrisico of geen reële vervangingsroute.</p>
+      <p><strong>v1.6-nuance:</strong> recente zorgduiding is verwerkt rond twee punten: verantwoording/rapportage is niet hetzelfde als gezag, en professionele zorgzelfstandigheid moet concreet blijken uit eigen verantwoordelijkheid, klachtenroute, patiëntcommunicatie, verzekeringen en financieel risico. Secundaire duidingen zijn daarbij ondersteunend; primaire uitspraken en officiële bronnen blijven leidend.</p>
 
       <div class="reference-grid">
         <div class="reference-card">
@@ -1475,6 +1476,8 @@ section { animation: fadeIn 0.4s ease-out; }
         <li><strong>Waarnemend huisarts / HAP — Rechtbank Midden-Nederland 2023:</strong> positieve zorgspecifieke referentie voor waarneemovereenkomst met huisartsenpost. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBMNE:2023:6072" target="_blank" rel="noopener">ECLI:NL:RBMNE:2023:6072</a></li>
         <li><strong>Waarnemend intensivist / medisch specialist — Rechtbank Zeeland-West-Brabant 2024:</strong> negatieve spiegelcasus bij structurele inbedding, rooster/vakgroep/protocollen en werken als vaste formatie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2024:4597" target="_blank" rel="noopener">ECLI:NL:RBZWB:2024:4597</a></li>
         <li><strong>Zzp-logopedist — Rechtbank Zeeland-West-Brabant 2026:</strong> positieve zorgspecifieke referentie; één opdrachtgever, locatie en praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391" target="_blank" rel="noopener">ECLI:NL:RBZWB:2026:1391</a></li>
+        <li><strong>Zorgmaatje aan Huis / zorgbureau — Rechtbank Rotterdam 2026:</strong> positieve zorgspecifieke referentie; de rechter benoemde o.a. tijdelijke opdrachten, vrijheid in wanneer/hoe, rapportage/verantwoording als niet automatisch gezag, vervanging, weigeringsvrijheid, geen interne organisatiepositie, ondernemersrisico en meerdere opdrachtgevers. Let op: dit was een gezamenlijk verzoek (art. 96 Rv) waarin opdrachtgever én zorgverleners het eens waren — geen bestreden geschil tegen de Belastingdienst; bruikbaar als bevestiging van de assen, niet als gewonnen procedure. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBROT:2026:5277" target="_blank" rel="noopener">ECLI:NL:RBROT:2026:5277</a></li>
+        <li><strong>Zzp-tandarts — Belastingdienstcontrole 2026:</strong> <em>signaalcasus, géén rechterlijke uitspraak.</em> Opgenomen als secundaire duiding: volgens de gepubliceerde casus wogen professionele autonomie, Wkkgz-verantwoordelijkheid, eigen klachtenregeling, verzekeringen, patiëntcommunicatie en financieel risico mee bij het oordeel dat geen schijnzelfstandigheid bestond. <a href="https://www.zzp-erindezorg.nl/blog/belastingdienst-zzp-tandarts-werkt-niet-schijnzelfstandig/" target="_blank" rel="noopener">ZZP-erindezorg duiding</a></li>
         <li><strong>POH-S / btw-vrijstelling — Hof ’s-Hertogenbosch 2025:</strong> <em>btw-zaak, géén DBA-uitspraak.</em> Opgenomen om het onderscheid expliciet te maken: btw-vrijstelling voor ondersteunende zorg zegt niets over de DBA-kwalificatie van de individuele zzp’er. Niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536" target="_blank" rel="noopener">ECLI:NL:GHSHE:2025:3536</a></li>
       </ul>
 
@@ -1488,7 +1491,7 @@ section { animation: fadeIn 0.4s ease-out; }
       </ul>
 
       <h3>Onderhoudsnotitie</h3>
-      <p>Bij nieuwe rechtspraak, LHV-duiding of beleidswijziging moeten vraagteksten, scoreweging, knock-outlogica, rapporttaal en deze referentielijst opnieuw worden gecontroleerd. Secundaire duidingen zijn nuttig voor interpretatie, maar de primaire uitspraak of officiële bron blijft leidend.</p>
+      <p>Bij nieuwe rechtspraak, LHV-duiding of beleidswijziging moeten vraagteksten, scoreweging, knock-outlogica, rapporttaal en deze referentielijst opnieuw worden gecontroleerd. Secundaire duidingen — zoals blogs over Belastingdienstcontroles — zijn nuttig voor interpretatie, maar de primaire uitspraak of officiële bron blijft leidend.</p>
       <p><strong>Apart monitoren:</strong> de VBAR (Wet verduidelijking beoordeling arbeidsrelaties), inclusief de Nota van Wijziging van maart 2026. Als de VBAR (of opvolger) in werking treedt, schuiven de toetsingscriteria mogelijk significant — vraagteksten en weging moeten dan opnieuw tegen het licht.</p>
 
       <div class="btn-row">
@@ -1501,7 +1504,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
 <footer class="site-footer no-print">
   <div class="container">
-    <p>Waarneem-Risicoscan v1.5 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
+    <p>Waarneem-Risicoscan v1.6.1 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
     <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser · <button type="button" class="footer-link-button" id="about-open-footer-btn">About &amp; referenties</button></p>
   </div>
 </footer>
@@ -1514,8 +1517,8 @@ const STATE = {
   intake: { opdrachtgever: '', periode: '', type: '', fase: '' },
   wtza: { lrzaStatus: '', wtzaMelding: '', geschillenStatus: '' },
   answers: {}, // { questionId: 'green' | 'amber' | 'red' }
-  version: 'v1.5',
-  peildatum: '13 mei 2026',
+  version: 'v1.6.1',
+  peildatum: '2 juni 2026',
 };
 
 /* ============================================================
@@ -1550,7 +1553,7 @@ const QUESTIONS = [
   // BLOK B
   { id:"B1", blok:"B", weight:3, weightStarter:3, knockout:true,
     vraag:"Bestaat er een reële vervangingsmogelijkheid door een gelijkwaardig gekwalificeerde huisarts, met redelijke kwaliteitstoets door opdrachtgever?",
-    why:"Persoonlijke arbeidsplicht is een kernkenmerk van een arbeidsovereenkomst. Een vervangingsclausule is sterker als er ook een praktische route bestaat: collega-pool, waarneemnetwerk, ruilroute of concrete afspraak. In huisartsenzorg is een kwaliteitstoets door opdrachtgever logisch en niet automatisch problematisch.",
+    why:"Persoonlijke arbeidsplicht is een kernkenmerk van een arbeidsovereenkomst. Recente zorgrechtspraak bevestigt dat zelf vervanging kunnen regelen ertoe doet, maar alleen als vervanging niet uitsluitend op papier bestaat. In huisartsenzorg is een kwaliteitstoets door opdrachtgever logisch en niet automatisch problematisch.",
     groen:"Ja, contractueel mogelijk én praktisch uitvoerbaar, met redelijke kwaliteitstoets",
     oranje:"Wel een clausule, maar praktische route/pool/netwerk is nog beperkt uitgewerkt",
     rood:"Nee, feitelijke persoonlijke arbeidsplicht of opdrachtgever accepteert in praktijk geen vervanging",
@@ -1565,46 +1568,44 @@ const QUESTIONS = [
     bewijs:"E-mails/berichten waarin dagdelen in overleg zijn vastgesteld; voorbeelden dat je kon weigeren; contractuele afbakening van periode en inzet." },
 
   { id:"B3", blok:"B", weight:1, weightStarter:1, knockout:false,
-    vraag:"Mag je opdrachten weigeren zonder consequenties (no work, no pay)?",
-    why:"Vrij weigerrecht zonder economische sanctie is een klassiek zelfstandigheidsindicator. Een oproepplicht of beschikbaarheidsverplichting wijst op werkgeversgezag.",
-    groen:"Ja, weigeringsrecht expliciet",
-    oranje:"Weigering mogelijk, maar feitelijk druk om aan te nemen",
-    rood:"Nee, oproepplicht of beschikbaarheidsverplichting",
-    bewijs:"Clausule in de overeenkomst; voorbeelden van geweigerde opdrachten zonder gevolg." },
+    vraag:"Mag je opdrachten weigeren zonder consequenties en hoef je je tussen opdrachten niet beschikbaar te houden (no work, no pay)?",
+    why:"Vrijheid om opdrachten te accepteren of te weigeren is een zelfstandigheidsindicator. Recente zorgrechtspraak benadrukt ook dat een zelfstandige zich niet beschikbaar hoeft te houden tussen opdrachten. Een oproepplicht, beschikbaarheidsplicht of druk om altijd gaten te vullen wijst eerder op werkgeversgezag.",
+    groen:"Ja, weigeringsrecht expliciet en geen beschikbaarheidsplicht tussen opdrachten",
+    oranje:"Weigering mogelijk, maar feitelijk druk om aan te nemen of beschikbaar te blijven",
+    rood:"Nee, oproepplicht, beschikbaarheidsverplichting of sanctie/druk bij weigering",
+    bewijs:"Clausule in de overeenkomst; voorbeelden van geweigerde opdrachten zonder gevolg; planning/communicatie waaruit blijkt dat er geen beschikbaarheidsplicht bestaat." },
 
-  // BLOK C
   { id:"C1", blok:"C", weight:3, weightStarter:3, knockout:true,
     vraag:"Heb je een eigen BIG/RGS-positie en eigen professionele/tuchtrechtelijke verantwoordelijkheid voor de geleverde zorg?",
-    why:"De LHV benadrukt in haar lobby dat eigen BIG-registratie + eigen tuchtrechtelijke positie + eigen aansprakelijkheid een fundamenteel verschil maken met werknemerschap. Eindverantwoordelijkheid van de praktijkhouder voor het kwaliteitssysteem is iets anders dan werkgeversgezag.",
-    groen:"Ja, eigen BIG/RGS + eigen aansprakelijkheid + eigen BAV",
-    oranje:"Eigen BIG/RGS, maar onduidelijke verdeling aansprakelijkheid",
-    rood:"Geen eigen BIG/RGS-positie of geen eigen tuchtrechtelijke verantwoordelijkheid",
-    bewijs:"BIG-registratie; eigen beroepsaansprakelijkheidsverzekering (BAV) op naam." },
+    why:"Eigen BIG/RGS-registratie, eigen tuchtrechtelijke verantwoordelijkheid, eigen aansprakelijkheid en eigen verantwoordelijkheid voor patiëntbehandeling zijn zorgspecifieke zelfstandigheidskenmerken. De tandarts-casus uit juni 2026 laat bovendien zien dat ook de Belastingdienst zulke kenmerken kan meewegen wanneer de feiten goed zijn gedocumenteerd. Eindverantwoordelijkheid van een praktijkhouder voor het kwaliteitssysteem is iets anders dan werkgeversgezag.",
+    groen:"Ja, eigen BIG/RGS + eigen aansprakelijkheid + eigen BAV + eigen professionele verantwoordelijkheid",
+    oranje:"Eigen BIG/RGS, maar aansprakelijkheid, patiëntcommunicatie of verantwoordelijkheidsverdeling is onduidelijk",
+    rood:"Geen eigen BIG/RGS-positie of geen eigen professionele/tuchtrechtelijke verantwoordelijkheid",
+    bewijs:"BIG-/RGS-registratie; eigen beroepsaansprakelijkheidsverzekering (BAV); contractpassage over professionele verantwoordelijkheid, patiëntbehandeling, verslaglegging en aansprakelijkheid." },
 
   { id:"C2", blok:"C", weight:2, weightStarter:2, knockout:false,
     vraag:"Bepaal je zelfstandig je medisch beleid (diagnose, behandeling, verwijzing) zonder werkgeversinstructie?",
-    why:"Professionele autonomie binnen vakinhoudelijke kaders ≠ werknemersrelatie. Het verschil zit in HR-achtige sturing (functioneringsgesprekken, beoordelingscyclus door niet-medici) versus inhoudelijke kwaliteitsafspraken.",
-    groen:"Ja, autonome medische besluitvorming binnen vakinhoudelijke kaders",
-    oranje:"Beperkte sturing, vooral via kwaliteitssysteem (geen HR)",
-    rood:"HR-achtige aansturing op medische inhoud (functioneringsgesprekken, beoordelingscyclus)",
-    bewijs:"Geen functioneringsgesprek-verslagen op medische inhoud; geen beoordelingscyclus door niet-medici." },
+    why:"Professionele autonomie binnen vakinhoudelijke kaders is iets anders dan een werknemersrelatie. Recente zorgrechtspraak bevestigt dat verantwoording afleggen, rapporteren, dossiervoering en werken volgens wettelijke of professionele zorgkaders niet automatisch gezag opleveren. Het risico ontstaat vooral wanneer de opdrachtgever HR-achtig of inhoudelijk gaat sturen op het 'hoe' van het werk, in plaats van op de afgesproken opdracht en kwaliteit.",
+    groen:"Ja, autonome medische besluitvorming binnen vakinhoudelijke kaders; rapportage/verantwoording blijft functioneel",
+    oranje:"Beperkte sturing via kwaliteitssysteem of werkafspraken, maar geen HR- of beoordelingsregime",
+    rood:"HR-achtige of inhoudelijke werkgeversaansturing op medisch handelen (functioneringsgesprekken, beoordelingscyclus, instructies over het 'hoe')",
+    bewijs:"Geen functionerings- of beoordelingsverslagen op medische inhoud; afspraken dat rapportage, overdracht en dossiervoering functioneel zijn voor zorgkwaliteit en wettelijke verplichtingen, niet voor werkgeversgezag." },
 
   { id:"C3", blok:"C", weight:2, weightStarter:2, knockout:false,
-    vraag:"Is in de opdracht aantoonbaar geregeld hoe klachten en geschillen over jouw waarneming worden afgehandeld?",
-    why:"Jouw eigen aansluiting bij een geschilleninstantie is al in de intake gevraagd en valt buiten de DBA-score. Deze DBA-vraag gaat daarom specifiek over de feitelijke en contractuele route binnen déze opdracht: weten patiënt, praktijk en waarnemer waar een klacht of geschil terechtkomt, zonder dat dit verborgen werknemerachtige inbedding wordt?",
-    groen:"Ja, eigen route of expliciete afspraak met praktijk/organisatie is vastgelegd",
+    vraag:"Is in de opdracht aantoonbaar geregeld hoe klachten, geschillen, aansprakelijkheid en patiëntcommunicatie over jouw waarneming lopen?",
+    why:"Jouw eigen aansluiting bij een geschilleninstantie is al in de intake gevraagd en valt buiten de DBA-score. Deze DBA-vraag gaat specifiek over de feitelijke en contractuele route binnen déze opdracht. De tandarts-casus onderstreept dat eigen klachtenregeling, eigen verzekeringen, eigen communicatie met patiënten en financieel risico bij fouten zelfstandigheid kunnen ondersteunen, mits ze aantoonbaar zijn geregeld.",
+    groen:"Ja, klachtenroute, aansprakelijkheid en patiëntcommunicatie zijn expliciet geregeld",
     oranje:"Route bestaat, maar verdeling tussen praktijk en waarnemer is beperkt uitgewerkt",
-    rood:"Niet geregeld of onduidelijk hoe klachten/geschillen over jouw waarneming lopen",
-    bewijs:"Aansluitbewijs of klachtenregeling; clausule in overeenkomst over Wkkgz-/klachtenroute en verantwoordelijkheidsverdeling." },
+    rood:"Niet geregeld of onduidelijk hoe klachten, geschillen, aansprakelijkheid of patiëntcommunicatie over jouw waarneming lopen",
+    bewijs:"Aansluitbewijs of klachtenregeling; clausule in overeenkomst over Wkkgz-/klachtenroute, aansprakelijkheid, patiëntcommunicatie en verantwoordelijkheidsverdeling." },
 
-  // BLOK D
   { id:"D1", blok:"D", weight:3, weightStarter:2, knockout:false,
     vraag:"Is er zichtbaar ondernemerschap buiten deze opdracht, zoals meerdere opdrachtgevers, acquisitie, eigen presentatie of aantoonbare spreiding op korte termijn?",
-    why:"Uber verduidelijkte dat extern ondernemerschap volwaardig meeweegt en per persoon kan verschillen, zelfs bij vergelijkbaar werk. Voor starters is dit minder hard te onderbouwen — daarom lager gewicht in starterfase.",
-    groen:"Meerdere opdrachtgevers (≥3) of duidelijk acquisitie-/spreidingspatroon",
+    why:"Uber verduidelijkte dat extern ondernemerschap volwaardig meeweegt en per persoon kan verschillen, zelfs bij vergelijkbaar werk. Recente zorgcasussen noemen ook het ontbreken van exclusieve binding en meerdere opdrachtgevers als belangrijke zelfstandigheidsfactoren. Voor starters is dit minder hard te onderbouwen — daarom lager gewicht in starterfase.",
+    groen:"Meerdere opdrachtgevers (≥3), geen exclusieve binding, of duidelijk acquisitie-/spreidingspatroon",
     oranje:"1-2 opdrachtgevers, maar actief op zoek of aantoonbaar in overgangsfase",
     rood:"Geen zichtbaar ondernemerschap buiten deze opdracht en geen concreet spreidingsplan",
-    bewijs:"Facturatie-overzicht; KvK-uittreksel; LinkedIn/website; documentatie van acquisitie; opdrachtplanning of spreidingslog." },
+    bewijs:"Facturatie-overzicht; KvK-uittreksel; LinkedIn/website; documentatie van acquisitie; opdrachtplanning of spreidingslog; bewijs dat geen exclusieve beschikbaarheid is afgesproken." },
 
   { id:"D2", blok:"D", weight:2, weightStarter:2, knockout:false,
     vraag:"Investeer je in eigen bedrijfsmiddelen (verzekeringen, scholing, AOV, pensioen, administratie)?",
@@ -1624,13 +1625,12 @@ const QUESTIONS = [
 
   { id:"D4", blok:"D", weight:2, weightStarter:2, knockout:false,
     vraag:"Loop je commercieel risico (debiteurenrisico, geen doorbetaling bij ziekte, eigen risico bij fouten)?",
-    why:"Commercieel risico is in Deliveroo expliciet als zelfstandigheidsindicator benoemd. Doorbetaling bij ziekte of afwezigheid van eigen aansprakelijkheid lijkt op werknemerschap.",
-    groen:"Ja, expliciet risico bij jou",
-    oranje:"Beperkt commercieel risico",
-    rood:"Geen commercieel risico (doorbetaling bij ziekte, geen eigen aansprakelijkheid)",
-    bewijs:"Geen doorbetaling-bij-ziekte clausule; eigen AOV; clausule over eigen aansprakelijkheid in overeenkomst." },
+    why:"Commercieel risico is in Deliveroo expliciet als zelfstandigheidsindicator benoemd. Recente zorgrechtspraak en de tandarts-casus noemen onder meer geen loon bij ziekte, alleen betaling voor gewerkte uren, eigen verzekeringen en financieel risico bij fouten als relevante zelfstandigheidsfactoren.",
+    groen:"Ja, expliciet risico bij jou: geen doorbetaling, eigen aansprakelijkheid/verzekering en eigen financieel risico",
+    oranje:"Beperkt commercieel risico of deels onduidelijk vastgelegd",
+    rood:"Geen commercieel risico (doorbetaling bij ziekte, geen eigen aansprakelijkheid of geen financieel risico bij fouten)",
+    bewijs:"Geen doorbetaling-bij-ziekte clausule; eigen AOV/BAV; clausule over eigen aansprakelijkheid; facturatie/no-work-no-pay afspraken; debiteuren- of incassorisico indien van toepassing." },
 
-  // BLOK E
   { id:"E1", blok:"E", weight:3, weightStarter:3, knockout:true,
     vraag:"Word je organisatorisch behandeld als externe opdrachtnemer en niet als structurele formatieplek of teamlid?",
     why:"Inbedding wordt vooral risicovol wanneer de waarnemer zelf in de organisatie wordt opgenomen: vaste rol in rooster/organogram/vakgroep/team, interne functie-identiteit, structurele neventaken of HR-cyclus. Functionele systeemtoegang voor uitvoering van zorg is iets anders dan organisatorische inbedding.",
@@ -1641,21 +1641,20 @@ const QUESTIONS = [
 
   { id:"E2", blok:"E", weight:2, weightStarter:2, knockout:false,
     vraag:"Werk je zonder werkgeversaansturing of personeelsachtige behandeling?",
-    why:"HR-aansturing wijst op gezagsverhouding: functionerings- of beoordelingsgesprekken, verlofaanvragen, verplichte teammeetings, vaste neventaken, interne targets of sancties. Beperkte deelname aan overdracht of inhoudelijk overleg voor patiëntveiligheid is iets anders.",
-    groen:"Ja, geen HR-aansturing; alleen noodzakelijke overdracht/kwaliteitsoverleg",
+    why:"HR-aansturing wijst op gezagsverhouding: functionerings- of beoordelingsgesprekken, verlofaanvragen, verplichte teammeetings, vaste neventaken, interne targets of sancties. Recente zorgrechtspraak bevestigt dat verantwoording, rapportage of noodzakelijke overdracht niet hetzelfde is als gezag; verplichte personeelsactiviteiten of HR-cycli zijn wél risicovol.",
+    groen:"Ja, geen HR-aansturing; alleen noodzakelijke overdracht/rapportage/kwaliteitsoverleg",
     oranje:"Enige deelname aan overleg of afstemming, maar zonder beoordeling, verlofregime of sancties",
-    rood:"HR-achtige behandeling: functioneringsgesprekken, verlofaanvragen, verplichte teamoverleggen, targets/sancties of structurele neventaken",
-    bewijs:"Geen functionerings- of beoordelingsverslagen; geen verlofaanvraag-systeem; overleg beperkt tot patiëntveiligheid; afspraken dat neventaken buiten scope vallen." },
+    rood:"HR-achtige behandeling: functioneringsgesprekken, verlofaanvragen, verplichte teamoverleggen/trainingen, targets/sancties of structurele neventaken",
+    bewijs:"Geen functionerings- of beoordelingsverslagen; geen verlofaanvraag-systeem; overleg beperkt tot patiëntveiligheid; afspraken dat rapportage en neventaken buiten HR-/formatiescope blijven." },
 
   { id:"E3", blok:"E", weight:1, weightStarter:1, knockout:false,
-    vraag:"Is gebruik van HIS/EPD, werkplek en praktijkmiddelen functioneel te verklaren vanuit veilige zorg, dossiervoering en AVG/Wkkgz?",
-    why:"In zorgomgevingen kan gebruik van HIS/EPD, beveiligde apparatuur, werkplek en procedures volgen uit patiëntveiligheid, dossiervoering, AVG en Wkkgz. Dat is niet automatisch werkgeversgezag. Het wordt risicovoller als het gebruik samengaat met volledige organisatorische afhankelijkheid zonder functionele zorgreden.",
-    groen:"Ja, systeem- en middelengebruik is functioneel beperkt en expliciet gekoppeld aan veilige zorg/dossiervoering",
+    vraag:"Is gebruik van HIS/EPD, rapportage-apps, werkplek en praktijkmiddelen functioneel te verklaren vanuit veilige zorg, dossiervoering en AVG/Wkkgz?",
+    why:"In zorgomgevingen kan gebruik van HIS/EPD, rapportage-apps, beveiligde apparatuur, werkplek en procedures volgen uit patiëntveiligheid, dossiervoering, AVG en Wkkgz. Recente zorgrechtspraak bevestigt dat rapportage en elektronisch dossiergebruik niet automatisch lokaal gezag betekenen. Het wordt risicovoller als dit samengaat met volledige organisatorische afhankelijkheid, vaste formatiepositie of HR-sturing.",
+    groen:"Ja, systeem-, rapportage- en middelengebruik is functioneel beperkt en expliciet gekoppeld aan veilige zorg/dossiervoering",
     oranje:"Gebruik is breder dan strikt nodig, maar nog functioneel uitlegbaar",
     rood:"Volledige afhankelijkheid van praktijkmiddelen zonder functionele zorgreden of eigen ondernemersmiddelen",
-    bewijs:"Contractpassage dat HIS/EPD/systeemtoegang functioneel is voor zorg en dossiervoering; eigen kerngereedschap; privacy-/veiligheidsinstructies zonder HR-sturing." },
+    bewijs:"Contractpassage dat HIS/EPD/rapportage/systeemtoegang functioneel is voor zorg en dossiervoering; eigen kerngereedschap; privacy-/veiligheidsinstructies zonder HR-sturing." },
 
-  // BLOK F (HAP only)
   { id:"F1", blok:"F", weight:3, weightStarter:3, knockout:true, hapOnly:true,
     vraag:"Is de HAP-inzet beperkt tot losse diensten waarvoor je je zelf inschrijft of die je vrij kunt accepteren/weigeren?",
     why:"De inzet op HAP/ANW is volgens de LHV extra kwetsbaar, omdat vaste roosters, beschikbaarheidsplichten of aansluitafspraken met werknemerachtige kenmerken kunnen wijzen op een dienstverband. Vrije inschrijving/acceptatie per dienst maakt het verschil.",
@@ -1683,11 +1682,11 @@ const QUESTIONS = [
 
   { id:"G2", blok:"G", weight:2, weightStarter:2, knockout:false,
     vraag:"Werk je onder een LHV-modelovereenkomst (incidentele waarneming / duurwaarneming) of een Belastingdienst-goedgekeurde modelovereenkomst?",
-    why:"Een LHV-modelovereenkomst of goedgekeurde modelovereenkomst is geen vrijwaring (feitelijke uitvoering blijft doorslaggevend), maar wel een belangrijke basis. Eigen contract zonder model-basis verhoogt het risico.",
-    groen:"Ja, modelovereenkomst gebruikt",
-    oranje:"Eigen contract met verwijzing naar modelelementen",
-    rood:"Eigen contract zonder model-basis",
-    bewijs:"Ondertekende modelovereenkomst; verwijzing naar LHV-versie/datum in document." },
+    why:"Een LHV-modelovereenkomst of goedgekeurde modelovereenkomst is geen vrijwaring: feitelijke uitvoering blijft doorslaggevend. De tandarts-casus laat zien dat discussie kan ontstaan ondanks een goedgekeurde modelovereenkomst, en dat herbeoordeling van de feiten uiteindelijk bepalend kan zijn. Een goed modelcontract is dus nuttig, maar alleen als de praktijk ook klopt.",
+    groen:"Ja, modelovereenkomst gebruikt én feitelijke uitvoering sluit daarop aan",
+    oranje:"Eigen contract met verwijzing naar modelelementen of model gebruikt maar uitvoering verdient controle",
+    rood:"Eigen contract zonder model-basis of contract/feitelijke uitvoering lopen duidelijk uiteen",
+    bewijs:"Ondertekende modelovereenkomst; verwijzing naar LHV-versie/datum; opdrachtbevestiging; korte reality-check dat feitelijke uitvoering overeenkomt met de contractafspraken." },
 ];
 
 const BLOK_TITLES = {
@@ -1973,14 +1972,16 @@ function renderJurisprudenceBlock(s) {
     <div class="context-note-card">
       <h3>Interpretatiekader recente rechtspraak</h3>
       <p>${criticalText}</p>
-      <p>Deze scan gebruikt daarom geen simpele rode-vlaglijst, maar een samenhangende weging van tijdelijkheid, gezag, inbedding, ondernemerschap, vervanging en feitelijke uitvoering.</p>
+      <p>Deze scan gebruikt daarom geen simpele rode-vlaglijst, maar een samenhangende weging van tijdelijkheid, gezag, inbedding, ondernemerschap, vervanging, verantwoording/rapportage en feitelijke uitvoering.</p>
       <ul>
         <li><strong>Uber / Deliveroo:</strong> geen vaste rangorde; extern ondernemerschap kan volwaardig meewegen.</li>
         <li><strong>Huisartsenpost 2023:</strong> waarneming kan buiten arbeidsovereenkomst blijven wanneer vrijheid, tarief en ontbreken van HR-aansturing goed zijn ingericht.</li>
         <li><strong>Intensivist 2024:</strong> het rode tegenbeeld is structurele inbedding in ziekenhuisrooster/vakgroep/organisatie met vergelijkbare positie als werknemers.</li>
         <li><strong>Logopedist 2026:</strong> één opdrachtgever, werken op locatie en gebruik van EPD/materialen zijn niet automatisch fataal als gezag ontbreekt en zorgwetgeving de werkwijze verklaart.</li>
+        <li><strong>Zorgmaatje / zorgbureau 2026:</strong> tijdelijke opdrachten, zelf bepalen wanneer/hoe, verantwoording ≠ gezag, vervanging, weigeringsvrijheid, geen interne organisatiepositie, ondernemersrisico en meerdere opdrachtgevers vormen samen een bruikbaar toetsingscluster.</li>
+        <li><strong>Tandartscontrole 2026:</strong> als signaalcasus — niet als rechtspraak — bevestigt dat professionele autonomie, Wkkgz-verantwoordelijkheid, eigen klachtenroute, eigen verzekeringen, patiëntcommunicatie en financieel risico feitelijk moeten worden ingericht en gedocumenteerd.</li>
       </ul>
-      <p class="note-italic" style="margin-top:12px;">Bronnen: <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2023%3A443" target="_blank" rel="noopener">HR Deliveroo 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2025%3A319" target="_blank" rel="noopener">HR Uber 2025</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBMNE%3A2023%3A6072" target="_blank" rel="noopener">RBMNE HAP 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2024%3A4597" target="_blank" rel="noopener">RBZWB intensivist 2024</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2026%3A1391" target="_blank" rel="noopener">RBZWB logopedist 2026</a>.</p>
+      <p class="note-italic" style="margin-top:12px;">Bronnen: <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2023%3A443" target="_blank" rel="noopener">HR Deliveroo 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2025%3A319" target="_blank" rel="noopener">HR Uber 2025</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBMNE%3A2023%3A6072" target="_blank" rel="noopener">RBMNE HAP 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2024%3A4597" target="_blank" rel="noopener">RBZWB intensivist 2024</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2026%3A1391" target="_blank" rel="noopener">RBZWB logopedist 2026</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBROT%3A2026%3A5277" target="_blank" rel="noopener">RBROT Zorgmaatje 2026</a> · <a href="https://www.zzp-erindezorg.nl/blog/belastingdienst-zzp-tandarts-werkt-niet-schijnzelfstandig/" target="_blank" rel="noopener">zzp-tandarts signaalcasus 2026</a>.</p>
     </div>
   `;
 }

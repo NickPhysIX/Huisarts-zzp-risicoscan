@@ -2,9 +2,9 @@
 
 Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh, recente rechtspraakduiding, HAP-patroonherkenning en ingebouwde About/referenties-modal. Werkt als web-app op iOS en Android.
 
-**Appversie:** v1.5  
-**README/documentatie:** v1.5 — A1 niet langer knock-out, POH-S herframed, C3 helptekst, VBAR-monitorpunt  
-**Peildatum bronnen:** 13 mei 2026
+**Appversie:** v1.6.1  
+**README/documentatie:** v1.6.1 — polish: art. 96 Rv-nuance Zorgmaatje, codeleesbaarheid, bestandslijst opgeschoond  
+**Peildatum bronnen:** 2 juni 2026
 
 ## ⚠ Belangrijk
 
@@ -19,8 +19,8 @@ De DBA-scan bestaat uit 18-20 vragen (afhankelijk van type opdracht) en is nadru
 - **Wet DBA / arbeidsrelaties** — huidige handhaving en beoordeling op feitelijke uitvoering.
 - **Deliveroo-arrest (Hoge Raad, 2023)** — negen gezichtspunten voor de holistische kwalificatie van de arbeidsrelatie.
 - **Uber-arrest (Hoge Raad, 2025)** — geen vaste rangorde tussen de gezichtspunten; extern ondernemerschap kan zwaar meewegen.
-- **Zorgspecifieke DBA-/arbeidsrelatierechtspraak** — o.a. HAP/waarnemend huisarts 2023, waarnemend intensivist 2024 en logopedist 2026. Deze rechtspraak wordt gebruikt om zorgspecifieke signalen zoals vaste dagdelen, HIS/EPD-gebruik, praktijkmiddelen, professionele autonomie en organisatorische inbedding genuanceerder te wegen.
-- **Ondersteunende zorgcontext (btw, géén DBA)** — POH-S/btw-vrijstellingsrechtspraak, expliciet opgenomen als btw-zaak en niet als DBA-uitspraak. Dient om het onderscheid zichtbaar te maken tussen gezondheidskundige zorgverlening en louter personeelslevering; niet bruikbaar als bewijs voor de DBA-kwalificatie van een individuele zzp’er.
+- **Zorgspecifieke DBA-/arbeidsrelatierechtspraak** — o.a. HAP/waarnemend huisarts 2023, waarnemend intensivist 2024, logopedist 2026 en Zorgmaatje/zorgbureau 2026. Deze rechtspraak wordt gebruikt om zorgspecifieke signalen zoals vaste dagdelen, rapportage/verantwoording, HIS/EPD-gebruik, praktijkmiddelen, professionele autonomie en organisatorische inbedding genuanceerder te wegen.
+- **Ondersteunende zorgcontext en signaalcasussen** — POH-S/btw-vrijstellingsrechtspraak (btw, géén DBA) en de zzp-tandartscontrole 2026 als signaalcasus. Dient om het onderscheid zichtbaar te maken tussen juridische bron, zorgcontext en feitelijke Belastingdienstbeoordeling; niet bruikbaar als vrijbrief.
 - **LHV-modelovereenkomsten en LHV-sectorinformatie** — modelovereenkomsten, casusposities, actielijnen, Vergewistool-duiding en actuele lijn rond zelfstandigenbeleid.
 - **Zorgspecifieke compliance buiten de DBA-score** — Wtza/LRZa en Wkkgz-klachten-/geschillenregeling, inclusief SKGE en DOKh als huisarts-relevante voorbeelden.
 
@@ -36,7 +36,7 @@ De tool genereert een rapport met:
 - Score op dynamische maxscore (afhankelijk van type opdracht en fase)
 - Knock-out signalering bij rode antwoorden op kernvragen
 - **Aparte Wtza/LRZa-/geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh** — geen invloed op DBA-score, wel apart actieadvies
-- **Jurisprudentie-duiding in het rapport** — samenloop van signalen i.p.v. losse rode-vlagmechaniek
+- **Jurisprudentie-duiding in het rapport** — samenloop van signalen i.p.v. losse rode-vlagmechaniek; v1.6 voegt toe: rapportage/verantwoording is niet automatisch gezag en zorgzelfstandigheid moet blijken uit feiten zoals eigen verantwoordelijkheid, klachtenroute, patiëntcommunicatie, verzekeringen en risico.
 - **HAP/ANW-patroonherkenning** — losse dienst, VIP-achtig patroon of structureel roosterblok
 - **About/referenties-modal in de app** — compacte uitleg, disclaimers, bronbasis, jurisprudentie en compliancebronnen zonder de hoofdflow te belasten
 - **Gepersonaliseerde bewijsmappen-checklist** — categorieën *archiveren / versterken / kritiek*
@@ -50,7 +50,6 @@ waarneem-risicoscan/
 ├── index.html              # Hoofdbestand: HTML, CSS, JS allemaal inline
 ├── manifest.webmanifest    # PWA manifest (naam, iconen, kleuren)
 ├── service-worker.js       # Offline-functionaliteit (cache-first)
-├── icon.svg                # Bron-icoon (stilistische stethoscoop)
 ├── icon-512.png            # 512×512 voor manifest
 ├── icon-192.png            # 192×192 voor manifest
 ├── apple-touch-icon.png    # 180×180 voor iOS homescreen
@@ -165,6 +164,9 @@ Deze uitspraken zijn opgenomen om zichtbaar te maken dat de tool niet alleen op 
 - Rechtbank Zeeland-West-Brabant — logopedist, ECLI:NL:RBZWB:2026:1391: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391  
   Positieve zorgspecifieke referentie: één opdrachtgever, werken op locatie en gebruik van praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. Relevant voor de nuance dat HIS/EPD-gebruik, vaste dagdelen of zorgkaders niet automatisch rood zijn.
 
+- Rechtbank Rotterdam — Zorgmaatje aan Huis / zorgbureau, ECLI:NL:RBROT:2026:5277: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBROT:2026:5277  
+  Positieve zorgspecifieke referentie: tijdelijke opdrachten, zelf bepalen wanneer/hoe, verantwoording/rapportage niet automatisch gezag, vervanging, weigeringsvrijheid, geen interne organisatiepositie, ondernemersrisico en meerdere opdrachtgevers. Relevant voor C2/E2/E3 en voor de bewijsmappenlogica. **Procedurele context:** beschikking van 30 april 2026 (kantonrechter mr. F. Aukema-Hartog) op een gezamenlijk verzoek ex art. 96 Rv — opdrachtgever en zorgverleners verzochten samen de verklaring voor recht en waren het eens over de kwalificatie. Geen contentieus geschil en geen procedure tegen de Belastingdienst; gebruiken als bevestiging van de toetsingsassen, niet als gewonnen handhavingszaak.
+
 #### Ondersteunende zorgcontext — btw-context, géén DBA-uitspraak
 
 - Gerechtshof ’s-Hertogenbosch — POH-S / medische btw-vrijstelling, ECLI:NL:GHSHE:2025:3536: https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536  
@@ -179,6 +181,8 @@ Secundaire bronnen zijn bruikbaar voor interpretatie en onderhoud, maar zijn gee
 - KVDL — Rechtbank: waarnemend medisch specialist is schijnzelfstandige: https://kvdl.com/artikelen/rechtbank-waarnemend-medisch-specialist-is-schijnzelfstandige
 - KBS Advocaten — Overeenkomst van opdracht met waarnemend intensivist kwalificeert als arbeidsovereenkomst: https://www.kbsadvocaten.nl/overeenkomst-van-opdracht-met-waarnemend-intensivist-kwalificeert-als-arbeidsovereenkomst-deliveroo-gezichtspunten/
 - Salaris Vanmorgen — Overeenkomst van opdracht voor logopedist, geen gezagsverhouding: https://www.salarisvanmorgen.nl/2026/03/20/overeenkomst-van-opdracht-voor-logopedist-geen-gezagsverhouding/
+- ZZP-erindezorg — Rechter bevestigt 8 kenmerken bij voorkomen van schijnzelfstandigheid in de zorg: https://www.zzp-erindezorg.nl/blog/rechter-bevestigt-8-kenmerken-bij-voorkomen-van-schijnzelfstandigheid-in-de-zorg/
+- ZZP-erindezorg — Belastingdienst: zzp-tandarts werkt níet schijnzelfstandig: https://www.zzp-erindezorg.nl/blog/belastingdienst-zzp-tandarts-werkt-niet-schijnzelfstandig/
 - TaxLive — Medische vrijstelling toepasbaar bij overeenkomst voor inzet praktijkondersteuners somatiek: https://www.taxlive.nl/nl/documenten/vn-vandaag/medische-vrijstelling-toepasbaar-bij-overeenkomst-voor-inzet-praktijkondersteuners-somatiek/
 - Taxence — Medische vrijstelling geldt voor inzet praktijkondersteuners: https://www.taxence.nl/omzetbelasting-btw/medische-vrijstelling-geldt-voor-inzet-praktijkondersteuners/
 - NVvPO — Wanneer ben je echt zelfstandig?: https://nvvpo.nl/nieuws/wanneer-ben-je-echt-zelfstandig/
@@ -197,6 +201,8 @@ Bij updates eerst controleren:
 
 | Versie | Datum | Peildatum jurisprudentie | Wijzigingen |
 |--------|-------|--------------------------|-------------|
+| v1.6.1 | 2 juni 2026 | 2 juni 2026 | Polish-release zonder functionele wijziging. Zorgmaatje-referentie (ECLI:NL:RBROT:2026:5277) voorzien van art. 96 Rv-nuance in modal en README (gezamenlijk verzoek, geen bestreden geschil tegen de Belastingdienst); ECLI geverifieerd op Rechtspraak.nl. `QUESTIONS`-array opnieuw uitgelijnd (één object per regel) voor leesbaarheid; score/weging/knock-outs identiek. Niet-meegeleverde `icon.svg` uit bestandslijst verwijderd. Versie-strings en service-worker cache gebumpt naar v1.6.1. |
+| v1.6   | 2 juni 2026 | 2 juni 2026 | Zorgmaatje/zorgbureau 2026 toegevoegd als positieve zorgspecifieke rechtspraak; zzp-tandartscontrole 2026 toegevoegd als secundaire signaalcasus. C1/C2/C3/B1/B3/D1/D4/E2/E3/G2 aangescherpt: rapportage/verantwoording ≠ gezag, elektronisch dossiergebruik ≠ lokale aansturing, vervanging moet praktisch mogelijk zijn, geen beschikbaarheidsplicht, patiëntcommunicatie/Wkkgz/klachtenroute/verzekeringen/financieel risico explicieter als bewijsstukken. Rapport-interpretatiekader en About-modal bijgewerkt. Service-worker cache gebumpt naar `wrs-v1.6`. |
 | v1.5   | 13 mei 2026 | 13 mei 2026 | A1 (vooraf afgesproken einddatum) niet langer als knock-out gemarkeerd; gewicht 3 blijft, maar geen automatische profiel-trigger meer — onderbouwd door Uber-nuance en logopedist 2026. POH-S referentie strenger gelabeld als btw-zaak/géén DBA-uitspraak, zowel in de app-modal als in de README. C3-helptekst expliciet gekoppeld aan de intake-vraag over eigen geschillenaansluiting, om dubbel lezen te voorkomen. VBAR (Wet verduidelijking beoordeling arbeidsrelaties) + Nota van Wijziging maart 2026 toegevoegd als apart monitorpunt in onderhoudsnotitie. Service-worker cache gebumpt naar `wrs-v1.5`. |
 | v1.4   | 13 mei 2026 | 13 mei 2026 | About/referenties-modal toegevoegd in de app zelf, met compacte disclaimer, bronbasis, zorgspecifieke jurisprudentie, POH-S-nuance en compliancebronnen. Service-worker cacheversie bijgewerkt. |
 | v1.3.4 | 13 mei 2026 | 13 mei 2026 | README-documentatie uitgebreid met zorgspecifieke rechtspraak/context: HAP-waarnemend huisarts 2023, intensivist 2024, logopedist 2026 en POH-S/btw-vrijstelling als ondersteunende context. Duidelijker onderscheid gemaakt tussen directe DBA-/arbeidsrelatierechtspraak en niet-DBA zorgcontext. Appcode ongewijzigd t.o.v. v1.3.3. |
@@ -235,6 +241,21 @@ Tool herpositioneren of intrekken, afhankelijk van overlap. Bij behoud:
 Niels Braakman — eigen werkversie, geen Anthropic/Claude-product, geen LHV-product.
 
 ## Changelog
+
+### v1.6.1 — polish: ECLI-nuance, codeleesbaarheid, bestandslijst
+
+- **Zorgmaatje (ECLI:NL:RBROT:2026:5277)** voorzien van procedurele nuance in de About/referenties-modal én de README: de uitspraak is een gezamenlijk verzoek ex art. 96 Rv waarin partijen het eens waren, geen bestreden geschil tegen de Belastingdienst. Bedoeld om te voorkomen dat de referentie als "gewonnen handhavingszaak" wordt gelezen. ECLI geverifieerd op Rechtspraak.nl (beschikking 30 april 2026, kantonrechter mr. F. Aukema-Hartog, zaaknr. 11928258 VZ VERZ 25-6525).
+- **Codeleesbaarheid:** de objecten in de `QUESTIONS`-array stonden deels aaneengeplakt op één regel; elk vraag-object staat nu op een eigen regel voor eenvoudiger toekomstig onderhoud. Geen functionele wijziging — score, weging en knock-outlogica zijn identiek aan v1.6.
+- **Bestandslijst** in de README opgeschoond: de niet-meegeleverde `icon.svg` is uit de bestandsstructuur verwijderd.
+- Versie-strings op alle plekken in `index.html` bijgewerkt naar v1.6.1. Service-worker cache gebumpt naar `wrs-v1.6.1`. Peildatum jurisprudentie ongewijzigd (2 juni 2026); geen nieuwe rechtspraak of weging.
+
+### v1.6 — Zorgmaatje/tandarts-duiding, rapportage ≠ gezag, zorgzelfstandigheid concreter gemaakt
+
+- **Zorgmaatje/zorgbureau 2026** toegevoegd als zorgspecifieke positieve rechtspraak. De tool verwerkt explicieter dat tijdelijke opdrachten, vrijheid in wanneer/hoe, verantwoording/rapportage zonder HR-gezag, vervanging, weigeringsvrijheid, geen interne organisatiepositie, ondernemersrisico en meerdere opdrachtgevers in samenhang relevant zijn.
+- **Zzp-tandartscontrole 2026** toegevoegd als secundaire signaalcasus, niet als primaire rechtspraak: professionele autonomie, Wkkgz-verantwoordelijkheid, eigen klachtenregeling, eigen verzekeringen, patiëntcommunicatie en financieel risico zijn explicieter opgenomen in C1/C3/D4/G2.
+- **C2/E2/E3** aangescherpt: rapporteren, verantwoording afleggen, HIS/EPD-gebruik en rapportage-apps zijn niet automatisch gezag wanneer zij functioneel voortkomen uit zorgkwaliteit, overdracht, dossiervoering, AVG of Wkkgz.
+- **B1/B3/D1/D4/G2** aangescherpt met praktische vervangingsroute, geen beschikbaarheidsplicht tussen opdrachten, geen exclusieve binding, ondernemersrisico en het onderscheid tussen modelovereenkomst en feitelijke uitvoering.
+- About/referenties-modal, rapport-interpretatiekader, README-bronnen en service-worker cache bijgewerkt naar v1.6.
 
 ### v1.5 — A1 herwogen, POH-S strenger gelabeld, C3 verduidelijkt, VBAR-monitorpunt
 
