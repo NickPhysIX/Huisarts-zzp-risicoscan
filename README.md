@@ -2,8 +2,8 @@
 
 Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh, recente rechtspraakduiding, HAP-patroonherkenning en ingebouwde About/referenties-modal. Werkt als web-app op iOS en Android.
 
-**Appversie:** v1.6.1  
-**README/documentatie:** v1.6.1 — polish: art. 96 Rv-nuance Zorgmaatje, codeleesbaarheid, bestandslijst opgeschoond  
+**Appversie:** v1.6.2  
+**README/documentatie:** v1.6.2 — Fiscaal Kompas ZZP Zorg (2024) toegevoegd als sectorduidingskader  
 **Peildatum bronnen:** 2 juni 2026
 
 ## ⚠ Belangrijk
@@ -201,6 +201,7 @@ Bij updates eerst controleren:
 
 | Versie | Datum | Peildatum jurisprudentie | Wijzigingen |
 |--------|-------|--------------------------|-------------|
+| v1.6.2 | 7 juni 2026 | 2 juni 2026 | Polish-release zonder functionele wijziging. Fiscaal Kompas ZZP Zorg (2024) toegevoegd als sectorduidingskader in de About/referenties-modal, expliciet gelabeld als brancheorganisatiedocument en géén rechtspraak; framing benadrukt dat de Zorgmaatje-uitspraak (ECLI:NL:RBROT:2026:5277) feitelijk dezelfde elementen volgt. Onderhoudsnotitie uitgebreid zodat secundaire duidingen óók sectorkaders omvatten. Score, weging, knock-outs, vraagteksten en peildatum jurisprudentie ongewijzigd. Versie-strings en service-worker cache gebumpt naar v1.6.2. |
 | v1.6.1 | 2 juni 2026 | 2 juni 2026 | Polish-release zonder functionele wijziging. Zorgmaatje-referentie (ECLI:NL:RBROT:2026:5277) voorzien van art. 96 Rv-nuance in modal en README (gezamenlijk verzoek, geen bestreden geschil tegen de Belastingdienst); ECLI geverifieerd op Rechtspraak.nl. `QUESTIONS`-array opnieuw uitgelijnd (één object per regel) voor leesbaarheid; score/weging/knock-outs identiek. Niet-meegeleverde `icon.svg` uit bestandslijst verwijderd. Versie-strings en service-worker cache gebumpt naar v1.6.1. |
 | v1.6   | 2 juni 2026 | 2 juni 2026 | Zorgmaatje/zorgbureau 2026 toegevoegd als positieve zorgspecifieke rechtspraak; zzp-tandartscontrole 2026 toegevoegd als secundaire signaalcasus. C1/C2/C3/B1/B3/D1/D4/E2/E3/G2 aangescherpt: rapportage/verantwoording ≠ gezag, elektronisch dossiergebruik ≠ lokale aansturing, vervanging moet praktisch mogelijk zijn, geen beschikbaarheidsplicht, patiëntcommunicatie/Wkkgz/klachtenroute/verzekeringen/financieel risico explicieter als bewijsstukken. Rapport-interpretatiekader en About-modal bijgewerkt. Service-worker cache gebumpt naar `wrs-v1.6`. |
 | v1.5   | 13 mei 2026 | 13 mei 2026 | A1 (vooraf afgesproken einddatum) niet langer als knock-out gemarkeerd; gewicht 3 blijft, maar geen automatische profiel-trigger meer — onderbouwd door Uber-nuance en logopedist 2026. POH-S referentie strenger gelabeld als btw-zaak/géén DBA-uitspraak, zowel in de app-modal als in de README. C3-helptekst expliciet gekoppeld aan de intake-vraag over eigen geschillenaansluiting, om dubbel lezen te voorkomen. VBAR (Wet verduidelijking beoordeling arbeidsrelaties) + Nota van Wijziging maart 2026 toegevoegd als apart monitorpunt in onderhoudsnotitie. Service-worker cache gebumpt naar `wrs-v1.5`. |
@@ -241,6 +242,15 @@ Tool herpositioneren of intrekken, afhankelijk van overlap. Bij behoud:
 Niels Braakman — eigen werkversie, geen Anthropic/Claude-product, geen LHV-product.
 
 ## Changelog
+
+### v1.6.2 — Fiscaal Kompas ZZP Zorg (2024) als sectorduidingskader
+
+Polish-release zonder functionele wijziging. De score, weging, knock-outs, vraagteksten en peildatum jurisprudentie zijn ongewijzigd t.o.v. v1.6.1.
+
+- **Fiscaal Kompas ZZP Zorg (2024)** toegevoegd als laatste item in de bronnenlijst van de About/referenties-modal, expliciet gelabeld als *brancheorganisatiedocument, géén rechtspraak*. Het is opgesteld door werkgeversorganisaties in de zorg als handvat voor beoordeling van arbeidsrelaties; eerder vanuit fiscaal-juridische hoek bekritiseerd, maar de Zorgmaatje-uitspraak (ECLI:NL:RBROT:2026:5277) volgt feitelijk dezelfde elementen (tijdelijkheid, autonomie, vervanging, weigeringsvrijheid, geen interne inbedding, ondernemersrisico, meerdere opdrachtgevers, verantwoording ≠ gezag). Voor huisartsenwaarneming minder direct geschreven dan voor verpleging, maar bruikbaar als gestructureerde checklist naast LHV-publicaties.
+- **Onderhoudsnotitie in About-modal** uitgebreid: "secundaire duidingen — zoals blogs over Belastingdienstcontroles" wordt "secundaire duidingen — zoals blogs over Belastingdienstcontroles of brancheorganisatiekaders zoals het Fiscaal Kompas ZZP Zorg". Beleidsregel ongewijzigd: primaire uitspraak of officiële bron blijft leidend.
+- **Geen wijziging** in jurisprudentielijst, scoring, knock-outs, vraagteksten, rapport-interpretatiekader, intake-vragen, compliancesectie of VBAR-monitorpunt.
+- Versie-strings op alle plekken in `index.html` bijgewerkt naar v1.6.2. Service-worker cache gebumpt naar `wrs-v1.6.2`. Peildatum jurisprudentie ongewijzigd (2 juni 2026); het Fiscaal Kompas is uit 2024 en geen nieuwe rechtsbron.
 
 ### v1.6.1 — polish: ECLI-nuance, codeleesbaarheid, bestandslijst
 
