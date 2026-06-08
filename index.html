@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
 <style>
 /* ============================================================
-   WAARNEEM-RISICOSCAN v1.6.2
+   WAARNEEM-RISICOSCAN v1.7
    Eigen werkversie — geen juridische vrijwaring
    ============================================================ */
 
@@ -962,6 +962,92 @@ section li {
   text-underline-offset: 2px;
 }
 
+
+/* Bronhiërarchie en bronbalans */
+.source-hierarchy,
+.source-balance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 12px 0 20px;
+}
+
+.source-tier-card,
+.source-balance-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 17px;
+}
+
+.source-tier-card h4,
+.source-balance-card h4 {
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: var(--primary);
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.source-tier-card p,
+.source-balance-card p,
+.source-tier-card li,
+.source-balance-card li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-mute);
+}
+
+.source-label {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 8px;
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+
+.source-label.primary { background: #E2ECF6; color: var(--primary); }
+.source-label.official { background: #E7F0E3; color: #376C2A; }
+.source-label.sector { background: #F2E9F7; color: #6B3E7E; }
+.source-label.secondary { background: #F5EEE3; color: #805A25; }
+
+.source-balance-card.court { border-top: 4px solid var(--accent); }
+.source-balance-card.tax { border-top: 4px solid var(--amber); }
+.source-balance-card.lhv { border-top: 4px solid var(--green); }
+.source-balance-card.tool { border-top: 4px solid var(--primary); }
+
+.source-balance-conclusion {
+  background: #F4F8FB;
+  border-left: 4px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  margin: 14px 0 20px;
+  font-size: 14px;
+}
+
+.source-group-title {
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--primary);
+  margin: 18px 0 8px;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px) {
+  .source-hierarchy,
+  .source-balance-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .source-balance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .source-balance-card, .source-tier-card { page-break-inside: avoid; }
+}
+
 .hap-pattern-card {
   padding: 22px 26px;
   border-radius: 12px;
@@ -1263,7 +1349,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="brand">Pre-opdrachtcheck zzp-waarneming</div>
     <h1 class="site-title">Waarneem-Risicoscan</h1>
     <p class="site-subtitle">Eigen werkversie voor zzp-huisartsen</p>
-    <span class="version-tag" id="version-display">v1.6.2 · peildatum 2 juni 2026</span>
+    <span class="version-tag" id="version-display">v1.7 · peildatum bronnen 8 juni 2026</span>
   </div>
 </header>
 
@@ -1442,7 +1528,7 @@ section { animation: fadeIn 0.4s ease-out; }
     <div class="modal-header">
       <div>
         <h2 id="about-modal-title">Over deze tool &amp; referenties</h2>
-        <p>Waarneem-Risicoscan v1.6.2 · eigen werkversie · peildatum bronnen 2 juni 2026</p>
+        <p>Waarneem-Risicoscan v1.7 · eigen werkversie · peildatum bronnen 8 juni 2026</p>
       </div>
       <button type="button" class="modal-close" id="about-close-btn" aria-label="Sluit venster">×</button>
     </div>
@@ -1454,32 +1540,94 @@ section { animation: fadeIn 0.4s ease-out; }
 
       <h3>Wat de scan weegt</h3>
       <p>De DBA-score gebruikt een holistisch interpretatiekader. Losse signalen zoals één opdrachtgever, vaste dagdelen of gebruik van HIS/EPD zijn niet automatisch beslissend. Ze worden zwaarder wanneer ze samengaan met gezag, HR-achtige aansturing, structurele inbedding, ontbrekend ondernemersrisico of geen reële vervangingsroute.</p>
-      <p><strong>v1.6-nuance:</strong> recente zorgduiding is verwerkt rond twee punten: verantwoording/rapportage is niet hetzelfde als gezag, en professionele zorgzelfstandigheid moet concreet blijken uit eigen verantwoordelijkheid, klachtenroute, patiëntcommunicatie, verzekeringen en financieel risico. Secundaire duidingen zijn daarbij ondersteunend; primaire uitspraken en officiële bronnen blijven leidend.</p>
+      <p><strong>v1.7-bronbalans:</strong> de tool maakt nu zichtbaar onderscheid tussen primaire rechtspraak, officiële uitvoerings- en beleidsbronnen, sectorinformatie en secundaire duiding. Bronnen die dezelfde feiten verschillend waarderen worden naast elkaar gezet; geen enkele blog, belangenorganisatie of losse casus bepaalt zelfstandig de score.</p>
+
+      <h3>Bronhiërarchie</h3>
+      <div class="source-hierarchy">
+        <div class="source-tier-card">
+          <h4><span class="source-label primary">1 · Primair</span> Rechtspraak</h4>
+          <p>Volledige uitspraken van Hoge Raad, gerechtshoven en rechtbanken. Deze vormen de zwaarste juridische onderbouwing van het interpretatiekader.</p>
+        </div>
+        <div class="source-tier-card">
+          <h4><span class="source-label official">2 · Officieel</span> Overheid en Belastingdienst</h4>
+          <p>Handhaving, modelovereenkomsten, wetsontwikkeling en door ministeries/Belastingdienst beoordeelde sectorcasussen. Dit is geen rechtspraak, maar wel rechtstreeks relevant voor uitvoeringsrisico.</p>
+        </div>
+        <div class="source-tier-card">
+          <h4><span class="source-label sector">3 · Sector</span> LHV, KNMT en andere beroepsorganisaties</h4>
+          <p>Professionele duiding, hulpmiddelen en belangenbehartiging. Relevant voor de zorgcontext, maar niet juridisch bindend.</p>
+        </div>
+        <div class="source-tier-card">
+          <h4><span class="source-label secondary">4 · Secundair</span> Vakmedia, blogs en signaalcasussen</h4>
+          <p>Toegankelijke uitleg en praktijkervaring. Alleen ondersteunend gebruikt en waar mogelijk gekoppeld aan een primaire of officiële bron.</p>
+        </div>
+      </div>
+
+      <h3>Waar bronnen uiteenlopen</h3>
+      <div class="source-balance-grid">
+        <div class="source-balance-card court">
+          <h4>Rechtspraak</h4>
+          <p>Deliveroo en Uber verlangen een beoordeling van alle omstandigheden zonder vaste rangorde. Extern ondernemerschap kan volwaardig en soms doorslaggevend meewegen. Zorgzaken laten zowel positieve als negatieve uitkomsten zien, afhankelijk van de feitelijke inrichting.</p>
+        </div>
+        <div class="source-balance-card tax">
+          <h4>Belastingdienst en ministeries</h4>
+          <p>De LHV meldt dat vier van zes voorgelegde huisartsencasusposities zijn afgewezen; alleen de praktijkhouder op de HAP en ingroei naar praktijkhouderschap werden als buiten dienstbetrekking beoordeeld. Modelovereenkomsten helpen alleen wanneer daadwerkelijk volgens de afspraken wordt gewerkt.</p>
+        </div>
+        <div class="source-balance-card lhv">
+          <h4>LHV</h4>
+          <p>De LHV is het niet eens met de strikte beoordeling van de huisartsencasusposities en ziet binnen wet en rechtspraak ruimte, vooral voor kortdurende waarneming. De LHV ontwikkelt daarom een eigen Vergewistool en pleit voor een kleine flexibele schil.</p>
+        </div>
+        <div class="source-balance-card tool">
+          <h4>Deze scan</h4>
+          <p>De scan kiest niet automatisch voor de ruimste of strengste lezing. Zij weegt rechtspraak én het strengere sectorale uitvoeringssignaal en presenteert een risicoprofiel, geen juridisch oordeel.</p>
+        </div>
+      </div>
+      <p class="source-balance-conclusion"><strong>Praktische betekenis:</strong> een lage score is geen bewijs van schijnzelfstandigheid en een hoge score is geen vrijwaring. De waarde zit in vooraf beoordelen, bijsturen, documenteren en vervolgens feitelijk werken zoals afgesproken.</p>
 
       <div class="reference-grid">
         <div class="reference-card">
           <h4>Arbeidsrelatie / DBA</h4>
-          <p>Wet DBA, actuele handhaving, feitelijke uitvoering, Deliveroo-gezichtspunten en Uber-nuancering over extern ondernemerschap.</p>
-          <p><a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/arbeidsrelaties/content/handhaving" target="_blank" rel="noopener">Belastingdienst handhaving</a></p>
+          <p>Hoge Raad, actuele handhaving, modelovereenkomsten en kabinetskoers.</p>
+          <p><a href="https://www.hogeraad.nl/actueel/nieuwsoverzicht/2025/februari/hoge-raad-beoordeling-sprake-arbeidsovereenkomst-geldt-rangorde-tussen/" target="_blank" rel="noopener">Hoge Raad — Uber-uitleg</a></p>
+          <p><a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/arbeidsrelaties/content/handhaving" target="_blank" rel="noopener">Belastingdienst — handhaving</a></p>
+          <p><a href="https://www.rijksoverheid.nl/actueel/nieuws/2026/03/06/kabinet-kiest-voor-meer-rust-en-duidelijkheid-voor-zzpers-en-opdrachtgevers" target="_blank" rel="noopener">Rijksoverheid — koers maart 2026</a></p>
         </div>
         <div class="reference-card">
           <h4>Huisartsensector</h4>
-          <p>LHV-modelovereenkomsten, LHV-casusposities, actielijnen, Vergewistool-duiding en discussie over ziek, piek, uniek en ANW.</p>
-          <p><a href="https://www.lhv.nl/thema/praktijkzaken/zzp-wetgeving-huisartsenzorg/" target="_blank" rel="noopener">LHV zzp-wetgeving huisartsenzorg</a></p>
+          <p>LHV-casusposities, modelovereenkomsten, actielijnen en Vergewistool-duiding.</p>
+          <p><a href="https://www.lhv.nl/thema/praktijkzaken/zzp-wetgeving-huisartsenzorg/" target="_blank" rel="noopener">LHV — zzp-wetgeving huisartsenzorg</a></p>
+          <p><a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/voorbeeldovereenkomst_huisarts_incidentele_waarneming_LHV" target="_blank" rel="noopener">Belastingdienst — incidentele waarneming</a></p>
+          <p><a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/voorbeeldovereenkomst_duurwaarneming_huisarts" target="_blank" rel="noopener">Belastingdienst — duurwaarneming</a></p>
         </div>
       </div>
 
-      <h3>Relevante rechtspraak en zorgcontext</h3>
+      <h3>Primaire rechtspraak</h3>
       <ul>
-        <li><strong>Deliveroo — Hoge Raad 2023:</strong> algemeen holistisch kader met gezichtspunten voor kwalificatie van de arbeidsrelatie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2023:443" target="_blank" rel="noopener">ECLI:NL:HR:2023:443</a></li>
-        <li><strong>Uber — Hoge Raad 2025:</strong> geen vaste rangorde tussen gezichtspunten; extern ondernemerschap kan zwaar meewegen. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2025:319" target="_blank" rel="noopener">ECLI:NL:HR:2025:319</a></li>
-        <li><strong>Waarnemend huisarts / HAP — Rechtbank Midden-Nederland 2023:</strong> positieve zorgspecifieke referentie voor waarneemovereenkomst met huisartsenpost. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBMNE:2023:6072" target="_blank" rel="noopener">ECLI:NL:RBMNE:2023:6072</a></li>
-        <li><strong>Waarnemend intensivist / medisch specialist — Rechtbank Zeeland-West-Brabant 2024:</strong> negatieve spiegelcasus bij structurele inbedding, rooster/vakgroep/protocollen en werken als vaste formatie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2024:4597" target="_blank" rel="noopener">ECLI:NL:RBZWB:2024:4597</a></li>
-        <li><strong>Zzp-logopedist — Rechtbank Zeeland-West-Brabant 2026:</strong> positieve zorgspecifieke referentie; één opdrachtgever, locatie en praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391" target="_blank" rel="noopener">ECLI:NL:RBZWB:2026:1391</a></li>
-        <li><strong>Zorgmaatje aan Huis / zorgbureau — Rechtbank Rotterdam 2026:</strong> positieve zorgspecifieke referentie; de rechter benoemde o.a. tijdelijke opdrachten, vrijheid in wanneer/hoe, rapportage/verantwoording als niet automatisch gezag, vervanging, weigeringsvrijheid, geen interne organisatiepositie, ondernemersrisico en meerdere opdrachtgevers. Let op: dit was een gezamenlijk verzoek (art. 96 Rv) waarin opdrachtgever én zorgverleners het eens waren — geen bestreden geschil tegen de Belastingdienst; bruikbaar als bevestiging van de assen, niet als gewonnen procedure. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBROT:2026:5277" target="_blank" rel="noopener">ECLI:NL:RBROT:2026:5277</a></li>
-        <li><strong>Zzp-tandarts — Belastingdienstcontrole 2026:</strong> <em>signaalcasus, géén rechterlijke uitspraak.</em> Opgenomen als secundaire duiding: volgens de gepubliceerde casus wogen professionele autonomie, Wkkgz-verantwoordelijkheid, eigen klachtenregeling, verzekeringen, patiëntcommunicatie en financieel risico mee bij het oordeel dat geen schijnzelfstandigheid bestond. <a href="https://www.zzp-erindezorg.nl/blog/belastingdienst-zzp-tandarts-werkt-niet-schijnzelfstandig/" target="_blank" rel="noopener">ZZP-erindezorg duiding</a></li>
-        <li><strong>POH-S / btw-vrijstelling — Hof ’s-Hertogenbosch 2025:</strong> <em>btw-zaak, géén DBA-uitspraak.</em> Opgenomen om het onderscheid expliciet te maken: btw-vrijstelling voor ondersteunende zorg zegt niets over de DBA-kwalificatie van de individuele zzp’er. Niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536" target="_blank" rel="noopener">ECLI:NL:GHSHE:2025:3536</a></li>
-        <li><strong>Fiscaal Kompas ZZP Zorg (2024) — sectorduidingskader:</strong> <em>brancheorganisatiedocument, géén rechtspraak.</em> Opgesteld door werkgeversorganisaties in de zorg als handvat voor beoordeling van arbeidsrelaties; eerder bekritiseerd, maar de Zorgmaatje-uitspraak (2026) volgt feitelijk de in dit kader genoemde elementen (tijdelijkheid, autonomie, vervanging, weigeringsvrijheid, geen interne inbedding, ondernemersrisico, meerdere opdrachtgevers, verantwoording ≠ gezag). Voor huisartsenwaarneming minder direct geschreven dan voor verpleging, maar bruikbaar als gestructureerde checklist naast LHV-publicaties. <a href="https://www.zzp-erindezorg.nl/fiscaal-kompas-zzp-zorg/" target="_blank" rel="noopener">Fiscaal Kompas ZZP Zorg</a></li>
+        <li><span class="source-label primary">Rechtspraak</span><strong>Deliveroo — Hoge Raad 2023:</strong> algemeen holistisch kader met gezichtspunten voor kwalificatie van de arbeidsrelatie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2023:443" target="_blank" rel="noopener">ECLI:NL:HR:2023:443</a></li>
+        <li><span class="source-label primary">Rechtspraak</span><strong>Uber — Hoge Raad 2025:</strong> geen vaste rangorde; extern ondernemerschap kan zwaar meewegen. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:HR:2025:319" target="_blank" rel="noopener">ECLI:NL:HR:2025:319</a></li>
+        <li><span class="source-label primary">Rechtspraak</span><strong>Waarnemend huisarts / HAP — Rechtbank Midden-Nederland 2023:</strong> positieve zorgspecifieke referentie, met eigen feiten rond HAP- en regiewerk. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBMNE:2023:6072" target="_blank" rel="noopener">ECLI:NL:RBMNE:2023:6072</a></li>
+        <li><span class="source-label primary">Rechtspraak</span><strong>Waarnemend intensivist — Rechtbank Zeeland-West-Brabant 2024:</strong> negatieve spiegelcasus bij structurele inbedding en een werknemerachtige positie. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2024:4597" target="_blank" rel="noopener">ECLI:NL:RBZWB:2024:4597</a></li>
+        <li><span class="source-label primary">Rechtspraak</span><strong>Zzp-logopedist — Rechtbank Zeeland-West-Brabant 2026:</strong> één opdrachtgever, locatie en praktijkfaciliteiten waren niet doorslaggevend zonder gezagsverhouding. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBZWB:2026:1391" target="_blank" rel="noopener">ECLI:NL:RBZWB:2026:1391</a></li>
+        <li><span class="source-label primary">Rechtspraak</span><strong>Zorgmaatje aan Huis — Rechtbank Rotterdam 2026:</strong> tijdelijke opdrachten, vrijheid, vervanging, weigeringsvrijheid en ondernemerschap; verantwoording was niet automatisch gezag. Procedurele nuance: gezamenlijk verzoek ex art. 96 Rv, geen bestreden handhavingszaak. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBROT:2026:5277" target="_blank" rel="noopener">ECLI:NL:RBROT:2026:5277</a></li>
+      </ul>
+
+      <h3>Officiële uitvoerings- en beleidsbronnen</h3>
+      <ul>
+        <li><span class="source-label official">Officieel</span><strong>Belastingdienst — modelovereenkomsten:</strong> bestaande modellen kunnen tot en met 31 december 2029 worden gebruikt, maar geven alleen zekerheid wanneer opdrachtgever en opdrachtnemer daadwerkelijk volgens de overeenkomst werken. <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/modelovereenkomsten-in-plaats-van-var/modelovereenkomst-zoeken/modelovereenkomsten-branches-beroepsgroepen-downloaden" target="_blank" rel="noopener">Overzicht brancheovereenkomsten</a></li>
+        <li><span class="source-label official">Officieel</span><strong>Rijksoverheid — koers maart 2026:</strong> het verduidelijkingsdeel van VBAR wordt geschrapt; het rechtsvermoeden voor lage tarieven blijft en de Zelfstandigenwet wordt verder uitgewerkt. <a href="https://www.rijksoverheid.nl/actueel/nieuws/2026/03/06/kabinet-kiest-voor-meer-rust-en-duidelijkheid-voor-zzpers-en-opdrachtgevers" target="_blank" rel="noopener">Kabinetsbericht</a></li>
+      </ul>
+
+      <h3>Beroeps- en sectorbronnen</h3>
+      <ul>
+        <li><span class="source-label sector">Sector</span><strong>LHV — huisartsencasusposities:</strong> vier van zes voorgelegde casussen zijn afgewezen; de LHV bestrijdt de strikte duiding en benadrukt professionele autonomie en eigen aansprakelijkheid. <a href="https://www.lhv.nl/thema/praktijkzaken/zzp-wetgeving-huisartsenzorg/" target="_blank" rel="noopener">Actuele LHV-themapagina</a></li>
+        <li><span class="source-label sector">Sector</span><strong>KNMT — mondzorgcasussen 2025:</strong> drie van vier voorgelegde casussen werden als werk in opdracht beoordeeld. Dit bevestigt dat ook officiële beoordelingen per concrete inrichting kunnen verschillen. <a href="https://knmt.nl/nieuws/positief-oordeel-voor-3-zzp-casussen-uit-de-mondzorg" target="_blank" rel="noopener">KNMT-publicatie</a></li>
+      </ul>
+
+      <h3>Secundaire duiding en signaalcasussen</h3>
+      <ul>
+        <li><span class="source-label secondary">Secundair</span><strong>Zorgmaatje-uitleg:</strong> toegankelijke bespreking van de uitspraak; de primaire uitspraak blijft leidend. <a href="https://www.flexnieuws.nl/2026/05/kan-ik-blijven-werken-met-zzpers-of-ben-ik-een-uitzendbureau-een-zorgbureau-vroeg-het-aan-de-rechter-dit-was-het-antwoord/" target="_blank" rel="noopener">FlexNieuws</a></li>
+        <li><span class="source-label secondary">Signaalcasus</span><strong>Zzp-tandarts — Belastingdienstcontrole 2026:</strong> geen openbare uitspraak of beoordelingsbrief. Alleen gebruikt als secundair signaal over autonomie, Wkkgz, klachtenregeling, verzekeringen, patiëntcommunicatie en financieel risico. <a href="https://www.zzp-erindezorg.nl/blog/belastingdienst-zzp-tandarts-werkt-niet-schijnzelfstandig/" target="_blank" rel="noopener">ZZP-erindezorg duiding</a></li>
+        <li><span class="source-label secondary">Sectorkader</span><strong>Fiscaal Kompas ZZP Zorg 2024:</strong> brancheorganisatiedocument, geen rechtspraak. Bruikbaar als checklist, maar ondergeschikt aan actuele primaire en officiële bronnen. <a href="https://www.zzp-erindezorg.nl/fiscaal-kompas-zzp-zorg/" target="_blank" rel="noopener">Fiscaal Kompas ZZP Zorg</a></li>
+        <li><span class="source-label secondary">Btw-context</span><strong>POH-S / btw-vrijstelling — Hof ’s-Hertogenbosch 2025:</strong> btw-zaak, geen DBA-uitspraak; niet gebruiken als bewijs dat individuele POH-inhuur automatisch zelfstandigheid oplevert. <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:GHSHE:2025:3536" target="_blank" rel="noopener">ECLI:NL:GHSHE:2025:3536</a></li>
       </ul>
 
       <h3>Compliance buiten de DBA-score</h3>
@@ -1492,7 +1640,7 @@ section { animation: fadeIn 0.4s ease-out; }
       </ul>
 
       <h3>Onderhoudsnotitie</h3>
-      <p>Bij nieuwe rechtspraak, LHV-duiding of beleidswijziging moeten vraagteksten, scoreweging, knock-outlogica, rapporttaal en deze referentielijst opnieuw worden gecontroleerd. Secundaire duidingen — zoals blogs over Belastingdienstcontroles of brancheorganisatiekaders zoals het Fiscaal Kompas ZZP Zorg — zijn nuttig voor interpretatie, maar de primaire uitspraak of officiële bron blijft leidend.</p>
+      <p>Minimaal ieder kwartaal — en direct bij relevante nieuwe rechtspraak, LHV-duiding of beleidswijziging — moeten vraagteksten, scoreweging, knock-outlogica, rapporttaal en deze referentielijst opnieuw worden gecontroleerd. De vaste volgorde is: primaire rechtspraak → officiële uitvoering/beleid → sectorinformatie → secundaire duiding.</p>
       <p><strong>Apart monitoren:</strong> de VBAR (Wet verduidelijking beoordeling arbeidsrelaties), inclusief de Nota van Wijziging van maart 2026. Als de VBAR (of opvolger) in werking treedt, schuiven de toetsingscriteria mogelijk significant — vraagteksten en weging moeten dan opnieuw tegen het licht.</p>
 
       <div class="btn-row">
@@ -1505,7 +1653,7 @@ section { animation: fadeIn 0.4s ease-out; }
 
 <footer class="site-footer no-print">
   <div class="container">
-    <p>Waarneem-Risicoscan v1.6.2 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
+    <p>Waarneem-Risicoscan v1.7 · Eigen werkversie · Niet verbonden aan LHV-Vergewistool</p>
     <p style="margin-top:8px; font-size:12px; opacity:0.7;">Geen juridische tool · Geen vrijwaring · Privacy: alle gegevens blijven in je browser · <button type="button" class="footer-link-button" id="about-open-footer-btn">About &amp; referenties</button></p>
   </div>
 </footer>
@@ -1518,8 +1666,8 @@ const STATE = {
   intake: { opdrachtgever: '', periode: '', type: '', fase: '' },
   wtza: { lrzaStatus: '', wtzaMelding: '', geschillenStatus: '' },
   answers: {}, // { questionId: 'green' | 'amber' | 'red' }
-  version: 'v1.6.2',
-  peildatum: '2 juni 2026',
+  version: 'v1.7',
+  peildatum: '8 juni 2026',
 };
 
 /* ============================================================
@@ -1683,7 +1831,7 @@ const QUESTIONS = [
 
   { id:"G2", blok:"G", weight:2, weightStarter:2, knockout:false,
     vraag:"Werk je onder een LHV-modelovereenkomst (incidentele waarneming / duurwaarneming) of een Belastingdienst-goedgekeurde modelovereenkomst?",
-    why:"Een LHV-modelovereenkomst of goedgekeurde modelovereenkomst is geen vrijwaring: feitelijke uitvoering blijft doorslaggevend. De tandarts-casus laat zien dat discussie kan ontstaan ondanks een goedgekeurde modelovereenkomst, en dat herbeoordeling van de feiten uiteindelijk bepalend kan zijn. Een goed modelcontract is dus nuttig, maar alleen als de praktijk ook klopt.",
+    why:"De bestaande huisartsmodelovereenkomsten mogen volgens de Belastingdienst tot en met 31 december 2029 worden gebruikt. Zij geven alleen zekerheid wanneer opdrachtgever en opdrachtnemer daadwerkelijk werken zoals in de overeenkomst is beschreven. Een goed modelcontract is dus een belangrijke basis, maar feitelijke uitvoering blijft doorslaggevend.",
     groen:"Ja, modelovereenkomst gebruikt én feitelijke uitvoering sluit daarop aan",
     oranje:"Eigen contract met verwijzing naar modelelementen of model gebruikt maar uitvoering verdient controle",
     rood:"Eigen contract zonder model-basis of contract/feitelijke uitvoering lopen duidelijk uiteen",
@@ -1969,20 +2117,51 @@ function renderJurisprudenceBlock(s) {
     ? 'De uitkomst is groen, maar blijft een risico-indicatie per opdracht. Contract en feitelijke uitvoering moeten blijven kloppen.'
     : 'De uitkomst is oranje/rood door samenloop van signalen. Eén opdrachtgever, vaste dagdelen of gebruik van praktijkmiddelen zijn niet automatisch beslissend; de combinatie met gezag, structurele inbedding, ontbrekende vervangingsroute en onvoldoende ondernemerschap bepaalt het risico.';
 
+  const type = STATE.intake.type;
+  let sectorSignal = '';
+  if (type === 'dagpraktijk') {
+    sectorSignal = 'Voor dagpraktijk is het officiële sectorale signaal streng: de LHV meldt dat zowel korte als langdurige waarneming in de voorgelegde casusposities niet als buiten dienstbetrekking is aanvaard. De LHV is het met die beoordeling niet eens en ziet vooral bij kortdurende, goed afgebakende waarneming ruimte.';
+  } else if (type === 'hap') {
+    sectorSignal = 'Voor HAP/ANW is het officiële sectorale signaal streng: volgens de LHV werden zowel VIP-waarneming als losse waarneming op de HAP afgewezen; alleen de praktijkhouder op de HAP werd als buiten dienstbetrekking beoordeeld. De LHV bestrijdt die lezing en onderzoekt compliant alternatieven.';
+  } else {
+    sectorSignal = 'Voor zowel dagpraktijk als HAP/ANW is het officiële sectorale signaal streng: de LHV meldt dat vier van zes casusposities zijn afgewezen. Alleen de praktijkhouder op de HAP en ingroei naar praktijkhouderschap werden als buiten dienstbetrekking beoordeeld. De LHV is het met deze strikte beoordeling niet eens.';
+  }
+
   document.getElementById('report-jurisprudence').innerHTML = `
     <div class="context-note-card">
-      <h3>Interpretatiekader recente rechtspraak</h3>
+      <h3>Bronbalans en interpretatiekader</h3>
       <p>${criticalText}</p>
-      <p>Deze scan gebruikt daarom geen simpele rode-vlaglijst, maar een samenhangende weging van tijdelijkheid, gezag, inbedding, ondernemerschap, vervanging, verantwoording/rapportage en feitelijke uitvoering.</p>
+      <p>Deze scan gebruikt geen simpele rode-vlaglijst. Zij combineert primaire rechtspraak met officiële uitvoeringssignalen en zorgspecifieke sectorinformatie.</p>
+
+      <div class="source-balance-grid">
+        <div class="source-balance-card court">
+          <h4>Rechtspraak</h4>
+          <p>Deliveroo en Uber verlangen een holistische beoordeling zonder vaste rangorde. Extern ondernemerschap kan volwaardig meewegen. Zorgrechtspraak laat positieve én negatieve uitkomsten zien afhankelijk van de concrete feiten.</p>
+        </div>
+        <div class="source-balance-card tax">
+          <h4>Belastingdienst / ministeries</h4>
+          <p>${sectorSignal}</p>
+        </div>
+        <div class="source-balance-card lhv">
+          <h4>LHV</h4>
+          <p>De LHV benadrukt professionele autonomie en eigen aansprakelijkheid, pleit voor ruimte voor ziek, piek, uniek en ANW en ontwikkelt een officiële Vergewistool. Dit is sectorstandpunt, geen bindend oordeel.</p>
+        </div>
+        <div class="source-balance-card tool">
+          <h4>Betekenis van dit rapport</h4>
+          <p>De score kiest niet automatisch voor de ruimste of strengste lezing. Zij helpt risico's zichtbaar maken, bewijs verzamelen en de opdracht vooraf bijsturen. Een profiel is geen vrijwaring en geen definitieve kwalificatie.</p>
+        </div>
+      </div>
+
+      <h4 class="source-group-title">Casusduiding in de score</h4>
       <ul>
         <li><strong>Uber / Deliveroo:</strong> geen vaste rangorde; extern ondernemerschap kan volwaardig meewegen.</li>
         <li><strong>Huisartsenpost 2023:</strong> waarneming kan buiten arbeidsovereenkomst blijven wanneer vrijheid, tarief en ontbreken van HR-aansturing goed zijn ingericht.</li>
-        <li><strong>Intensivist 2024:</strong> het rode tegenbeeld is structurele inbedding in ziekenhuisrooster/vakgroep/organisatie met vergelijkbare positie als werknemers.</li>
+        <li><strong>Intensivist 2024:</strong> het rode tegenbeeld is structurele inbedding in ziekenhuisrooster, vakgroep en organisatie met een positie die sterk op die van werknemers lijkt.</li>
         <li><strong>Logopedist 2026:</strong> één opdrachtgever, werken op locatie en gebruik van EPD/materialen zijn niet automatisch fataal als gezag ontbreekt en zorgwetgeving de werkwijze verklaart.</li>
-        <li><strong>Zorgmaatje / zorgbureau 2026:</strong> tijdelijke opdrachten, zelf bepalen wanneer/hoe, verantwoording ≠ gezag, vervanging, weigeringsvrijheid, geen interne organisatiepositie, ondernemersrisico en meerdere opdrachtgevers vormen samen een bruikbaar toetsingscluster.</li>
-        <li><strong>Tandartscontrole 2026:</strong> als signaalcasus — niet als rechtspraak — bevestigt dat professionele autonomie, Wkkgz-verantwoordelijkheid, eigen klachtenroute, eigen verzekeringen, patiëntcommunicatie en financieel risico feitelijk moeten worden ingericht en gedocumenteerd.</li>
+        <li><strong>Zorgmaatje 2026:</strong> tijdelijke opdrachten, vrijheid, vervanging, weigeringsvrijheid en ondernemersrisico ondersteunden opdracht; procedurele nuance: gezamenlijk verzoek ex art. 96 Rv.</li>
+        <li><strong>Mondzorg:</strong> de KNMT meldt drie positief beoordeelde sectorcasussen, terwijl de individuele tandartscontrole alleen als niet-openbare signaalcasus wordt gebruikt.</li>
       </ul>
-      <p class="note-italic" style="margin-top:12px;">Bronnen: <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2023%3A443" target="_blank" rel="noopener">HR Deliveroo 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2025%3A319" target="_blank" rel="noopener">HR Uber 2025</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBMNE%3A2023%3A6072" target="_blank" rel="noopener">RBMNE HAP 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2024%3A4597" target="_blank" rel="noopener">RBZWB intensivist 2024</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2026%3A1391" target="_blank" rel="noopener">RBZWB logopedist 2026</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBROT%3A2026%3A5277" target="_blank" rel="noopener">RBROT Zorgmaatje 2026</a> · <a href="https://www.zzp-erindezorg.nl/blog/belastingdienst-zzp-tandarts-werkt-niet-schijnzelfstandig/" target="_blank" rel="noopener">zzp-tandarts signaalcasus 2026</a>.</p>
+      <p class="note-italic" style="margin-top:12px;">Bronnen: <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2023%3A443" target="_blank" rel="noopener">HR Deliveroo 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3AHR%3A2025%3A319" target="_blank" rel="noopener">HR Uber 2025</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBMNE%3A2023%3A6072" target="_blank" rel="noopener">RBMNE HAP 2023</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2024%3A4597" target="_blank" rel="noopener">RBZWB intensivist 2024</a> · <a href="https://uitspraken.rechtspraak.nl/details?id=ECLI%3ANL%3ARBZWB%3A2026%3A1391" target="_blank" rel="noopener">RBZWB logopedist 2026</a> · <a href="https://www.lhv.nl/thema/praktijkzaken/zzp-wetgeving-huisartsenzorg/" target="_blank" rel="noopener">LHV casusposities</a> · <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/modelovereenkomsten-in-plaats-van-var/modelovereenkomst-zoeken/modelovereenkomsten-branches-beroepsgroepen-downloaden" target="_blank" rel="noopener">Belastingdienst modelovereenkomsten</a> · <a href="https://knmt.nl/nieuws/positief-oordeel-voor-3-zzp-casussen-uit-de-mondzorg" target="_blank" rel="noopener">KNMT mondzorgcasussen</a>.</p>
     </div>
   `;
 }
@@ -2055,7 +2234,7 @@ function renderReport() {
   const now = new Date();
   const dateStr = now.toLocaleString('nl-NL', { dateStyle: 'long', timeStyle: 'short' });
   document.getElementById('report-meta').innerHTML =
-    `Uitgevoerd op ${dateStr} · ${STATE.version} · peildatum jurisprudentie ${STATE.peildatum}`;
+    `Uitgevoerd op ${dateStr} · ${STATE.version} · peildatum bronnen ${STATE.peildatum}`;
 
   // Context
   const intake = STATE.intake;

@@ -1,7 +1,7 @@
 {
   "name": "Waarneem-Risicoscan",
   "short_name": "Risicoscan",
-  "description": "Pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met Wtza/LRZa-/geschillencheck, zorgspecifieke rechtspraakduiding, HAP-patroonherkenning en About/referenties-modal. Eigen werkversie, niet verbonden aan de officiële LHV-Vergewistool.",
+  "description": "Pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met expliciete bronbalans tussen rechtspraak, Belastingdienst/overheid, LHV-sectorinformatie en secundaire duiding. Eigen werkversie, geen juridische vrijwaring.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

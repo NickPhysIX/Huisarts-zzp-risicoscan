@@ -1,13 +1,13 @@
 /* ============================================================
    Waarneem-Risicoscan — Service Worker
-   v1.6.2 — Fiscaal Kompas ZZP Zorg (2024) als sectorduidingskader
+   v1.7 — bronbalans: rechtspraak, Belastingdienst/overheid, LHV en secundaire duiding
    ============================================================
    Cache-first strategy: na eerste laad werkt de tool offline.
    Bij update van een bestand: bump CACHE_VERSION zodat de SW
    de oude cache verwijdert en nieuwe bestanden ophaalt.
    ============================================================ */
 
-const CACHE_VERSION = 'wrs-v1.6.2';
+const CACHE_VERSION = 'wrs-v1.7';
 const CACHE_NAME = `waarneem-risicoscan-${CACHE_VERSION}`;
 
 // Resources to pre-cache on install

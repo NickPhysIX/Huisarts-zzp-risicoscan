@@ -2,9 +2,9 @@
 
 Eigen werkversie — pre-opdrachtcheck schijnzelfstandigheid voor zzp-huisartsen, met aparte Wtza/LRZa- en geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh, recente rechtspraakduiding, HAP-patroonherkenning en ingebouwde About/referenties-modal. Werkt als web-app op iOS en Android.
 
-**Appversie:** v1.6.2  
-**README/documentatie:** v1.6.2 — Fiscaal Kompas ZZP Zorg (2024) toegevoegd als sectorduidingskader  
-**Peildatum bronnen:** 2 juni 2026
+**Appversie:** v1.7  
+**README/documentatie:** v1.7 — expliciete bronbalans en bronhiërarchie  
+**Peildatum bronnen:** 8 juni 2026
 
 ## ⚠ Belangrijk
 
@@ -21,6 +21,7 @@ De DBA-scan bestaat uit 18-20 vragen (afhankelijk van type opdracht) en is nadru
 - **Uber-arrest (Hoge Raad, 2025)** — geen vaste rangorde tussen de gezichtspunten; extern ondernemerschap kan zwaar meewegen.
 - **Zorgspecifieke DBA-/arbeidsrelatierechtspraak** — o.a. HAP/waarnemend huisarts 2023, waarnemend intensivist 2024, logopedist 2026 en Zorgmaatje/zorgbureau 2026. Deze rechtspraak wordt gebruikt om zorgspecifieke signalen zoals vaste dagdelen, rapportage/verantwoording, HIS/EPD-gebruik, praktijkmiddelen, professionele autonomie en organisatorische inbedding genuanceerder te wegen.
 - **Ondersteunende zorgcontext en signaalcasussen** — POH-S/btw-vrijstellingsrechtspraak (btw, géén DBA) en de zzp-tandartscontrole 2026 als signaalcasus. Dient om het onderscheid zichtbaar te maken tussen juridische bron, zorgcontext en feitelijke Belastingdienstbeoordeling; niet bruikbaar als vrijbrief.
+- **Expliciete bronbalans** — primaire rechtspraak, officiële uitvoerings- en beleidsbronnen, LHV/andere beroepsorganisaties en secundaire duiding worden zichtbaar van elkaar onderscheiden. Waar de Belastingdienst/ministeries en LHV of rechtspraak anders wegen, toont de tool die spanning in plaats van één lezing als waarheid te presenteren.
 - **LHV-modelovereenkomsten en LHV-sectorinformatie** — modelovereenkomsten, casusposities, actielijnen, Vergewistool-duiding en actuele lijn rond zelfstandigenbeleid.
 - **Zorgspecifieke compliance buiten de DBA-score** — Wtza/LRZa en Wkkgz-klachten-/geschillenregeling, inclusief SKGE en DOKh als huisarts-relevante voorbeelden.
 
@@ -36,7 +37,8 @@ De tool genereert een rapport met:
 - Score op dynamische maxscore (afhankelijk van type opdracht en fase)
 - Knock-out signalering bij rode antwoorden op kernvragen
 - **Aparte Wtza/LRZa-/geschillencommissie-compliancecheck met voorbeelden SKGE/DOKh** — geen invloed op DBA-score, wel apart actieadvies
-- **Jurisprudentie-duiding in het rapport** — samenloop van signalen i.p.v. losse rode-vlagmechaniek; v1.6 voegt toe: rapportage/verantwoording is niet automatisch gezag en zorgzelfstandigheid moet blijken uit feiten zoals eigen verantwoordelijkheid, klachtenroute, patiëntcommunicatie, verzekeringen en risico.
+- **Bronbalans in het rapport** — afzonderlijke duiding van rechtspraak, Belastingdienst/ministeries en LHV, inclusief de strengere huisartsencasusposities en de afwijkende LHV-visie.
+- **Jurisprudentie-duiding in het rapport** — samenloop van signalen i.p.v. losse rode-vlagmechaniek; rapportage/verantwoording is niet automatisch gezag en zorgzelfstandigheid moet blijken uit feiten zoals eigen verantwoordelijkheid, klachtenroute, patiëntcommunicatie, verzekeringen en risico.
 - **HAP/ANW-patroonherkenning** — losse dienst, VIP-achtig patroon of structureel roosterblok
 - **About/referenties-modal in de app** — compacte uitleg, disclaimers, bronbasis, jurisprudentie en compliancebronnen zonder de hoofdflow te belasten
 - **Gepersonaliseerde bewijsmappen-checklist** — categorieën *archiveren / versterken / kritiek*
@@ -105,6 +107,17 @@ Geen ingevulde scan- of opdrachtgegevens worden ooit naar een server verstuurd. 
 **Belangrijk:** PWA's vereisen HTTPS. GitHub Pages levert HTTPS automatisch — geen extra configuratie nodig.
 
 
+## Bronhiërarchie en bronbalans
+
+Versie 1.7 gebruikt vier zichtbare bronlagen:
+
+1. **Primaire rechtspraak** — volledige uitspraken van Hoge Raad, gerechtshoven en rechtbanken.
+2. **Officiële uitvoering en beleid** — Belastingdienst, Rijksoverheid en formele modelovereenkomsten.
+3. **Beroeps- en sectorinformatie** — onder meer LHV en KNMT; relevant voor de zorgcontext, maar niet juridisch bindend.
+4. **Secundaire duiding en signaalcasussen** — vakmedia, blogs en niet-openbare praktijkcasussen; alleen ondersteunend gebruikt.
+
+De tool maakt daarnaast expliciet dat de bronnen niet steeds dezelfde conclusie trekken. De Hoge Raad verlangt een holistische weging zonder vaste rangorde, terwijl de LHV meldt dat de Belastingdienst/ministeries vier van zes huisartsencasusposities hebben afgewezen. De LHV bestrijdt die strikte beoordeling. De scan kiest daarom niet één kamp, maar vertaalt de combinatie naar een risicoprofiel en concrete bewijs-/bijstuuracties.
+
 ## Bronnen en referenties
 
 Deze tool is geen juridische bron en geen vervanging van professioneel advies. Onderstaande bronnen zijn opgenomen om de herkomst van het denkkader transparant te maken en om onderhoud van de tool makkelijker te maken. Bij wijzigingen in beleid, wetgeving of rechtspraak moeten de vraagteksten, toelichtingen en rapportduiding opnieuw worden gecontroleerd.
@@ -115,6 +128,9 @@ Deze tool is geen juridische bron en geen vervanging van professioneel advies. O
 - Belastingdienst — Arbeidsrelaties: zzp ja of nee: https://www.belastingdienst.nl/wps/wcm/connect/nl/arbeidsrelaties/arbeidsrelaties
 - Belastingdienst — Handhavingsplan arbeidsrelaties: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/handhavingsplan-arbeidsrelaties
 - Belastingdienst — Modelovereenkomsten: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/modelovereenkomsten-in-plaats-van-var/arbeidsrelaties
+- Belastingdienst — Voorbeeldovereenkomst huisarts incidentele waarneming (geldig t/m 31-12-2029): https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/voorbeeldovereenkomst_huisarts_incidentele_waarneming_LHV
+- Belastingdienst — Voorbeeldovereenkomst huisarts duurwaarneming (geldig t/m 31-12-2029): https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/voorbeeldovereenkomst_duurwaarneming_huisarts
+- Rijksoverheid — Kabinetskoers zzp/VBAR, 6 maart 2026: https://www.rijksoverheid.nl/actueel/nieuws/2026/03/06/kabinet-kiest-voor-meer-rust-en-duidelijkheid-voor-zzpers-en-opdrachtgevers
 - Belastingdienst — Algemene modelovereenkomst geen werkgeversgezag: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/voorbeeldovereenkomst_geen_werkgeversgezag
 - Webmodule Beoordeling Arbeidsrelatie: https://beoordelingarbeidsrelatie.nl/
 - Toetreding zorgaanbieders — Wtza: https://www.toetredingzorgaanbieders.nl/
@@ -133,6 +149,7 @@ Deze tool is geen juridische bron en geen vervanging van professioneel advies. O
 - LHV — Nieuwe koers kabinet zzp-wetgeving: focus op Zelfstandigenwet: https://www.lhv.nl/nieuws/nieuwe-koers-kabinet-zzp-wetgeving-focus-op-zelfstandigenwet/
 - LHV — Zelfstandigenwet geeft meer ruimte, maar lobby blijft nodig: https://www.lhv.nl/actueel/de-dokter/de-dokter-mei-2026/zelfstandigenwet-geeft-meer-ruimte-maar-lobby-blijft-nodig/
 - LHV — Veelgestelde vragen klachtenwet Wkkgz: https://www.lhv.nl/thema/praktijkzaken/klachtenwet-wkkgz/veelgestelde-vragen-klachtenwet-wkkgz/
+- KNMT — Positief oordeel voor 3 zzp-casussen uit de mondzorg: https://knmt.nl/nieuws/positief-oordeel-voor-3-zzp-casussen-uit-de-mondzorg
 - InEen — nieuws en standpunten huisartsenspoedposten: https://ineen.nl/nieuws/
 
 ### Klachten- en geschillenregeling huisartsenzorg
@@ -182,6 +199,7 @@ Secundaire bronnen zijn bruikbaar voor interpretatie en onderhoud, maar zijn gee
 - KBS Advocaten — Overeenkomst van opdracht met waarnemend intensivist kwalificeert als arbeidsovereenkomst: https://www.kbsadvocaten.nl/overeenkomst-van-opdracht-met-waarnemend-intensivist-kwalificeert-als-arbeidsovereenkomst-deliveroo-gezichtspunten/
 - Salaris Vanmorgen — Overeenkomst van opdracht voor logopedist, geen gezagsverhouding: https://www.salarisvanmorgen.nl/2026/03/20/overeenkomst-van-opdracht-voor-logopedist-geen-gezagsverhouding/
 - ZZP-erindezorg — Rechter bevestigt 8 kenmerken bij voorkomen van schijnzelfstandigheid in de zorg: https://www.zzp-erindezorg.nl/blog/rechter-bevestigt-8-kenmerken-bij-voorkomen-van-schijnzelfstandigheid-in-de-zorg/
+- FlexNieuws — Toegankelijke bespreking Zorgmaatje aan Huis (primaire uitspraak blijft leidend): https://www.flexnieuws.nl/2026/05/kan-ik-blijven-werken-met-zzpers-of-ben-ik-een-uitzendbureau-een-zorgbureau-vroeg-het-aan-de-rechter-dit-was-het-antwoord/
 - ZZP-erindezorg — Belastingdienst: zzp-tandarts werkt níet schijnzelfstandig: https://www.zzp-erindezorg.nl/blog/belastingdienst-zzp-tandarts-werkt-niet-schijnzelfstandig/
 - TaxLive — Medische vrijstelling toepasbaar bij overeenkomst voor inzet praktijkondersteuners somatiek: https://www.taxlive.nl/nl/documenten/vn-vandaag/medische-vrijstelling-toepasbaar-bij-overeenkomst-voor-inzet-praktijkondersteuners-somatiek/
 - Taxence — Medische vrijstelling geldt voor inzet praktijkondersteuners: https://www.taxence.nl/omzetbelasting-btw/medische-vrijstelling-geldt-voor-inzet-praktijkondersteuners/
@@ -201,6 +219,7 @@ Bij updates eerst controleren:
 
 | Versie | Datum | Peildatum jurisprudentie | Wijzigingen |
 |--------|-------|--------------------------|-------------|
+| v1.7 | 8 juni 2026 | 8 juni 2026 | Bronbalans-release zonder wijziging van score, gewichten of knock-outs. In About-modal en rapport is een expliciete bronhiërarchie toegevoegd: primaire rechtspraak, officiële uitvoering/beleid, beroeps-/sectorinformatie en secundaire duiding. De strengere LHV-gerapporteerde beoordeling van vier van zes huisartsencasusposities staat nu naast de holistische Deliveroo/Uber-rechtspraak en het afwijkende LHV-standpunt. Belastingdienst-modelovereenkomsten (geldig t/m 31-12-2029), Rijksoverheid-koers maart 2026 en KNMT-mondzorgcasussen toegevoegd. De individuele tandartscasus blijft duidelijk gelabeld als niet-openbare secundaire signaalcasus. G2-toelichting gegrond op officiële Belastingdiensttekst. Service-worker cache gebumpt naar `wrs-v1.7`. |
 | v1.6.2 | 7 juni 2026 | 2 juni 2026 | Polish-release zonder functionele wijziging. Fiscaal Kompas ZZP Zorg (2024) toegevoegd als sectorduidingskader in de About/referenties-modal, expliciet gelabeld als brancheorganisatiedocument en géén rechtspraak; framing benadrukt dat de Zorgmaatje-uitspraak (ECLI:NL:RBROT:2026:5277) feitelijk dezelfde elementen volgt. Onderhoudsnotitie uitgebreid zodat secundaire duidingen óók sectorkaders omvatten. Score, weging, knock-outs, vraagteksten en peildatum jurisprudentie ongewijzigd. Versie-strings en service-worker cache gebumpt naar v1.6.2. |
 | v1.6.1 | 2 juni 2026 | 2 juni 2026 | Polish-release zonder functionele wijziging. Zorgmaatje-referentie (ECLI:NL:RBROT:2026:5277) voorzien van art. 96 Rv-nuance in modal en README (gezamenlijk verzoek, geen bestreden geschil tegen de Belastingdienst); ECLI geverifieerd op Rechtspraak.nl. `QUESTIONS`-array opnieuw uitgelijnd (één object per regel) voor leesbaarheid; score/weging/knock-outs identiek. Niet-meegeleverde `icon.svg` uit bestandslijst verwijderd. Versie-strings en service-worker cache gebumpt naar v1.6.1. |
 | v1.6   | 2 juni 2026 | 2 juni 2026 | Zorgmaatje/zorgbureau 2026 toegevoegd als positieve zorgspecifieke rechtspraak; zzp-tandartscontrole 2026 toegevoegd als secundaire signaalcasus. C1/C2/C3/B1/B3/D1/D4/E2/E3/G2 aangescherpt: rapportage/verantwoording ≠ gezag, elektronisch dossiergebruik ≠ lokale aansturing, vervanging moet praktisch mogelijk zijn, geen beschikbaarheidsplicht, patiëntcommunicatie/Wkkgz/klachtenroute/verzekeringen/financieel risico explicieter als bewijsstukken. Rapport-interpretatiekader en About-modal bijgewerkt. Service-worker cache gebumpt naar `wrs-v1.6`. |
@@ -242,6 +261,16 @@ Tool herpositioneren of intrekken, afhankelijk van overlap. Bij behoud:
 Niels Braakman — eigen werkversie, geen Anthropic/Claude-product, geen LHV-product.
 
 ## Changelog
+
+### v1.7 — expliciete bronbalans en bronhiërarchie
+
+- **Geen scorewijziging:** vragen, gewichten, profielgrenzen en knock-outlogica zijn identiek aan v1.6.2.
+- **Bronhiërarchie in de app:** primaire rechtspraak → officiële uitvoering/beleid → beroeps-/sectorinformatie → secundaire duiding.
+- **Waar bronnen uiteenlopen:** het rapport toont naast elkaar dat Deliveroo/Uber een holistische toets zonder vaste rangorde voorschrijven, dat de LHV meldt dat vier van zes huisartsencasusposities door Belastingdienst/ministeries zijn afgewezen, en dat de LHV die strikte beoordeling bestrijdt.
+- **Officiële basis versterkt:** specifieke Belastingdienst-modelovereenkomsten voor incidentele en duurwaarneming (geldig t/m 31 december 2029), Rijksoverheid-koers van 6 maart 2026 en KNMT-publicatie over drie positief beoordeelde mondzorgcasussen toegevoegd.
+- **Secundaire bronnen duidelijk begrensd:** FlexNieuws fungeert alleen als toegankelijke bespreking van Zorgmaatje; de individuele tandartscontrole blijft een niet-openbare signaalcasus; primaire uitspraak of officiële publicatie blijft leidend.
+- **G2 geactualiseerd:** modelovereenkomst is een belangrijke basis maar geeft alleen zekerheid wanneer feitelijk volgens de afspraken wordt gewerkt.
+- Versie-strings, manifestbeschrijving en service-worker cache bijgewerkt naar v1.7 / `wrs-v1.7`.
 
 ### v1.6.2 — Fiscaal Kompas ZZP Zorg (2024) als sectorduidingskader
 
